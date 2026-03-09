@@ -434,6 +434,74 @@
       .soft-card,.process-card{padding:24px}
       .philosophy{padding:62px 22px;border-radius:26px}
     }
+
+    header{
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 40px;
+}
+
+/* logo väčšie */
+.logo img{
+    height:95px;
+    position:relative;
+    top:6px;
+}
+
+/* menu do stredu */
+nav{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+nav ul{
+    display:flex;
+    gap:55px;
+    list-style:none;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#525234;
+    font-weight:500;
+    position:relative;
+}
+
+/* hover zlatá linka */
+nav ul li a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0%;
+    height:2px;
+    background:#c9a646;
+    transition:0.35s;
+}
+
+nav ul li a:hover::after{
+    width:100%;
+}
+
+    .btn-reserve{
+    padding:10px 26px;
+    border-radius:40px;
+    background:linear-gradient(135deg,#d4af37,#b8962e);
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    transition:all .35s ease;
+    box-shadow:0 4px 14px rgba(0,0,0,0.15);
+}
+
+.btn-reserve:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 22px rgba(0,0,0,0.25);
+    background:linear-gradient(135deg,#e1bd4f,#c9a646);
+}
   </style>
 </head>
 <body>
@@ -452,11 +520,10 @@
           <li><a href="#onas">O nás</a></li>
           <li><a href="#ritualy">Rituály</a></li>
           <li><a href="#kozmetika">Kozmetika</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
-          <li><a href="#rezervacia">Rezervovať termín</a></li>
         </ul>
       </nav>
     </div>
+    <a href="#" class="btn-reserve">Rezervovať termín</a>
   </header>
 
   <main>
