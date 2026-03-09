@@ -39,21 +39,19 @@
       position:sticky;
       top:0;
       z-index:50;
-      height:132px;
       backdrop-filter: blur(14px);
-      background:linear-gradient(90deg, rgba(82,82,52,.96) 0%, rgba(116,116,78,.92) 38%, rgba(237,232,208,.86) 100%);
-      border-bottom:1px solid rgba(82,82,52,.12);
+      background:rgba(237,232,208,.78);
+      border-bottom:1px solid rgba(82,82,52,.10);
     }
     .header-inner{
-      width:min(1440px, calc(100% - 64px));
+      width:var(--container);
       margin:0 auto;
-      min-height:132px;
+      min-height:104px;
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:26px;
-      padding:0;
-      position:relative;
+      padding:10px 0;
       overflow:visible;
     }
     .brand{
@@ -66,15 +64,15 @@
       flex-shrink:0;
     }
     .brand img{
-      width:250px;
-      height:250px;
+      width:142px;
+      height:142px;
       object-fit:contain;
       filter:drop-shadow(0 10px 18px rgba(0,0,0,.08));
       border-radius:0;
       background:transparent;
       mix-blend-mode:multiply;
-      margin-right:-34px;
-      margin-top:10px;
+      margin-right:-18px;
+      margin-top:2px;
       flex-shrink:0;
     }
     .brand-text{
@@ -85,14 +83,14 @@
       z-index:1;
     }
     .brand-text strong{
-      font-size:1.28rem;
+      font-size:1.15rem;
       letter-spacing:.06em;
       color:var(--olive);
       font-weight:700;
       white-space:nowrap;
     }
     .brand-text span{
-      font-size:.78rem;
+      font-size:.72rem;
       letter-spacing:.26em;
       text-transform:uppercase;
       color:#8e7340;
@@ -101,19 +99,18 @@
     }
 
     nav{
-      position:absolute;
-      left:50%;
-      transform:translateX(-50%);
+      justify-self:center;
       width:auto;
       max-width:none;
-      margin:0;
+      margin-left:auto;
+      margin-right:0;
     }
     .nav-list{
       list-style:none;
       display:flex;
       align-items:center;
-      justify-content:center;
-      gap:52px;
+      justify-content:flex-end;
+      gap:38px;
       padding:0;
       margin:0;
       flex-wrap:nowrap;
@@ -125,10 +122,9 @@
       align-items:center;
       justify-content:center;
       padding:12px 0;
-      color:#46462d;
-      font-size:1rem;
-      letter-spacing:.03em;
-      font-weight:500;
+      color:var(--olive);
+      font-size:.98rem;
+      letter-spacing:.025em;
       transition:color .32s ease, transform .32s ease;
     }
     .nav-list a::before{
@@ -154,7 +150,7 @@
       z-index:-1;
     }
     .nav-list a:hover{
-      color:#2f2f1d;
+      color:#3d3d24;
       transform:translateY(-1px);
     }
     .nav-list a:hover::before{width:100%}
@@ -413,11 +409,8 @@
     }
 
     @media (max-width: 1180px){
-      .site-header{height:auto;padding:14px 0}
-      .header-inner{flex-direction:column; min-height:auto; padding:0; gap:12px; width:min(1240px, calc(100% - 40px))}
-      .brand{justify-content:center}
-      .brand img{width:180px;height:180px;margin-right:-22px;margin-top:4px}
-      nav{position:static;transform:none;margin:0}
+      .header-inner{flex-direction:column; padding:10px 0 14px; gap:10px}
+      nav{margin:0}
       .nav-list{gap:22px;justify-content:center;flex-wrap:wrap}
       .hero-card{min-height:660px}
       .hero-content{padding:58px 44px}
@@ -426,7 +419,8 @@
       .image-card{min-height:340px}
     }
     @media (max-width: 760px){
-      .brand img{width:132px;height:132px;margin-right:-12px}
+      .brand{justify-content:center}
+      .brand img{width:110px;height:110px;margin-right:-12px}
       .brand-text strong{font-size:1.05rem}
       .brand-text span{font-size:.68rem;letter-spacing:.22em}
       .nav-list{gap:14px 18px;justify-content:center}
@@ -440,6 +434,74 @@
       .soft-card,.process-card{padding:24px}
       .philosophy{padding:62px 22px;border-radius:26px}
     }
+
+    header{
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 40px;
+}
+
+/* logo väčšie */
+.logo img{
+    height:95px;
+    position:relative;
+    top:6px;
+}
+
+/* menu do stredu */
+nav{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+nav ul{
+    display:flex;
+    gap:55px;
+    list-style:none;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#525234;
+    font-weight:500;
+    position:relative;
+}
+
+/* hover zlatá linka */
+nav ul li a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0%;
+    height:2px;
+    background:#c9a646;
+    transition:0.35s;
+}
+
+nav ul li a:hover::after{
+    width:100%;
+}
+
+    .btn-reserve{
+    padding:10px 26px;
+    border-radius:40px;
+    background:linear-gradient(135deg,#d4af37,#b8962e);
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    transition:all .35s ease;
+    box-shadow:0 4px 14px rgba(0,0,0,0.15);
+}
+
+.btn-reserve:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 22px rgba(0,0,0,0.25);
+    background:linear-gradient(135deg,#e1bd4f,#c9a646);
+}
   </style>
 </head>
 <body>
@@ -458,11 +520,10 @@
           <li><a href="#onas">O nás</a></li>
           <li><a href="#ritualy">Rituály</a></li>
           <li><a href="#kozmetika">Kozmetika</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
-          <li><a href="#voucher">Vouchery</a></li>
         </ul>
       </nav>
     </div>
+    <a href="#" class="btn-reserve">Rezervovať termín</a>
   </header>
 
   <main>
