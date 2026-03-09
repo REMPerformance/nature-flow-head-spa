@@ -502,7 +502,124 @@ nav ul li a:hover::after{
     box-shadow:0 8px 22px rgba(0,0,0,0.25);
     background:linear-gradient(135deg,#e1bd4f,#c9a646);
 }
-  </style>
+.hero{
+width:100%;
+padding:120px 8vw;
+background:
+linear-gradient(90deg,#232218,#111),
+radial-gradient(circle at 80% 30%, rgba(180,150,80,0.25), transparent 60%);
+color:#e6ddc7;
+}
+
+.hero-container{
+max-width:1400px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:100px;
+}
+
+.hero-left{
+max-width:600px;
+}
+
+.hero-title{
+font-size:38px;
+line-height:1.3;
+font-weight:600;
+margin-bottom:30px;
+color:#e8dcc0;
+}
+
+.hero-text p{
+font-size:17px;
+line-height:1.8;
+margin-bottom:14px;
+color:#d5cbb0;
+}
+
+.hero-last{
+margin-top:28px;
+color:#c7bb9b;
+}
+
+.hero-right{
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+
+/* BUTTON */
+
+.ritual-btn{
+position:relative;
+display:inline-block;
+padding:22px 48px;
+font-size:19px;
+text-transform:uppercase;
+letter-spacing:1px;
+text-decoration:none;
+background:linear-gradient(135deg,#d4be86,#b5974f);
+color:#111;
+overflow:hidden;
+transition:0.35s;
+}
+
+.ritual-btn span{
+position:relative;
+z-index:2;
+font-weight:600;
+}
+
+
+/* SHINE EFFECT */
+
+.ritual-btn::before{
+content:"";
+position:absolute;
+top:0;
+left:-120%;
+width:100%;
+height:100%;
+background:linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,0.8),
+transparent
+);
+transition:0.6s;
+}
+
+.ritual-btn:hover::before{
+left:120%;
+}
+
+
+/* HOVER LIFT */
+
+.ritual-btn:hover{
+transform:translateY(-6px) scale(1.03);
+box-shadow:
+0 12px 35px rgba(200,170,100,0.4),
+0 0 40px rgba(200,170,100,0.25);
+}
+
+@media(max-width:900px){
+
+.hero-container{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.hero-right{
+margin-top:40px;
+}
+
+}
+
+</style>
 </head>
 <body>
   <header class="site-header">
@@ -529,23 +646,42 @@ nav ul li a:hover::after{
   </header>
 
   <main>
-    <section class="hero" id="domov">
-      <div class="container">
-        <div class="hero-card">
-          <div class="hero-content">
-            <span class="eyebrow">pokoj • regenerácia • rituál</span>
-            <h1>Čas, ktorý patrí iba tebe.</h1>
-            <p>
-              Nature Flow Head Spa Piešťany je miesto, kde sa spomalí hlava, uvoľní šija a telo konečne vypne. Jemný dotyk, voda, vôňa a pokojný priestor vytvoria rituál, po ktorom odídeš ľahšia, kľudnejšia a znovu napojená sama na seba.
-            </p>
-            <div class="hero-actions">
-              <a href="#rezervacia" class="btn btn-primary">Rezervovať termín</a>
-              <a href="#ritualy" class="btn btn-secondary">Pozrieť rituály</a>
-            </div>
-          </div>
-        </div>
+    <section class="hero">
+  <div class="hero-container">
+
+    <div class="hero-left">
+
+      <h1 class="hero-title">
+        Toto je čas pre teba…<br>
+        pusti to po vode…
+      </h1>
+
+      <div class="hero-text">
+
+        <p>Odplav stres a napätie.</p>
+
+        <p>Zaži uvoľnenie hlavy aj chodidiel.</p>
+
+        <p>Spomaľ. Dopraj si pokoj, ktorý patrí len tebe.</p>
+
+        <p class="hero-last">
+        Miesto, kde sa vždy vrátiš, keď potrebuješ znovu nájsť seba.
+        </p>
+
       </div>
-    </section>
+
+    </div>
+
+    <div class="hero-right">
+
+      <a href="#rezervacia" class="ritual-btn">
+        <span>Rezervovať svoj rituál</span>
+      </a>
+
+    </div>
+
+  </div>
+</section>
 
     <section class="section" id="onas">
       <div class="container">
