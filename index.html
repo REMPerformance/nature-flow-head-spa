@@ -46,59 +46,75 @@
     .header-inner{
       width:var(--container);
       margin:0 auto;
-      min-height:110px;
-      display:grid;
-      grid-template-columns:auto minmax(620px, 1fr) auto;
+      min-height:104px;
+      display:flex;
       align-items:center;
-      gap:34px;
+      justify-content:space-between;
+      gap:26px;
+      padding:10px 0;
+      overflow:visible;
     }
     .brand{
       display:flex;
       align-items:center;
-      gap:14px;
+      gap:0;
       min-width:max-content;
+      position:relative;
+      z-index:3;
+      flex-shrink:0;
     }
     .brand img{
-      width:112px;
-      height:112px;
+      width:142px;
+      height:142px;
       object-fit:contain;
-      filter:drop-shadow(0 8px 18px rgba(0,0,0,.08));
+      filter:drop-shadow(0 10px 18px rgba(0,0,0,.08));
       border-radius:0;
       background:transparent;
+      mix-blend-mode:multiply;
+      margin-right:-18px;
+      margin-top:2px;
+      flex-shrink:0;
     }
     .brand-text{
       display:flex;
       flex-direction:column;
-      line-height:1.05;
+      line-height:1;
+      position:relative;
+      z-index:1;
     }
     .brand-text strong{
-      font-size:2.1rem;
-      letter-spacing:.04em;
+      font-size:1.15rem;
+      letter-spacing:.06em;
       color:var(--olive);
       font-weight:700;
+      white-space:nowrap;
     }
     .brand-text span{
-      font-size:1.12rem;
-      letter-spacing:.22em;
+      font-size:.72rem;
+      letter-spacing:.26em;
       text-transform:uppercase;
       color:#8e7340;
-      margin-top:4px;
+      margin-top:6px;
+      white-space:nowrap;
     }
 
     nav{
       justify-self:center;
-      width:100%;
-      max-width:760px;
+      width:auto;
+      max-width:none;
+      margin-left:auto;
+      margin-right:0;
     }
     .nav-list{
       list-style:none;
       display:flex;
       align-items:center;
-      justify-content:space-between;
-      gap:42px;
+      justify-content:flex-end;
+      gap:38px;
       padding:0;
       margin:0;
-      flex-wrap:wrap;
+      flex-wrap:nowrap;
+      white-space:nowrap;
     }
     .nav-list a{
       position:relative;
@@ -107,8 +123,8 @@
       justify-content:center;
       padding:12px 0;
       color:var(--olive);
-      font-size:1.06rem;
-      letter-spacing:.03em;
+      font-size:.98rem;
+      letter-spacing:.025em;
       transition:color .32s ease, transform .32s ease;
     }
     .nav-list a::before{
@@ -140,22 +156,7 @@
     .nav-list a:hover::before{width:100%}
     .nav-list a:hover::after{opacity:1}
 
-    .cta-top{
-      justify-self:end;
-      position:relative;
-      overflow:hidden;
-      justify-self:end;
-      padding:16px 30px;
-      border-radius:999px;
-      background:linear-gradient(180deg, #dbc06f 0%, #c89f44 52%, #ae7f24 100%);
-      color:#fffdf7;
-      font-size:1rem;
-      font-weight:700;
-      letter-spacing:.02em;
-      box-shadow:0 14px 32px rgba(185,139,44,.26), inset 0 1px 0 rgba(255,244,205,.7);
-      border:1px solid rgba(162,118,29,.28);
-      transition:transform .28s ease, box-shadow .28s ease, filter .28s ease;
-    }
+    .cta-top{display:none}
     .cta-top::before{
       content:"";
       position:absolute;
@@ -408,9 +409,9 @@
     }
 
     @media (max-width: 1180px){
-      .header-inner{grid-template-columns:1fr; padding:14px 0 18px}
-      nav, .cta-top{justify-self:center}
-      .nav-list{gap:22px;justify-content:center}
+      .header-inner{flex-direction:column; padding:10px 0 14px; gap:10px}
+      nav{margin:0}
+      .nav-list{gap:22px;justify-content:center;flex-wrap:wrap}
       .hero-card{min-height:660px}
       .hero-content{padding:58px 44px}
       .ritual-grid{grid-template-columns:repeat(2,1fr)}
@@ -419,11 +420,11 @@
     }
     @media (max-width: 760px){
       .brand{justify-content:center}
-      .brand img{width:82px;height:82px}
-      .brand-text strong{font-size:1.45rem}
-      .brand-text span{font-size:.9rem}
+      .brand img{width:110px;height:110px;margin-right:-12px}
+      .brand-text strong{font-size:1.05rem}
+      .brand-text span{font-size:.68rem;letter-spacing:.22em}
       .nav-list{gap:14px 18px;justify-content:center}
-      .nav-list a{font-size:.95rem}
+      .nav-list a{font-size:.92rem}
       .hero{padding-top:24px}
       .hero-card{min-height:580px;border-radius:24px}
       .hero-content{padding:34px 24px}
@@ -448,19 +449,13 @@
 
       <nav aria-label="Hlavná navigácia">
         <ul class="nav-list">
-          <li><a href="#domov">Domov</a></li>
           <li><a href="#onas">O nás</a></li>
           <li><a href="#ritualy">Rituály</a></li>
-          <li><a href="#priebeh">Ako prebieha rituál</a></li>
-          <li><a href="#filozofia">Filozofia</a></li>
           <li><a href="#kozmetika">Kozmetika</a></li>
-          <li><a href="#voucher">Voucher</a></li>
           <li><a href="#kontakt">Kontakt</a></li>
-          <li><a href="#rezervacia">Rezervácia</a></li>
+          <li><a href="#rezervacia">Rezervovať termín</a></li>
         </ul>
       </nav>
-
-      <a href="#rezervacia" class="cta-top">Rezervovať termín</a>
     </div>
   </header>
 
