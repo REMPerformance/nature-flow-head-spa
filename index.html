@@ -31,6 +31,7 @@
         var(--beige);
       line-height:1.6;
     }
+
     img{max-width:100%;display:block}
     a{text-decoration:none;color:inherit}
     .container{width:var(--container);margin:0 auto}
@@ -47,13 +48,14 @@
     .header-inner{
       width:var(--container);
       margin:0 auto;
-      min-height:86px;
+      height:68px;
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:26px;
-      padding:8px 0;
+      padding:0;
       position:relative;
+      overflow:visible;
     }
 
     .brand{
@@ -64,17 +66,18 @@
       position:relative;
       z-index:3;
       flex-shrink:0;
+      height:68px;
     }
 
     .brand img{
-      width:116px;
-      height:116px;
+      width:118px;
+      height:118px;
       object-fit:contain;
       filter:drop-shadow(0 10px 18px rgba(0,0,0,.08));
       background:transparent;
       mix-blend-mode:multiply;
-      margin-right:-14px;
-      margin-top:2px;
+      margin-right:-12px;
+      margin-top:0;
       flex-shrink:0;
     }
 
@@ -87,7 +90,7 @@
     }
 
     .brand-text strong{
-      font-size:1rem;
+      font-size:1.22rem;
       letter-spacing:.04em;
       color:var(--olive);
       font-weight:700;
@@ -95,11 +98,11 @@
     }
 
     .brand-text span{
-      font-size:.62rem;
-      letter-spacing:.22em;
+      font-size:.68rem;
+      letter-spacing:.18em;
       text-transform:uppercase;
       color:#8e7340;
-      margin-top:6px;
+      margin-top:5px;
       white-space:nowrap;
     }
 
@@ -114,7 +117,7 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      gap:48px;
+      gap:38px;
       padding:0;
       margin:0;
       flex-wrap:nowrap;
@@ -126,9 +129,9 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:10px 0;
+      padding:8px 0;
       color:var(--olive);
-      font-size:.95rem;
+      font-size:.88rem;
       letter-spacing:.02em;
       transition:color .32s ease, transform .32s ease;
     }
@@ -155,13 +158,13 @@
 
     .btn-reserve{
       margin-left:auto;
-      padding:12px 24px;
+      padding:10px 20px;
       border-radius:999px;
       background:linear-gradient(135deg,#d4af37,#b8962e);
       color:#fff;
       text-decoration:none;
       font-weight:700;
-      font-size:.95rem;
+      font-size:.85rem;
       transition:all .35s ease;
       box-shadow:0 4px 14px rgba(0,0,0,0.15);
       position:relative;
@@ -174,17 +177,16 @@
       background:linear-gradient(135deg,#e1bd4f,#c9a646);
     }
 
-    /* HERO */
     .hero{
-  width:100%;
-  min-height:340px;
-  padding:36px 0 30px;
-  background:
-    linear-gradient(115deg, rgba(10,10,10,.96) 0%, rgba(6,6,6,.98) 48%, rgba(18,16,10,.96) 100%);
-  color:#e6ddc7;
-  position:relative;
-  overflow:hidden;
-}
+      width:100%;
+      min-height:340px;
+      padding:36px 0 30px;
+      background:
+        linear-gradient(115deg, rgba(10,10,10,.96) 0%, rgba(6,6,6,.98) 48%, rgba(18,16,10,.96) 100%);
+      color:#e6ddc7;
+      position:relative;
+      overflow:hidden;
+    }
 
     .hero::before{
       content:"";
@@ -380,6 +382,77 @@
       color:rgba(47,47,34,.78);
     }
 
+    .headspa-section{
+      padding:30px 0 34px;
+    }
+
+    .headspa-card{
+      max-width:920px;
+      margin:0 auto;
+      padding:20px 22px 18px;
+      border-radius:20px;
+      background:linear-gradient(180deg, rgba(255,255,255,.34), rgba(255,255,255,.18));
+      border:1px solid rgba(82,82,52,.08);
+      box-shadow:0 8px 22px rgba(54,54,30,.04);
+    }
+
+    .headspa-kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 11px;
+      border-radius:999px;
+      background:rgba(201,161,74,.07);
+      border:1px solid rgba(201,161,74,.12);
+      color:#8a6b2b;
+      font-size:.7rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:8px;
+    }
+
+    .headspa-title{
+      margin:0 0 10px;
+      font-size:clamp(1.45rem, 2vw, 2.1rem);
+      line-height:1.02;
+      letter-spacing:-.03em;
+      color:var(--olive);
+    }
+
+    .headspa-text{
+      max-width:820px;
+    }
+
+    .headspa-text p{
+      margin:0 0 10px;
+      font-size:.94rem;
+      line-height:1.64;
+      color:rgba(47,47,34,.82);
+    }
+
+    .headspa-text p:last-child{
+      margin-bottom:0;
+    }
+
+    .headspa-inline-note{
+      margin-top:14px;
+      padding:12px 14px;
+      border-radius:14px;
+      background:rgba(82,82,52,.05);
+      border:1px solid rgba(82,82,52,.08);
+    }
+
+    .headspa-inline-note p{
+      margin:0;
+      font-size:.9rem;
+      line-height:1.58;
+      color:rgba(47,47,34,.78);
+    }
+
+    .headspa-inline-note strong{
+      color:var(--olive);
+    }
+
     .about-grid,
     .cosmetics-grid,
     .voucher-grid,
@@ -408,7 +481,6 @@
       background-position:center;
     }
 
-    .img-about{background-image:url('https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1200&q=80')}
     .img-cosmetics{background-image:url('https://images.unsplash.com/photo-1619451683056-b3fbd3078e95?auto=format&fit=crop&w=1200&q=80')}
     .img-voucher{background-image:url('https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=1200&q=80')}
 
@@ -564,6 +636,7 @@
         justify-content:center;
         gap:10px;
         padding:10px 0 14px;
+        height:auto;
       }
 
       nav{
@@ -589,7 +662,7 @@
     @media (max-width:980px){
       .hero{
         min-height:auto;
-        padding:42px 0 40px;
+        padding:32px 0 28px;
       }
 
       .hero-container{
@@ -620,231 +693,45 @@
     }
 
     @media (max-width:760px){
-      .brand{justify-content:center}
-      .brand img{width:92px;height:92px;margin-right:-10px}
-      .brand-text strong{font-size:.95rem}
-      .brand-text span{font-size:.58rem;letter-spacing:.18em}
+      .brand{
+        justify-content:center;
+        height:auto;
+      }
+
+      .brand img{
+        width:94px;
+        height:94px;
+        margin-right:-8px;
+      }
+
+      .brand-text strong{font-size:1rem}
+      .brand-text span{font-size:.58rem;letter-spacing:.16em}
       .nav-list{gap:14px 18px;justify-content:center}
       .nav-list a{font-size:.92rem}
       .section{padding:68px 0}
       .ritual-grid,.process-wrap{grid-template-columns:1fr}
       .soft-card,.process-card{padding:24px}
       .philosophy{padding:62px 22px;border-radius:26px}
+
+      .headspa-section{
+        padding:24px 0 28px;
+      }
+
+      .headspa-card{
+        padding:16px 14px 14px;
+        border-radius:16px;
+      }
+
+      .headspa-title{
+        font-size:clamp(1.3rem, 7vw, 1.8rem);
+      }
+
+      .headspa-text p,
+      .headspa-inline-note p{
+        font-size:.9rem;
+        line-height:1.55;
+      }
     }
-
-    .site-header{
-  position:sticky;
-  top:0;
-  z-index:50;
-  backdrop-filter:blur(14px);
-  background:rgba(237,232,208,.78);
-  border-bottom:1px solid rgba(82,82,52,.10);
-}
-
-.header-inner{
-  width:var(--container);
-  margin:0 auto;
-  min-height:64px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-  padding:4px 0;
-  position:relative;
-}
-
-.brand img{
-  width:120px;
-  height:120px;
-  object-fit:contain;
-  filter:drop-shadow(0 10px 18px rgba(0,0,0,.08));
-  background:transparent;
-  mix-blend-mode:multiply;
-  margin-right:-8px;
-  margin-top:0;
-  flex-shrink:0;
-}
-
-.brand-text strong{
-  font-size:1.25rem;
-  letter-spacing:.04em;
-  color:var(--olive);
-  font-weight:700;
-  white-space:nowrap;
-}
-
-.brand-text span{
-  font-size:.75rem;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color:#8e7340;
-  margin-top:4px;
-  white-space:nowrap;
-}
-
-.nav-list{
-  list-style:none;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:38px;
-  padding:0;
-  margin:0;
-  flex-wrap:nowrap;
-  white-space:nowrap;
-}
-
-.nav-list a{
-  position:relative;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:8px 0;
-  color:var(--olive);
-  font-size:.88rem;
-  letter-spacing:.02em;
-  transition:color .32s ease, transform .32s ease;
-}
-
-.btn-reserve{
-  margin-left:auto;
-  padding:10px 20px;
-  border-radius:999px;
-  background:linear-gradient(135deg,#d4af37,#b8962e);
-  color:#fff;
-  text-decoration:none;
-  font-weight:700;
-  font-size:.85rem;
-  transition:all .35s ease;
-  box-shadow:0 4px 14px rgba(0,0,0,0.15);
-  position:relative;
-  z-index:3;
-}
-    .site-header{
-  position:sticky;
-  top:0;
-  z-index:50;
-  backdrop-filter:blur(14px);
-  background:rgba(237,232,208,.78);
-  border-bottom:1px solid rgba(82,82,52,.10);
-}
-
-.header-inner{
-  width:var(--container);
-  margin:0 auto;
-  height:68px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:26px;
-  padding:0;
-  position:relative;
-  overflow:visible;
-}
-    .brand{
-  display:flex;
-  align-items:center;
-  gap:0;
-  min-width:max-content;
-  position:relative;
-  z-index:3;
-  flex-shrink:0;
-  height:68px;
-}
-
-//* ===== HEAD SPA COMPACT ===== */
-
-.headspa-section{
-  padding:42px 0 48px;
-}
-
-.headspa-card{
-  max-width:980px;
-  margin:0 auto;
-  padding:24px 26px 22px;
-  border-radius:24px;
-  background:linear-gradient(180deg, rgba(255,255,255,.42), rgba(255,255,255,.22));
-  border:1px solid rgba(82,82,52,.10);
-  box-shadow:0 10px 28px rgba(54,54,30,.05);
-}
-
-.headspa-kicker{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:7px 12px;
-  border-radius:999px;
-  background:rgba(201,161,74,.08);
-  border:1px solid rgba(201,161,74,.14);
-  color:#8a6b2b;
-  font-size:.74rem;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  margin-bottom:10px;
-}
-
-.headspa-title{
-  margin:0 0 12px;
-  font-size:clamp(1.7rem, 2.4vw, 2.5rem);
-  line-height:1.02;
-  letter-spacing:-.03em;
-  color:var(--olive);
-}
-
-.headspa-text{
-  max-width:860px;
-}
-
-.headspa-text p{
-  margin:0 0 12px;
-  font-size:.98rem;
-  line-height:1.72;
-  color:rgba(47,47,34,.82);
-}
-
-.headspa-text p:last-child{
-  margin-bottom:0;
-}
-
-.headspa-inline-note{
-  margin-top:16px;
-  padding:14px 16px;
-  border-radius:16px;
-  background:rgba(82,82,52,.06);
-  border:1px solid rgba(82,82,52,.10);
-}
-
-.headspa-inline-note strong{
-  color:var(--olive);
-}
-
-.headspa-inline-note p{
-  margin:0;
-  font-size:.94rem;
-  line-height:1.65;
-  color:rgba(47,47,34,.78);
-}
-
-@media (max-width:760px){
-  .headspa-section{
-    padding:34px 0 40px;
-  }
-
-  .headspa-card{
-    padding:18px 16px 18px;
-    border-radius:18px;
-  }
-
-  .headspa-title{
-    font-size:clamp(1.45rem, 8vw, 2rem);
-  }
-
-  .headspa-text p,
-  .headspa-inline-note p{
-    font-size:.93rem;
-    line-height:1.62;
-  }
-}
   </style>
 </head>
 <body>
@@ -854,7 +741,7 @@
         <img src="final1.2.png" alt="Nature Flow Head Spa logo" />
         <div class="brand-text">
           <strong>Nature Flow</strong>
-          <span>HEAD SPA Piešťany</span>
+          <span>HEAD SPA PIEŠŤANY</span>
         </div>
       </a>
 
@@ -903,67 +790,35 @@
       </div>
     </section>
 
-   <section class="section headspa-section" id="onas">
-  <div class="container">
-    <div class="headspa-wrap">
+    <section class="section headspa-section" id="onas">
+      <div class="container">
+        <article class="headspa-card">
+          <span class="headspa-kicker">🌿 Čo je to head spa</span>
+          <h2 class="headspa-title">Čo je to Head Spa</h2>
 
-      <article class="headspa-main">
-        <span class="headspa-kicker">🌿 Čo je to head spa</span>
-        <h2 class="headspa-title">Čo je to Head Spa</h2>
+          <div class="headspa-text">
+            <p>
+              Head Spa je relaxačný rituál, ktorý spája starostlivosť o pokožku hlavy, masáž hlavy, šije a ramien s hlbokým uvoľnením tela.
+            </p>
 
-        <div class="headspa-text">
-          <p>
-            Spojenie Head Spa a masáže chodidiel vytvára rituál, ktorý uvoľňuje celé telo – od hlavy až po končeky prstov.
-          </p>
+            <p>
+              V Nature Flow Head Spa tento zážitok dopĺňame aj o masáž chodidiel, vďaka čomu sa napätie uvoľňuje zhora aj zdola a telo sa prirodzene dostáva do stavu pokoja.
+            </p>
 
-          <p>
-            V Nature Flow Head Spa sa tento zážitok prepája aj s relaxačnými masážami šije, hlavy a ramien. Tieto oblasti sú miestom, kde sa počas dňa najčastejšie ukladá napätie a stres.
-          </p>
+            <p>
+              Výsledkom je jemné spomalenie, uvoľnenie stresu a príjemný pocit ľahkosti v hlave aj v tele.
+            </p>
+          </div>
 
-          <p>
-            Keď sa k tomu pridá aj masáž chodidiel, vzniká dokonalé prepojenie medzi hlavou a telom.
-          </p>
-
-          <p>
-            Napätie sa uvoľňuje zhora aj zdola – a telo sa dostáva do hlbokého stavu relaxácie.
-          </p>
-        </div>
-
-        <ul class="headspa-points">
-          <li>Uvoľnenie pokožky hlavy, šije a ramien</li>
-          <li>Prepojenie relaxu hlavy a chodidiel</li>
-          <li>Hlboké spomalenie tela aj mysle</li>
-        </ul>
-
-        <div class="headspa-badge-row">
-          <span class="headspa-badge">✨ Relaxačný rituál</span>
-          <span class="headspa-badge">🌿 Jemná starostlivosť</span>
-          <span class="headspa-badge">💆 Hlava • šija • chodidlá</span>
-        </div>
-      </article>
-
-      <aside class="headspa-warning">
-        <span class="headspa-kicker">ℹ️ Dôležitá informácia</span>
-        <h3 class="headspa-title">Dôležitá informácia</h3>
-
-        <p>
-          Nature Flow Head Spa <strong>nie je trichologické centrum</strong>.
-        </p>
-
-        <p>
-          Našim cieľom je hĺbkové čistenie pokožky hlavy, relaxačný rituál a uvoľnenie napätia.
-        </p>
-
-        <div class="headspa-warning-note">
-          <p style="margin:0;">
-            Počas rituálu je možné <strong>voliteľne nahliadnuť na stav pokožky hlavy pomocou mikrokamery</strong> a vidieť rozdiel pred a po ošetrení.
-          </p>
-        </div>
-      </aside>
-
-    </div>
-  </div>
-</section>
+          <div class="headspa-inline-note">
+            <p>
+              <strong>ℹ️ Dôležitá informácia:</strong>
+              Nature Flow Head Spa nie je trichologické centrum. Našim cieľom je hĺbkové čistenie pokožky hlavy, relaxačný rituál a uvoľnenie napätia. Počas procedúry je možné voliteľne nahliadnuť na stav pokožky hlavy pomocou mikrokamery.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
 
     <section class="section" id="ritualy">
       <div class="container">
