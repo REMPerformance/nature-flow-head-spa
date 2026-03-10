@@ -600,7 +600,15 @@
     }
 
     .rituals-subtitle{
-      max-width:760px;
+      max-width:860px;
+    }
+
+    .rituals-intro{
+      margin:8px 0 0;
+      max-width:900px;
+      font-size:.98rem;
+      line-height:1.7;
+      color:rgba(47,47,34,.74);
     }
 
     .rituals-grid{
@@ -814,6 +822,63 @@
 
     .ritual-addon strong{
       color:var(--olive);
+    }
+
+    .ritual-card.men-flow{
+      background:linear-gradient(180deg, rgba(67,67,50,.95), rgba(49,49,36,.96));
+      border-color:rgba(255,255,255,.05);
+      box-shadow:
+        0 12px 30px rgba(40,40,28,.18),
+        inset 0 1px 0 rgba(255,255,255,.04);
+    }
+
+    .ritual-card.men-flow:hover{
+      border-color:rgba(201,161,74,.26);
+      box-shadow:
+        0 18px 38px rgba(40,40,28,.22),
+        inset 0 1px 0 rgba(255,255,255,.05);
+    }
+
+    .ritual-card.men-flow.is-open{
+      border-color:rgba(201,161,74,.34);
+      box-shadow:
+        0 22px 42px rgba(40,40,28,.26),
+        0 0 0 1px rgba(201,161,74,.10),
+        inset 0 1px 0 rgba(255,255,255,.05);
+    }
+
+    .ritual-card.men-flow h3,
+    .ritual-card.men-flow .ritual-short,
+    .ritual-card.men-flow .ritual-price-label,
+    .ritual-card.men-flow .ritual-expand-block p,
+    .ritual-card.men-flow .ritual-expand-block li,
+    .ritual-card.men-flow .ritual-addon p{
+      color:#efe7d3;
+    }
+
+    .ritual-card.men-flow h3{
+      color:#f6edd8;
+    }
+
+    .ritual-card.men-flow .ritual-price-label{
+      color:rgba(239,231,211,.72);
+    }
+
+    .ritual-card.men-flow .ritual-expand-content{
+      border-top:1px solid rgba(201,161,74,.18);
+    }
+
+    .ritual-card.men-flow .ritual-addon{
+      background:rgba(255,255,255,.05);
+      border-color:rgba(255,255,255,.07);
+    }
+
+    .ritual-card.men-flow .ritual-addon strong{
+      color:#f1dfb6;
+    }
+
+    .ritual-card.men-flow .ritual-expand-block h4{
+      color:#e5c77e;
     }
 
     .cosmetics-grid,
@@ -1203,6 +1268,9 @@
           <p class="section-subtitle rituals-subtitle">
             Každý rituál má svoje tempo a svoju hĺbku oddychu. Vyber si podľa toho, čo práve potrebuješ.
           </p>
+          <p class="rituals-intro">
+            Všetky rituály sú vhodné pre ženy aj mužov a vždy sa prispôsobujú individuálne.
+          </p>
         </div>
 
         <div class="rituals-grid">
@@ -1336,40 +1404,129 @@
             </div>
           </article>
 
-          <article class="ritual-card">
+          <article class="ritual-card" id="royalFlowCard">
             <div class="ritual-card-inner">
               <h3>Royal Flow Experience</h3>
 
               <p class="ritual-short">
-                Komfortný a rozšírený rituál s dôrazom na luxusný oddych a jemnosť.
+                Komplexný rituál pre úplné spomalenie a prepojenie hlavy a tela.
               </p>
 
               <div class="ritual-price-row">
                 <span class="ritual-price-label">Cena od</span>
-                <span class="ritual-price-value">od — €</span>
+                <span class="ritual-price-value">120 €</span>
               </div>
 
               <div class="ritual-actions">
-                <span class="ritual-status">Doplníme</span>
+                <button class="ritual-more-btn" type="button" data-toggle-card="royalFlowCard">
+                  Zistiť viac
+                </button>
+              </div>
+
+              <div class="ritual-expand">
+                <div>
+                  <div class="ritual-expand-content">
+                    <div class="ritual-expand-grid">
+                      <div class="ritual-expand-block">
+                        <h4>Detail</h4>
+                        <ul>
+                          <li>Dĺžka rituálu: 120 min</li>
+                          <li>Cena: 120 €</li>
+                          <li>Sušenie: +10 min</li>
+                        </ul>
+                      </div>
+
+                      <div class="ritual-expand-block">
+                        <h4>Zahŕňa</h4>
+                        <ul>
+                          <li>masáž šije a trapézov</li>
+                          <li>predĺženú masáž hlavy</li>
+                          <li>masáž tváre</li>
+                          <li>aromaterapiu</li>
+                          <li>masáž chodidiel</li>
+                          <li>bahenný peeling pokožky hlavy</li>
+                          <li>dôkladné čistenie a 2x umytie šampónom</li>
+                          <li>regeneračnú masku na vlasy</li>
+                        </ul>
+                      </div>
+
+                      <div class="ritual-expand-block">
+                        <h4>Pre koho je vhodný</h4>
+                        <p>
+                          Rituál, ktorý si dopraješ, keď chceš viac než len oddych.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </article>
 
-          <article class="ritual-card">
+          <article class="ritual-card men-flow" id="menFlowCard">
             <div class="ritual-card-inner">
-              <h3>Men Flow</h3>
+              <h3>Men Flow Ritual</h3>
 
               <p class="ritual-short">
-                Pokojný rituál prispôsobený mužom, ktorí chcú vypnúť a zregenerovať.
+                Rituál prispôsobený mužom so zameraním na uvoľnenie napätia v oblasti hlavy, šije a ramien.
               </p>
 
               <div class="ritual-price-row">
                 <span class="ritual-price-label">Cena od</span>
-                <span class="ritual-price-value">od — €</span>
+                <span class="ritual-price-value">90 €</span>
               </div>
 
               <div class="ritual-actions">
-                <span class="ritual-status">Doplníme</span>
+                <button class="ritual-more-btn" type="button" data-toggle-card="menFlowCard">
+                  Zistiť viac
+                </button>
+              </div>
+
+              <div class="ritual-expand">
+                <div>
+                  <div class="ritual-expand-content">
+                    <div class="ritual-expand-grid">
+                      <div class="ritual-expand-block">
+                        <h4>Detail</h4>
+                        <ul>
+                          <li>Dĺžka rituálu: 90 min</li>
+                          <li>Cena: 90 €</li>
+                          <li>Starostlivosť môže byť doplnená o produkty určené na bradu</li>
+                        </ul>
+                      </div>
+
+                      <div class="ritual-expand-block">
+                        <h4>Zahŕňa</h4>
+                        <ul>
+                          <li>masáž šije, ramien a trapézov</li>
+                          <li>masáž hlavy a pokožky podporujúcu prekrvenie</li>
+                          <li>aromaterapiu podľa výberu</li>
+                          <li>dezinfekciu</li>
+                          <li>šampónovanie a masáž brady</li>
+                          <li>masáž tváre a brady</li>
+                          <li>peeling pokožky hlavy</li>
+                          <li>čistenie hlavy a 2x umytie šampónom</li>
+                          <li>kondicionér</li>
+                          <li>záverečný oplach</li>
+                        </ul>
+                      </div>
+
+                      <div class="ritual-addon">
+                        <p>
+                          <strong>Voliteľné doplnenie:</strong> masáž chodidiel 15 min / 15 €.
+                          Doplnková služba výhradne k rituálu.
+                        </p>
+                      </div>
+
+                      <div class="ritual-expand-block">
+                        <h4>Pre koho je vhodný</h4>
+                        <p>
+                          Ideálny reset po náročnom pracovnom dni.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </article>
