@@ -751,6 +751,187 @@
   flex-shrink:0;
   height:68px;
 }
+
+    /* ===== HEAD SPA INFO SECTION ===== */
+
+.headspa-section{
+  padding:90px 0;
+}
+
+.headspa-wrap{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:28px;
+  align-items:stretch;
+  margin-top:26px;
+}
+
+.headspa-main,
+.headspa-warning{
+  position:relative;
+  overflow:hidden;
+  border-radius:30px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.52));
+  border:1px solid rgba(82,82,52,.12);
+  box-shadow:
+    0 16px 40px rgba(54,54,30,.08),
+    inset 0 1px 0 rgba(255,255,255,.45);
+  backdrop-filter:blur(10px);
+}
+
+.headspa-main::before,
+.headspa-warning::before{
+  content:"";
+  position:absolute;
+  inset:auto -80px -80px auto;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(201,161,74,.14), transparent 70%);
+  filter:blur(10px);
+  pointer-events:none;
+}
+
+.headspa-main{
+  padding:38px 34px 34px;
+}
+
+.headspa-warning{
+  padding:34px 30px;
+  background:
+    linear-gradient(180deg, rgba(82,82,52,.96), rgba(63,63,38,.96));
+  color:#f4edd8;
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow:
+    0 18px 45px rgba(40,40,25,.16),
+    inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+.headspa-kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 14px;
+  border-radius:999px;
+  background:rgba(201,161,74,.12);
+  border:1px solid rgba(201,161,74,.18);
+  color:#8a6b2b;
+  font-size:.84rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:16px;
+}
+
+.headspa-warning .headspa-kicker{
+  background:rgba(255,255,255,.08);
+  border-color:rgba(255,255,255,.10);
+  color:#f1dfb6;
+}
+
+.headspa-title{
+  margin:0 0 18px;
+  font-size:clamp(2rem, 3.4vw, 3.2rem);
+  line-height:1.02;
+  color:var(--olive);
+  letter-spacing:-.03em;
+}
+
+.headspa-warning .headspa-title{
+  color:#fff6df;
+}
+
+.headspa-text{
+  display:grid;
+  gap:18px;
+}
+
+.headspa-text p{
+  margin:0;
+  font-size:1.08rem;
+  line-height:1.85;
+  color:rgba(47,47,34,.84);
+}
+
+.headspa-warning p{
+  color:rgba(244,237,216,.92);
+  font-size:1.02rem;
+  line-height:1.85;
+}
+
+.headspa-text strong,
+.headspa-warning strong{
+  font-weight:700;
+}
+
+.headspa-points{
+  margin:22px 0 0;
+  padding:0;
+  list-style:none;
+  display:grid;
+  gap:12px;
+}
+
+.headspa-points li{
+  position:relative;
+  padding-left:22px;
+  color:rgba(47,47,34,.78);
+}
+
+.headspa-points li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.72em;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:linear-gradient(180deg, #d6b566, #b98b2c);
+  box-shadow:0 0 0 5px rgba(185,139,44,.10);
+}
+
+.headspa-badge-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:24px;
+}
+
+.headspa-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 13px;
+  border-radius:999px;
+  background:rgba(82,82,52,.07);
+  border:1px solid rgba(82,82,52,.10);
+  color:var(--olive);
+  font-size:.9rem;
+}
+
+.headspa-warning-note{
+  margin-top:18px;
+  padding:16px 18px;
+  border-radius:18px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+@media (max-width:980px){
+  .headspa-wrap{
+    grid-template-columns:1fr;
+  }
+
+  .headspa-main,
+  .headspa-warning{
+    padding:28px 22px;
+  }
+
+  .headspa-text p,
+  .headspa-warning p{
+    font-size:1rem;
+  }
+}
   </style>
 </head>
 <body>
@@ -809,29 +990,67 @@
       </div>
     </section>
 
-    <section class="section" id="onas">
-      <div class="container">
-        <h2 class="section-title">O nás</h2>
-        <p class="section-subtitle">
-          V Nature Flow Head Spa nejde iba o starostlivosť o vlasy. Ide o vedomé spomalenie, uvoľnenie napätia a návrat do stavu, keď sa cítiš dobre vo svojej hlave aj vo svojom tele.
+   <section class="section headspa-section" id="onas">
+  <div class="container">
+    <div class="headspa-wrap">
+
+      <article class="headspa-main">
+        <span class="headspa-kicker">🌿 Čo je to head spa</span>
+        <h2 class="headspa-title">Čo je to Head Spa</h2>
+
+        <div class="headspa-text">
+          <p>
+            Spojenie Head Spa a masáže chodidiel vytvára rituál, ktorý uvoľňuje celé telo – od hlavy až po končeky prstov.
+          </p>
+
+          <p>
+            V Nature Flow Head Spa sa tento zážitok prepája aj s relaxačnými masážami šije, hlavy a ramien. Tieto oblasti sú miestom, kde sa počas dňa najčastejšie ukladá napätie a stres.
+          </p>
+
+          <p>
+            Keď sa k tomu pridá aj masáž chodidiel, vzniká dokonalé prepojenie medzi hlavou a telom.
+          </p>
+
+          <p>
+            Napätie sa uvoľňuje zhora aj zdola – a telo sa dostáva do hlbokého stavu relaxácie.
+          </p>
+        </div>
+
+        <ul class="headspa-points">
+          <li>Uvoľnenie pokožky hlavy, šije a ramien</li>
+          <li>Prepojenie relaxu hlavy a chodidiel</li>
+          <li>Hlboké spomalenie tela aj mysle</li>
+        </ul>
+
+        <div class="headspa-badge-row">
+          <span class="headspa-badge">✨ Relaxačný rituál</span>
+          <span class="headspa-badge">🌿 Jemná starostlivosť</span>
+          <span class="headspa-badge">💆 Hlava • šija • chodidlá</span>
+        </div>
+      </article>
+
+      <aside class="headspa-warning">
+        <span class="headspa-kicker">ℹ️ Dôležitá informácia</span>
+        <h3 class="headspa-title">Dôležitá informácia</h3>
+
+        <p>
+          Nature Flow Head Spa <strong>nie je trichologické centrum</strong>.
         </p>
 
-        <div class="about-grid">
-          <div class="soft-card">
-            <p>
-              Vytvorili sme priestor, kde sa spája relax, dotyk, voda a prírodná kozmetika. Každý rituál je navrhnutý tak, aby uľavil od každodenného stresu, podporil prekrvenie pokožky hlavy a priniesol hlboký pocit oddychu.
-            </p>
-            <ul class="check-list">
-              <li>Hĺbkové uvoľnenie pokožky hlavy, šije a ramien.</li>
-              <li>Pokojná atmosféra bez tlaku, hluku a zhonu.</li>
-              <li>Jemný rituál, po ktorom sa telo aj myseľ spomalia.</li>
-              <li>Starostlivosť, ktorá spája estetiku, pohodu a regeneráciu.</li>
-            </ul>
-          </div>
-          <div class="image-card img-about" aria-label="Interiér head spa"></div>
+        <p>
+          Našim cieľom je hĺbkové čistenie pokožky hlavy, relaxačný rituál a uvoľnenie napätia.
+        </p>
+
+        <div class="headspa-warning-note">
+          <p style="margin:0;">
+            Počas rituálu je možné <strong>voliteľne nahliadnuť na stav pokožky hlavy pomocou mikrokamery</strong> a vidieť rozdiel pred a po ošetrení.
+          </p>
         </div>
-      </div>
-    </section>
+      </aside>
+
+    </div>
+  </div>
+</section>
 
     <section class="section" id="ritualy">
       <div class="container">
