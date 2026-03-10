@@ -383,7 +383,6 @@
       color:rgba(47,47,34,.78);
     }
 
-    /* HEAD SPA */
     .headspa-section{
       padding:42px 0 48px;
     }
@@ -577,7 +576,6 @@
       filter:blur(8px);
     }
 
-    /* RITUALS */
     .rituals-section{
       padding:42px 0 58px;
     }
@@ -818,7 +816,6 @@
       color:var(--olive);
     }
 
-    /* OTHER */
     .cosmetics-grid,
     .voucher-grid,
     .contact-grid{
@@ -1273,21 +1270,68 @@
             </div>
           </article>
 
-          <article class="ritual-card">
+          <article class="ritual-card" id="deepFlowCard">
             <div class="ritual-card-inner">
               <h3>Deep Flow Ritual</h3>
 
               <p class="ritual-short">
-                Hlbší rituál pre intenzívnejšie vypnutie a výraznejší pocit uvoľnenia.
+                Rozšírená verzia základného rituálu pre hlbšie uvoľnenie tela aj mysle.
               </p>
 
               <div class="ritual-price-row">
                 <span class="ritual-price-label">Cena od</span>
-                <span class="ritual-price-value">od — €</span>
+                <span class="ritual-price-value">90 €</span>
               </div>
 
               <div class="ritual-actions">
-                <span class="ritual-status">Doplníme</span>
+                <button class="ritual-more-btn" type="button" data-toggle-card="deepFlowCard">
+                  Zistiť viac
+                </button>
+              </div>
+
+              <div class="ritual-expand">
+                <div>
+                  <div class="ritual-expand-content">
+                    <div class="ritual-expand-grid">
+                      <div class="ritual-expand-block">
+                        <h4>Detail</h4>
+                        <ul>
+                          <li>Dĺžka rituálu: 90 min</li>
+                          <li>Cena: 90 €</li>
+                          <li>Sušenie: +10 min</li>
+                        </ul>
+                      </div>
+
+                      <div class="ritual-expand-block">
+                        <h4>Zahŕňa</h4>
+                        <ul>
+                          <li>masáž šije, ramien a trapézov</li>
+                          <li>masáž tváre</li>
+                          <li>predĺženú masáž hlavy</li>
+                          <li>intenzívnejšiu masáž tváre</li>
+                          <li>aromaterapiu</li>
+                          <li>bahenný peeling pokožky hlavy</li>
+                          <li>dôkladné čistenie a 2x umytie šampónom</li>
+                          <li>regeneračnú masku na vlasy</li>
+                        </ul>
+                      </div>
+
+                      <div class="ritual-addon">
+                        <p>
+                          <strong>Voliteľné doplnenie:</strong> masáž chodidiel 15 min / 15 €.
+                          Doplnková služba výhradne k rituálu.
+                        </p>
+                      </div>
+
+                      <div class="ritual-expand-block">
+                        <h4>Pre koho je vhodný</h4>
+                        <p>
+                          Pre chvíle, keď cítiš, že hodina nestačí.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </article>
@@ -1461,14 +1505,19 @@
 
   <script>
     (function () {
-      const harmonyCard = document.getElementById('harmonyCard');
-      const toggleButton = document.querySelector('[data-toggle-card="harmonyCard"]');
+      const toggles = document.querySelectorAll('[data-toggle-card]');
 
-      if (!harmonyCard || !toggleButton) return;
+      toggles.forEach((button) => {
+        button.addEventListener('click', function () {
+          const cardId = this.getAttribute('data-toggle-card');
+          const card = document.getElementById(cardId);
+          if (!card) return;
 
-      toggleButton.addEventListener('click', function () {
-        harmonyCard.classList.toggle('is-open');
-        this.textContent = harmonyCard.classList.contains('is-open') ? 'Menej' : 'Zistiť viac';
+          const isOpen = card.classList.contains('is-open');
+          card.classList.toggle('is-open');
+
+          this.textContent = isOpen ? 'Zistiť viac' : 'Menej';
+        });
       });
     })();
   </script>
