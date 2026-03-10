@@ -577,13 +577,13 @@
       filter:blur(8px);
     }
 
-    /* RITUAL CARDS GRID */
+    /* RITUALS */
     .rituals-section{
-      padding:54px 0 72px;
+      padding:42px 0 58px;
     }
 
     .rituals-head{
-      margin-bottom:26px;
+      margin-bottom:20px;
     }
 
     .rituals-kicker{
@@ -608,40 +608,26 @@
     .rituals-grid{
       display:grid;
       grid-template-columns:repeat(4, minmax(0, 1fr));
-      gap:18px;
+      gap:14px;
       align-items:start;
     }
 
     .ritual-card{
       position:relative;
-      border-radius:28px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.46), rgba(255,255,255,.22));
+      border-radius:22px;
+      background:linear-gradient(180deg, rgba(255,255,255,.42), rgba(255,255,255,.20));
       border:1px solid rgba(82,82,52,.10);
       box-shadow:
-        0 12px 30px rgba(54,54,30,.05),
-        inset 0 1px 0 rgba(255,255,255,.42);
+        0 10px 24px rgba(54,54,30,.05),
+        inset 0 1px 0 rgba(255,255,255,.40);
       overflow:hidden;
-      transition:
-        transform .34s ease,
-        box-shadow .34s ease,
-        border-color .34s ease;
-    }
-
-    .ritual-card::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(180deg, rgba(201,161,74,.04), transparent 35%),
-        radial-gradient(circle at 88% 18%, rgba(201,161,74,.08), transparent 24%);
-      pointer-events:none;
+      transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
     }
 
     .ritual-card:hover{
-      transform:translateY(-4px);
+      transform:translateY(-3px);
       box-shadow:
-        0 18px 38px rgba(54,54,30,.08),
+        0 16px 34px rgba(54,54,30,.08),
         inset 0 1px 0 rgba(255,255,255,.46);
       border-color:rgba(185,139,44,.18);
     }
@@ -649,69 +635,63 @@
     .ritual-card.is-open{
       border-color:rgba(185,139,44,.24);
       box-shadow:
-        0 22px 46px rgba(54,54,30,.10),
-        0 0 0 1px rgba(201,161,74,.10),
-        inset 0 1px 0 rgba(255,255,255,.52);
+        0 18px 40px rgba(54,54,30,.10),
+        0 0 0 1px rgba(201,161,74,.08),
+        inset 0 1px 0 rgba(255,255,255,.48);
     }
 
     .ritual-card-inner{
-      position:relative;
-      z-index:2;
-      padding:22px 20px 18px;
+      padding:18px 16px 16px;
     }
 
-    .ritual-chip-row{
+    .ritual-card h3{
+      margin:0 0 8px;
+      font-size:clamp(1.15rem, 1.45vw, 1.45rem);
+      line-height:1.04;
+      letter-spacing:-.03em;
+      color:var(--olive);
+    }
+
+    .ritual-short{
+      margin:0 0 14px;
+      font-size:.89rem;
+      line-height:1.58;
+      color:rgba(47,47,34,.78);
+      min-height:72px;
+    }
+
+    .ritual-price-row{
       display:flex;
       align-items:center;
-      gap:8px;
-      flex-wrap:wrap;
-      margin-bottom:12px;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:14px;
     }
 
-    .ritual-chip,
-    .ritual-chip-price{
+    .ritual-price-label{
+      font-size:.76rem;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      color:rgba(47,47,34,.54);
+    }
+
+    .ritual-price-value{
       display:inline-flex;
       align-items:center;
       min-height:30px;
       padding:0 11px;
       border-radius:999px;
-      font-size:.78rem;
-      letter-spacing:.04em;
-    }
-
-    .ritual-chip{
-      background:rgba(82,82,52,.06);
-      border:1px solid rgba(82,82,52,.10);
-      color:var(--olive);
-    }
-
-    .ritual-chip-price{
       background:rgba(201,161,74,.10);
       border:1px solid rgba(201,161,74,.16);
       color:#8a6b2b;
+      font-size:.82rem;
       font-weight:700;
-    }
-
-    .ritual-card h3{
-      margin:0 0 10px;
-      font-size:clamp(1.25rem, 1.7vw, 1.75rem);
-      line-height:1.05;
-      letter-spacing:-.03em;
-      color:var(--olive);
-    }
-
-    .ritual-card .ritual-short{
-      margin:0 0 16px;
-      font-size:.94rem;
-      line-height:1.66;
-      color:rgba(47,47,34,.80);
+      letter-spacing:.03em;
     }
 
     .ritual-actions{
       display:flex;
       align-items:center;
-      gap:10px;
-      margin-top:auto;
     }
 
     .ritual-more-btn{
@@ -719,36 +699,36 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      min-height:44px;
-      padding:0 18px;
+      min-height:42px;
+      padding:0 16px;
       border:none;
       border-radius:999px;
       cursor:pointer;
       background:linear-gradient(135deg,#d4be86,#b5974f);
       color:#111;
-      font-size:.82rem;
+      font-size:.78rem;
       font-weight:700;
       letter-spacing:.06em;
       text-transform:uppercase;
-      box-shadow:0 10px 24px rgba(185,139,44,.18);
-      transition:transform .26s ease, box-shadow .26s ease;
+      box-shadow:0 8px 20px rgba(185,139,44,.18);
+      transition:transform .24s ease, box-shadow .24s ease;
     }
 
     .ritual-more-btn:hover{
       transform:translateY(-2px);
-      box-shadow:0 16px 34px rgba(185,139,44,.26);
+      box-shadow:0 14px 28px rgba(185,139,44,.24);
     }
 
     .ritual-status{
       display:inline-flex;
       align-items:center;
-      min-height:34px;
+      min-height:32px;
       padding:0 10px;
       border-radius:999px;
       background:rgba(82,82,52,.05);
       border:1px solid rgba(82,82,52,.08);
       color:rgba(47,47,34,.68);
-      font-size:.76rem;
+      font-size:.74rem;
       letter-spacing:.04em;
       text-transform:uppercase;
     }
@@ -756,7 +736,7 @@
     .ritual-expand{
       display:grid;
       grid-template-rows:0fr;
-      transition:grid-template-rows .38s ease;
+      transition:grid-template-rows .34s ease;
     }
 
     .ritual-card.is-open .ritual-expand{
@@ -768,81 +748,77 @@
     }
 
     .ritual-expand-content{
-      margin-top:18px;
-      padding-top:18px;
+      margin-top:14px;
+      padding-top:14px;
       border-top:1px solid rgba(201,161,74,.14);
     }
 
-    .ritual-expand-content h4{
+    .ritual-expand-grid{
+      display:grid;
+      gap:14px;
+    }
+
+    .ritual-expand-block h4{
       margin:0 0 8px;
-      font-size:.84rem;
+      font-size:.78rem;
       letter-spacing:.08em;
       text-transform:uppercase;
       color:#8a6b2b;
     }
 
-    .ritual-expand-content p{
-      margin:0 0 14px;
-      font-size:.92rem;
-      line-height:1.66;
-      color:rgba(47,47,34,.80);
+    .ritual-expand-block p{
+      margin:0;
+      font-size:.88rem;
+      line-height:1.58;
+      color:rgba(47,47,34,.78);
     }
 
-    .ritual-expand-content p:last-child{
-      margin-bottom:0;
-    }
-
-    .ritual-expand-content ul{
-      margin:0 0 14px;
+    .ritual-expand-block ul{
+      margin:0;
       padding:0;
       list-style:none;
       display:grid;
-      gap:10px;
+      gap:8px;
     }
 
-    .ritual-expand-content li{
+    .ritual-expand-block li{
       position:relative;
-      padding-left:16px;
-      font-size:.9rem;
-      line-height:1.58;
-      color:rgba(47,47,34,.80);
+      padding-left:14px;
+      font-size:.87rem;
+      line-height:1.54;
+      color:rgba(47,47,34,.78);
     }
 
-    .ritual-expand-content li::before{
+    .ritual-expand-block li::before{
       content:"";
       position:absolute;
       left:0;
       top:.62em;
-      width:7px;
-      height:7px;
+      width:6px;
+      height:6px;
       border-radius:50%;
       background:linear-gradient(180deg,#d6b566,#b98b2c);
-      box-shadow:0 0 0 4px rgba(185,139,44,.10);
+      box-shadow:0 0 0 4px rgba(185,139,44,.08);
     }
 
     .ritual-addon{
-      padding:12px 12px 12px 14px;
-      border-radius:16px;
+      padding:10px 12px;
+      border-radius:14px;
       background:rgba(82,82,52,.05);
       border:1px solid rgba(82,82,52,.08);
-      margin-bottom:14px;
+    }
+
+    .ritual-addon p{
+      margin:0;
+      font-size:.86rem;
+      line-height:1.52;
     }
 
     .ritual-addon strong{
       color:var(--olive);
     }
 
-    .ritual-placeholder{
-      min-height:100%;
-      display:flex;
-      flex-direction:column;
-    }
-
-    .ritual-placeholder .ritual-short{
-      margin-bottom:22px;
-    }
-
-    /* OTHER SECTIONS */
+    /* OTHER */
     .cosmetics-grid,
     .voucher-grid,
     .contact-grid{
@@ -1087,7 +1063,7 @@
       }
 
       .rituals-section{
-        padding:42px 0 56px;
+        padding:34px 0 46px;
       }
 
       .rituals-grid{
@@ -1095,19 +1071,23 @@
       }
 
       .ritual-card-inner{
-        padding:20px 18px 16px;
+        padding:18px 14px 14px;
       }
 
-      .ritual-card .ritual-short,
-      .ritual-expand-content p,
-      .ritual-expand-content li{
-        font-size:.92rem;
-        line-height:1.62;
+      .ritual-short{
+        min-height:auto;
       }
 
-      .ritual-more-btn{
-        min-height:42px;
-        font-size:.8rem;
+      .ritual-card h3{
+        font-size:1.25rem;
+      }
+
+      .ritual-short,
+      .ritual-expand-block p,
+      .ritual-expand-block li,
+      .ritual-addon p{
+        font-size:.9rem;
+        line-height:1.58;
       }
     }
   </style>
@@ -1229,18 +1209,18 @@
         </div>
 
         <div class="rituals-grid">
-          <article class="ritual-card is-open" id="harmonyCard">
+          <article class="ritual-card" id="harmonyCard">
             <div class="ritual-card-inner">
-              <div class="ritual-chip-row">
-                <span class="ritual-chip">60 min</span>
-                <span class="ritual-chip-price">60 €</span>
-                <span class="ritual-chip">+10 min sušenie</span>
-              </div>
-
               <h3>Harmony</h3>
+
               <p class="ritual-short">
                 Základný rituál pre hĺbkovú očistu pokožky hlavy a uvoľnenie napätia v oblasti hlavy, šije a ramien.
               </p>
+
+              <div class="ritual-price-row">
+                <span class="ritual-price-label">Cena od</span>
+                <span class="ritual-price-value">60 €</span>
+              </div>
 
               <div class="ritual-actions">
                 <button class="ritual-more-btn" type="button" data-toggle-card="harmonyCard">
@@ -1251,83 +1231,101 @@
               <div class="ritual-expand">
                 <div>
                   <div class="ritual-expand-content">
-                    <h4>Zahŕňa</h4>
-                    <ul>
-                      <li>masáž šije, ramien a trapézov</li>
-                      <li>masáž hlavy a pokožky podporujúcu prekrvenie</li>
-                      <li>aromaterapiu podľa výberu</li>
-                      <li>klasický peeling pokožky hlavy</li>
-                      <li>dôkladné čistenie a 2x umytie šampónom</li>
-                      <li>záverečný kondicionér</li>
-                    </ul>
+                    <div class="ritual-expand-grid">
+                      <div class="ritual-expand-block">
+                        <h4>Detail</h4>
+                        <ul>
+                          <li>Dĺžka rituálu: 60 min</li>
+                          <li>Cena: 60 €</li>
+                          <li>Sušenie: +10 min</li>
+                        </ul>
+                      </div>
 
-                    <div class="ritual-addon">
-                      <p style="margin:0;">
-                        <strong>Voliteľné doplnenie:</strong> masáž chodidiel 15 min / 15 €<br>
-                        Doplnková služba výhradne k rituálu.
-                      </p>
+                      <div class="ritual-expand-block">
+                        <h4>Zahŕňa</h4>
+                        <ul>
+                          <li>masáž šije, ramien a trapézov</li>
+                          <li>masáž hlavy a pokožky podporujúcu prekrvenie</li>
+                          <li>aromaterapiu podľa výberu</li>
+                          <li>klasický peeling pokožky hlavy</li>
+                          <li>dôkladné čistenie a 2x umytie šampónom</li>
+                          <li>záverečný kondicionér</li>
+                        </ul>
+                      </div>
+
+                      <div class="ritual-addon">
+                        <p>
+                          <strong>Voliteľné doplnenie:</strong> masáž chodidiel 15 min / 15 €.
+                          Doplnková služba výhradne k rituálu.
+                        </p>
+                      </div>
+
+                      <div class="ritual-expand-block">
+                        <h4>Pre koho je vhodný</h4>
+                        <p>
+                          Ideálny základ, keď potrebuješ spomaliť a uvoľniť napätie.
+                        </p>
+                      </div>
                     </div>
-
-                    <h4>Pre koho je vhodný</h4>
-                    <p>
-                      Ideálny základ, keď potrebuješ spomaliť, uvoľniť napätie a dopriať si prvý kontakt s Head Spa rituálom.
-                    </p>
                   </div>
                 </div>
               </div>
             </div>
           </article>
 
-          <article class="ritual-card ritual-placeholder">
+          <article class="ritual-card">
             <div class="ritual-card-inner">
-              <div class="ritual-chip-row">
-                <span class="ritual-chip">90 min</span>
-                <span class="ritual-chip-price">od — €</span>
-              </div>
-
               <h3>Deep Flow Ritual</h3>
+
               <p class="ritual-short">
-                Detail tohto rituálu doplníme neskôr. Karta je už pripravená do rovnakého štýlu ako Harmony.
+                Hlbší rituál pre intenzívnejšie vypnutie a výraznejší pocit uvoľnenia.
               </p>
 
+              <div class="ritual-price-row">
+                <span class="ritual-price-label">Cena od</span>
+                <span class="ritual-price-value">od — €</span>
+              </div>
+
               <div class="ritual-actions">
-                <span class="ritual-status">Čoskoro</span>
+                <span class="ritual-status">Doplníme</span>
               </div>
             </div>
           </article>
 
-          <article class="ritual-card ritual-placeholder">
+          <article class="ritual-card">
             <div class="ritual-card-inner">
-              <div class="ritual-chip-row">
-                <span class="ritual-chip">90 min</span>
-                <span class="ritual-chip-price">od — €</span>
-              </div>
-
               <h3>Royal Flow Experience</h3>
+
               <p class="ritual-short">
-                Detail tohto rituálu doplníme neskôr. Layout, vizuál aj správanie sekcie ostáva pripravené.
+                Komfortný a rozšírený rituál s dôrazom na luxusný oddych a jemnosť.
               </p>
 
+              <div class="ritual-price-row">
+                <span class="ritual-price-label">Cena od</span>
+                <span class="ritual-price-value">od — €</span>
+              </div>
+
               <div class="ritual-actions">
-                <span class="ritual-status">Čoskoro</span>
+                <span class="ritual-status">Doplníme</span>
               </div>
             </div>
           </article>
 
-          <article class="ritual-card ritual-placeholder">
+          <article class="ritual-card">
             <div class="ritual-card-inner">
-              <div class="ritual-chip-row">
-                <span class="ritual-chip">90 min</span>
-                <span class="ritual-chip-price">od — €</span>
-              </div>
-
               <h3>Men Flow</h3>
+
               <p class="ritual-short">
-                Detail tohto rituálu doplníme neskôr. Kartu potom len vyplníme textom, cenou a službami.
+                Pokojný rituál prispôsobený mužom, ktorí chcú vypnúť a zregenerovať.
               </p>
 
+              <div class="ritual-price-row">
+                <span class="ritual-price-label">Cena od</span>
+                <span class="ritual-price-value">od — €</span>
+              </div>
+
               <div class="ritual-actions">
-                <span class="ritual-status">Čoskoro</span>
+                <span class="ritual-status">Doplníme</span>
               </div>
             </div>
           </article>
