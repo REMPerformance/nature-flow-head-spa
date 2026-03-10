@@ -11,6 +11,7 @@
       --beige:#EDE8D0;
       --beige-2:#f6f2e2;
       --gold:#c9a14a;
+      --gold-soft:rgba(201,161,74,.16);
       --text:#2f2f22;
       --line:rgba(82,82,52,.18);
       --shadow:0 18px 50px rgba(54,54,30,.12);
@@ -413,7 +414,10 @@
       z-index:1;
     }
 
-    .headspa-kicker{
+    .headspa-kicker,
+    .rituals-kicker,
+    .more-kicker,
+    .visit-kicker{
       display:inline-flex;
       align-items:center;
       gap:8px;
@@ -428,7 +432,9 @@
       margin-bottom:10px;
     }
 
-    .headspa-title{
+    .headspa-title,
+    .more-title,
+    .visit-title{
       margin:0 0 12px;
       font-size:clamp(1.8rem, 2.7vw, 3rem);
       line-height:1.02;
@@ -470,7 +476,8 @@
       padding-bottom:0;
     }
 
-    .headspa-subtitle{
+    .headspa-subtitle,
+    .visit-card h3{
       margin:0 0 10px;
       font-size:1.05rem;
       letter-spacing:.04em;
@@ -495,7 +502,8 @@
       margin-top:4px;
     }
 
-    .headspa-line{
+    .headspa-line,
+    .visit-line{
       position:relative;
       padding-left:18px;
       font-size:.95rem;
@@ -503,7 +511,8 @@
       color:rgba(47,47,34,.78);
     }
 
-    .headspa-line::before{
+    .headspa-line::before,
+    .visit-line::before{
       content:"";
       position:absolute;
       left:0;
@@ -584,21 +593,6 @@
       margin-bottom:20px;
     }
 
-    .rituals-kicker{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:7px 12px;
-      border-radius:999px;
-      background:rgba(201,161,74,.07);
-      border:1px solid rgba(201,161,74,.14);
-      color:#8a6b2b;
-      font-size:.72rem;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      margin-bottom:10px;
-    }
-
     .rituals-subtitle{
       max-width:860px;
     }
@@ -630,6 +624,19 @@
       transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
     }
 
+    .ritual-card::after,
+    .more-shell::before,
+    .visit-shell::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(90deg, transparent 0%, rgba(201,161,74,.04) 20%, transparent 42%),
+        radial-gradient(circle at 88% 16%, rgba(201,161,74,.08), transparent 22%);
+      opacity:.9;
+    }
+
     .ritual-card:hover{
       transform:translateY(-3px);
       box-shadow:
@@ -648,6 +655,8 @@
 
     .ritual-card-inner{
       padding:18px 16px 16px;
+      position:relative;
+      z-index:2;
     }
 
     .ritual-card h3{
@@ -723,20 +732,6 @@
     .ritual-more-btn:hover{
       transform:translateY(-2px);
       box-shadow:0 14px 28px rgba(185,139,44,.24);
-    }
-
-    .ritual-status{
-      display:inline-flex;
-      align-items:center;
-      min-height:32px;
-      padding:0 10px;
-      border-radius:999px;
-      background:rgba(82,82,52,.05);
-      border:1px solid rgba(82,82,52,.08);
-      color:rgba(47,47,34,.68);
-      font-size:.74rem;
-      letter-spacing:.04em;
-      text-transform:uppercase;
     }
 
     .ritual-expand{
@@ -879,6 +874,99 @@
 
     .ritual-card.men-flow .ritual-expand-block h4{
       color:#e5c77e;
+    }
+
+    .more-section,
+    .visit-section{
+      padding:34px 0 44px;
+    }
+
+    .more-shell,
+    .visit-shell{
+      position:relative;
+      overflow:hidden;
+      border-radius:28px;
+      background:linear-gradient(180deg, rgba(255,255,255,.42), rgba(255,255,255,.22));
+      border:1px solid rgba(82,82,52,.10);
+      box-shadow:
+        0 14px 34px rgba(54,54,30,.06),
+        inset 0 1px 0 rgba(255,255,255,.42);
+      padding:28px 28px 24px;
+    }
+
+    .more-shell > *,
+    .visit-shell > *{
+      position:relative;
+      z-index:2;
+    }
+
+    .more-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:16px;
+      margin-top:12px;
+    }
+
+    .more-line{
+      padding:16px 16px 14px;
+      border-radius:18px;
+      background:rgba(255,255,255,.34);
+      border:1px solid rgba(201,161,74,.12);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.34);
+    }
+
+    .more-line p{
+      margin:0;
+      font-size:1.02rem;
+      line-height:1.58;
+      color:rgba(47,47,34,.84);
+    }
+
+    .more-line strong{
+      color:var(--olive);
+      font-weight:700;
+    }
+
+    .visit-intro{
+      max-width:980px;
+      margin:0 0 20px;
+      font-size:1rem;
+      line-height:1.76;
+      color:rgba(47,47,34,.80);
+    }
+
+    .visit-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .visit-card{
+      padding:20px 20px 18px;
+      border-radius:22px;
+      background:rgba(255,255,255,.34);
+      border:1px solid rgba(201,161,74,.12);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.34);
+    }
+
+    .visit-lines{
+      display:grid;
+      gap:10px;
+    }
+
+    .visit-finish{
+      margin-top:18px;
+      padding:16px 18px;
+      border-radius:18px;
+      background:rgba(82,82,52,.05);
+      border:1px solid rgba(82,82,52,.08);
+      font-size:.96rem;
+      line-height:1.7;
+      color:rgba(47,47,34,.80);
+    }
+
+    .visit-finish strong{
+      color:var(--olive);
     }
 
     .cosmetics-grid,
@@ -1037,6 +1125,10 @@
         grid-template-columns:repeat(2, minmax(0, 1fr));
       }
 
+      .more-grid{
+        grid-template-columns:1fr;
+      }
+
       .cosmetics-grid,.voucher-grid,.contact-grid{grid-template-columns:1fr}
       .image-card{min-height:340px}
     }
@@ -1081,6 +1173,10 @@
         grid-template-columns:1fr;
         gap:18px;
       }
+
+      .visit-grid{
+        grid-template-columns:1fr;
+      }
     }
 
     @media (max-width:760px){
@@ -1112,14 +1208,20 @@
         padding:18px 14px 16px;
       }
 
-      .headspa-title{
+      .headspa-title,
+      .more-title,
+      .visit-title{
         font-size:clamp(1.45rem, 7vw, 2.1rem);
       }
 
       .headspa-lead,
       .headspa-text p,
       .headspa-line,
-      .headspa-note p{
+      .headspa-note p,
+      .visit-line,
+      .visit-finish,
+      .visit-intro,
+      .more-line p{
         font-size:.92rem;
         line-height:1.62;
       }
@@ -1151,6 +1253,15 @@
         font-size:.9rem;
         line-height:1.58;
       }
+
+      .more-shell,
+      .visit-shell{
+        padding:18px 14px 16px;
+      }
+
+      .visit-card{
+        padding:16px 14px 14px;
+      }
     }
   </style>
 </head>
@@ -1169,8 +1280,6 @@
         <ul class="nav-list">
           <li><a href="#onas">O nás</a></li>
           <li><a href="#ritualy">Rituály</a></li>
-          <li><a href="#kozmetika">Kozmetika</a></li>
-          <li><a href="#voucher">Voucher</a></li>
           <li><a href="#kontakt">Kontakt</a></li>
         </ul>
       </nav>
@@ -1277,22 +1386,16 @@
           <article class="ritual-card" id="harmonyCard">
             <div class="ritual-card-inner">
               <h3>Harmony</h3>
-
               <p class="ritual-short">
                 Základný rituál pre hĺbkovú očistu pokožky hlavy a uvoľnenie napätia v oblasti hlavy, šije a ramien.
               </p>
-
               <div class="ritual-price-row">
                 <span class="ritual-price-label">Cena od</span>
                 <span class="ritual-price-value">60 €</span>
               </div>
-
               <div class="ritual-actions">
-                <button class="ritual-more-btn" type="button" data-toggle-card="harmonyCard">
-                  Zistiť viac
-                </button>
+                <button class="ritual-more-btn" type="button" data-toggle-card="harmonyCard">Zistiť viac</button>
               </div>
-
               <div class="ritual-expand">
                 <div>
                   <div class="ritual-expand-content">
@@ -1305,7 +1408,6 @@
                           <li>Sušenie: +10 min</li>
                         </ul>
                       </div>
-
                       <div class="ritual-expand-block">
                         <h4>Zahŕňa</h4>
                         <ul>
@@ -1317,19 +1419,12 @@
                           <li>záverečný kondicionér</li>
                         </ul>
                       </div>
-
                       <div class="ritual-addon">
-                        <p>
-                          <strong>Voliteľné doplnenie:</strong> masáž chodidiel 15 min / 15 €.
-                          Doplnková služba výhradne k rituálu.
-                        </p>
+                        <p><strong>Voliteľné doplnenie:</strong> masáž chodidiel 15 min / 15 €. Doplnková služba výhradne k rituálu.</p>
                       </div>
-
                       <div class="ritual-expand-block">
                         <h4>Pre koho je vhodný</h4>
-                        <p>
-                          Ideálny základ, keď potrebuješ spomaliť a uvoľniť napätie.
-                        </p>
+                        <p>Ideálny základ, keď potrebuješ spomaliť a uvoľniť napätie.</p>
                       </div>
                     </div>
                   </div>
@@ -1341,22 +1436,16 @@
           <article class="ritual-card" id="deepFlowCard">
             <div class="ritual-card-inner">
               <h3>Deep Flow Ritual</h3>
-
               <p class="ritual-short">
                 Rozšírená verzia základného rituálu pre hlbšie uvoľnenie tela aj mysle.
               </p>
-
               <div class="ritual-price-row">
                 <span class="ritual-price-label">Cena od</span>
                 <span class="ritual-price-value">90 €</span>
               </div>
-
               <div class="ritual-actions">
-                <button class="ritual-more-btn" type="button" data-toggle-card="deepFlowCard">
-                  Zistiť viac
-                </button>
+                <button class="ritual-more-btn" type="button" data-toggle-card="deepFlowCard">Zistiť viac</button>
               </div>
-
               <div class="ritual-expand">
                 <div>
                   <div class="ritual-expand-content">
@@ -1369,7 +1458,6 @@
                           <li>Sušenie: +10 min</li>
                         </ul>
                       </div>
-
                       <div class="ritual-expand-block">
                         <h4>Zahŕňa</h4>
                         <ul>
@@ -1383,19 +1471,12 @@
                           <li>regeneračnú masku na vlasy</li>
                         </ul>
                       </div>
-
                       <div class="ritual-addon">
-                        <p>
-                          <strong>Voliteľné doplnenie:</strong> masáž chodidiel 15 min / 15 €.
-                          Doplnková služba výhradne k rituálu.
-                        </p>
+                        <p><strong>Voliteľné doplnenie:</strong> masáž chodidiel 15 min / 15 €. Doplnková služba výhradne k rituálu.</p>
                       </div>
-
                       <div class="ritual-expand-block">
                         <h4>Pre koho je vhodný</h4>
-                        <p>
-                          Pre chvíle, keď cítiš, že hodina nestačí.
-                        </p>
+                        <p>Pre chvíle, keď cítiš, že hodina nestačí.</p>
                       </div>
                     </div>
                   </div>
@@ -1407,22 +1488,16 @@
           <article class="ritual-card" id="royalFlowCard">
             <div class="ritual-card-inner">
               <h3>Royal Flow Experience</h3>
-
               <p class="ritual-short">
                 Komplexný rituál pre úplné spomalenie a prepojenie hlavy a tela.
               </p>
-
               <div class="ritual-price-row">
                 <span class="ritual-price-label">Cena od</span>
                 <span class="ritual-price-value">120 €</span>
               </div>
-
               <div class="ritual-actions">
-                <button class="ritual-more-btn" type="button" data-toggle-card="royalFlowCard">
-                  Zistiť viac
-                </button>
+                <button class="ritual-more-btn" type="button" data-toggle-card="royalFlowCard">Zistiť viac</button>
               </div>
-
               <div class="ritual-expand">
                 <div>
                   <div class="ritual-expand-content">
@@ -1435,7 +1510,6 @@
                           <li>Sušenie: +10 min</li>
                         </ul>
                       </div>
-
                       <div class="ritual-expand-block">
                         <h4>Zahŕňa</h4>
                         <ul>
@@ -1449,12 +1523,9 @@
                           <li>regeneračnú masku na vlasy</li>
                         </ul>
                       </div>
-
                       <div class="ritual-expand-block">
                         <h4>Pre koho je vhodný</h4>
-                        <p>
-                          Rituál, ktorý si dopraješ, keď chceš viac než len oddych.
-                        </p>
+                        <p>Rituál, ktorý si dopraješ, keď chceš viac než len oddych.</p>
                       </div>
                     </div>
                   </div>
@@ -1466,22 +1537,16 @@
           <article class="ritual-card men-flow" id="menFlowCard">
             <div class="ritual-card-inner">
               <h3>Men Flow Ritual</h3>
-
               <p class="ritual-short">
                 Rituál prispôsobený mužom so zameraním na uvoľnenie napätia v oblasti hlavy, šije a ramien.
               </p>
-
               <div class="ritual-price-row">
                 <span class="ritual-price-label">Cena od</span>
                 <span class="ritual-price-value">90 €</span>
               </div>
-
               <div class="ritual-actions">
-                <button class="ritual-more-btn" type="button" data-toggle-card="menFlowCard">
-                  Zistiť viac
-                </button>
+                <button class="ritual-more-btn" type="button" data-toggle-card="menFlowCard">Zistiť viac</button>
               </div>
-
               <div class="ritual-expand">
                 <div>
                   <div class="ritual-expand-content">
@@ -1494,7 +1559,6 @@
                           <li>Starostlivosť môže byť doplnená o produkty určené na bradu</li>
                         </ul>
                       </div>
-
                       <div class="ritual-expand-block">
                         <h4>Zahŕňa</h4>
                         <ul>
@@ -1510,19 +1574,12 @@
                           <li>záverečný oplach</li>
                         </ul>
                       </div>
-
                       <div class="ritual-addon">
-                        <p>
-                          <strong>Voliteľné doplnenie:</strong> masáž chodidiel 15 min / 15 €.
-                          Doplnková služba výhradne k rituálu.
-                        </p>
+                        <p><strong>Voliteľné doplnenie:</strong> masáž chodidiel 15 min / 15 €. Doplnková služba výhradne k rituálu.</p>
                       </div>
-
                       <div class="ritual-expand-block">
                         <h4>Pre koho je vhodný</h4>
-                        <p>
-                          Ideálny reset po náročnom pracovnom dni.
-                        </p>
+                        <p>Ideálny reset po náročnom pracovnom dni.</p>
                       </div>
                     </div>
                   </div>
@@ -1534,83 +1591,88 @@
       </div>
     </section>
 
-    <section class="section" id="priebeh">
-      <div class="container">
-        <h2 class="section-title">Ako prebieha rituál</h2>
-        <p class="section-subtitle">
-          Rituál je rozdelený tak, aby mal prirodzený priebeh a klientka sa mohla postupne úplne uvoľniť.
-        </p>
+    <div class="section-divider" aria-hidden="true"></div>
 
-        <div class="process-wrap">
-          <div class="process-card">
-            <h3>Suchá časť</h3>
-            <p>
-              Jemná masáž šije, hlavy a tváre, prvé spomalenie dychu a uvoľnenie napätia, ktoré si telo bežne nesie celý deň.
-            </p>
-          </div>
-          <div class="process-card">
-            <h3>Mokrá časť</h3>
-            <p>
-              Čistenie, peeling, výživa, voda a upokojujúce dotyky, ktoré pomáhajú pokožke hlavy aj mysli prepnúť do úplného pokoja.
-            </p>
+    <section class="section more-section">
+      <div class="container">
+        <div class="more-shell">
+          <span class="more-kicker">✦ Viac než rituál</span>
+          <h2 class="more-title">VIAC NEŽ RITUÁL</h2>
+
+          <div class="more-grid">
+            <div class="more-line">
+              <p>
+                Lebo každodenný stres sa vždy vráti.<br>
+                Hlava sa znovu zaplní.<br>
+                Telo opäť stuhne.
+              </p>
+            </div>
+
+            <div class="more-line">
+              <p>
+                <strong>Nie je to luxus z rozmaru.</strong><br>
+                Je to vedomá starostlivosť o seba.<br>
+                <strong>Nie je to únik,</strong><br>
+                je to návrat k sebe.
+              </p>
+            </div>
+
+            <div class="more-line">
+              <p>
+                To nie je jednorazový zážitok.<br>
+                To je krásny,<br>
+                zdravý návyk.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="filozofia">
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <section class="section visit-section">
       <div class="container">
-        <div class="philosophy">
-          <h2>Filozofia Nature Flow</h2>
-          <p>
-            Každodenný stres sa neukladá iba v mysli. Cítiť ho v ramenách, v šiji, v čele aj v pokožke hlavy. Veríme, že existuje miesto, kde sa toto napätie môže rozpustiť. Miesto, kde voda, dotyk a ticho vrátia človeka späť do rovnováhy.
+        <div class="visit-shell">
+          <span class="visit-kicker">◎ Ako prebieha návšteva</span>
+          <h2 class="visit-title">AKO PREBIEHA NÁVŠTEVA</h2>
+
+          <p class="visit-intro">
+            Na začiatku je možnosť nahliadnuť kamerou na aktuálny stav pokožky hlavy a po jeho ukončení porovnať výsledok. Nejde o odbornú trichologickú diagnostiku, ale o vizuálne porovnanie pred a po.
           </p>
-        </div>
-      </div>
-    </section>
 
-    <section class="section" id="kozmetika">
-      <div class="container">
-        <h2 class="section-title">Kozmetika</h2>
-        <p class="section-subtitle">
-          Pracujeme s produktmi, ktoré podporujú zdravý pocit pokožky hlavy, jemnosť vlasov a prirodzený zážitok z celej procedúry.
-        </p>
+          <div class="visit-grid">
+            <article class="visit-card">
+              <h3>Suchá časť</h3>
+              <div class="visit-lines">
+                <div class="visit-line">masáže šije, krku, ramien a trapézov</div>
+                <div class="visit-line">následne masáž hlavy a tváre</div>
+                <div class="visit-line">podľa zvoleného rituálu alebo doplnkovej služby aj masáž chodidiel</div>
+                <div class="visit-line">počas celej fázy sa pracuje s vybraným aromaterapeutickým olejom</div>
+              </div>
+            </article>
 
-        <div class="cosmetics-grid">
-          <div class="soft-card">
-            <p>
-              Naše procedúry dopĺňa starostlivo vybraná kozmetika, ktorá ladí s filozofiou head spa — jemnosť, kvalita, prirodzenosť a príjemný senzorický zážitok. Nie je to len o vzhľade vlasov, ale aj o tom, ako sa cíti pokožka hlavy po rituáli.
-            </p>
-            <ul class="check-list">
-              <li>Jemné zloženie vhodné pre relaxačný rituál.</li>
-              <li>Dôraz na výživu, čistotu a komfort počas procedúry.</li>
-              <li>Produkty, ktoré podporujú pocit sviežosti a ľahkosti.</li>
-            </ul>
+            <article class="visit-card">
+              <h3>Mokrá časť</h3>
+              <div class="visit-lines">
+                <div class="visit-line">masáž hlavy a uvoľnenie napätia</div>
+                <div class="visit-line">aplikácia peelingu – klasický alebo bahenný podľa zvoleného rituálu</div>
+                <div class="visit-line">dôkladné čistenie – 2x umytie šampónom</div>
+                <div class="visit-line">kondicionér alebo regeneračná maska podľa rituálu</div>
+                <div class="visit-line">v pánskom rituáli starostlivosť o bradu</div>
+                <div class="visit-line">parná sauna s aromaterapiou, ktorá podporuje účinok produktov a prehlbuje relax</div>
+              </div>
+            </article>
           </div>
-          <div class="image-card img-cosmetics" aria-label="Kozmetické produkty"></div>
-        </div>
-      </div>
-    </section>
 
-    <section class="section" id="voucher">
-      <div class="container">
-        <h2 class="section-title">Voucher</h2>
-        <p class="section-subtitle">
-          Daruj oddych, ktorý má skutočný zmysel. Voucher do Nature Flow Head Spa je elegantný darček pre niekoho, komu chceš dopriať pokoj a starostlivosť.
-        </p>
-
-        <div class="voucher-grid">
-          <div class="soft-card">
-            <span class="voucher-badge">darčekový poukaz</span>
-            <p>
-              Voucher môže byť krásnym darom k narodeninám, meninám, výročiu alebo len tak. Je vhodný pre každého, kto potrebuje vypnúť, spomaliť a na chvíľu sa prestať venovať všetkému navôkol.
-            </p>
-            <a href="#kontakt" class="btn-reserve" style="margin-top:10px; display:inline-flex;">Objednať voucher</a>
+          <div class="visit-finish">
+            <strong>Záver návštevy:</strong> rituál končí pokojným dosušením vlasov bez ponáhľania.
           </div>
-          <div class="image-card img-voucher" aria-label="Darčekový voucher"></div>
         </div>
       </div>
     </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
 
     <section class="section" id="kontakt">
       <div class="container">
