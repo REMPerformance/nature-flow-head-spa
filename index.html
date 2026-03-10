@@ -1631,7 +1631,371 @@
   transform:translateY(-2px);
   box-shadow:0 14px 28px rgba(185,139,44,.24);
 }
-    
+    .contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+  align-items:stretch;
+  margin-top:34px;
+}
+
+.form-panel{
+  border-radius:30px;
+  padding:30px;
+  min-height:100%;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  overflow:hidden;
+}
+
+.form-panel > *{
+  position:relative;
+  z-index:2;
+}
+
+.form-panel::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at top right, rgba(201,161,74,.12), transparent 26%),
+    linear-gradient(90deg, transparent 0%, rgba(201,161,74,.05) 22%, transparent 48%);
+}
+
+.contact-panel{
+  background:linear-gradient(180deg, #5a5a39 0%, #49492f 100%);
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow:
+    0 18px 38px rgba(54,54,30,.16),
+    inset 0 1px 0 rgba(255,255,255,.05);
+  color:#f3ecd9;
+}
+
+.contact-panel .form-card-title,
+.contact-panel .form-card-text,
+.contact-panel .field label,
+.contact-panel .input-icon,
+.contact-panel .consent span{
+  color:#f3ecd9;
+}
+
+.contact-panel .form-card-text{
+  color:rgba(243,236,217,.78);
+}
+
+.contact-panel .field input,
+.contact-panel .field textarea,
+.contact-panel .field select{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.10);
+  color:#fff6e5;
+}
+
+.contact-panel .field input::placeholder,
+.contact-panel .field textarea::placeholder{
+  color:rgba(243,236,217,.50);
+}
+
+.contact-panel .field input:focus,
+.contact-panel .field textarea:focus,
+.contact-panel .field select:focus{
+  border-color:rgba(214,182,102,.48);
+  box-shadow:0 0 0 4px rgba(214,182,102,.10);
+  background:rgba(255,255,255,.12);
+}
+
+.contact-panel .submit-btn{
+  background:linear-gradient(135deg,#e1c980,#b98b2c);
+  color:#18150d;
+}
+
+.booking-panel{
+  background:
+    radial-gradient(circle at top right, rgba(201,161,74,.16), transparent 26%),
+    linear-gradient(180deg, rgba(255,255,255,.62), rgba(255,255,255,.28));
+  border:1px solid rgba(82,82,52,.10);
+  box-shadow:
+    0 18px 38px rgba(54,54,30,.08),
+    inset 0 1px 0 rgba(255,255,255,.42);
+  color:var(--text);
+}
+
+.form-card-title{
+  margin:0 0 8px;
+  font-size:1.18rem;
+  letter-spacing:.02em;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--olive);
+}
+
+.form-card-title .title-icon{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-size:16px;
+  background:rgba(201,161,74,.14);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.45);
+}
+
+.form-card-text{
+  margin:0 0 20px;
+  font-size:.88rem;
+  line-height:1.7;
+  color:rgba(47,47,34,.78);
+}
+
+.form-grid{
+  display:grid;
+  gap:14px;
+  flex:1;
+}
+
+.form-row-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.field{
+  display:grid;
+  gap:7px;
+}
+
+.field label{
+  font-size:.77rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:#7b6430;
+  font-weight:700;
+}
+
+.input-wrap{
+  position:relative;
+}
+
+.input-icon{
+  position:absolute;
+  left:14px;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:14px;
+  color:#8a6b2b;
+  pointer-events:none;
+  opacity:.88;
+}
+
+.textarea-wrap .input-icon{
+  top:18px;
+  transform:none;
+}
+
+.field input,
+.field textarea,
+.field select{
+  width:100%;
+  border:1px solid rgba(82,82,52,.14);
+  background:rgba(255,255,255,.78);
+  border-radius:18px;
+  padding:14px 14px 14px 42px;
+  color:var(--text);
+  outline:none;
+  transition:border-color .25s ease, box-shadow .25s ease, background .25s ease, transform .2s ease;
+}
+
+.field textarea{
+  min-height:140px;
+  resize:vertical;
+  padding-top:14px;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus{
+  border-color:rgba(185,139,44,.50);
+  box-shadow:0 0 0 4px rgba(201,161,74,.10);
+  background:#fff;
+}
+
+.field input:hover,
+.field textarea:hover,
+.field select:hover{
+  transform:translateY(-1px);
+}
+
+.ritual-picker{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.ritual-option{
+  position:relative;
+}
+
+.ritual-option input{
+  position:absolute;
+  opacity:0;
+  inset:0;
+  cursor:pointer;
+}
+
+.ritual-card-option{
+  min-height:92px;
+  border-radius:20px;
+  padding:14px 14px 14px 46px;
+  background:rgba(255,255,255,.60);
+  border:1px solid rgba(82,82,52,.10);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.40),
+    0 10px 22px rgba(54,54,30,.04);
+  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease, background .22s ease;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  position:relative;
+}
+
+.ritual-card-option::before{
+  content:"";
+  position:absolute;
+  left:14px;
+  top:50%;
+  transform:translateY(-50%);
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  border:2px solid rgba(185,139,44,.38);
+  background:#fff;
+  transition:all .22s ease;
+}
+
+.ritual-card-option .ritual-icon{
+  position:absolute;
+  right:12px;
+  top:12px;
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:14px;
+  background:rgba(201,161,74,.12);
+  color:#7b5d23;
+}
+
+.ritual-card-option strong{
+  font-size:.9rem;
+  color:var(--olive);
+  line-height:1.3;
+}
+
+.ritual-card-option span{
+  margin-top:4px;
+  font-size:.78rem;
+  line-height:1.4;
+  color:rgba(47,47,34,.68);
+}
+
+.ritual-option input:checked + .ritual-card-option{
+  border-color:rgba(185,139,44,.38);
+  background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(247,241,224,.88));
+  box-shadow:
+    0 16px 28px rgba(185,139,44,.12),
+    inset 0 1px 0 rgba(255,255,255,.55);
+  transform:translateY(-2px);
+}
+
+.ritual-option input:checked + .ritual-card-option::before{
+  background:linear-gradient(180deg,#d6b566,#b98b2c);
+  border-color:#b98b2c;
+  box-shadow:0 0 0 4px rgba(185,139,44,.12);
+}
+
+.ritual-option input:hover + .ritual-card-option{
+  transform:translateY(-2px);
+  box-shadow:
+    0 16px 28px rgba(54,54,30,.07),
+    inset 0 1px 0 rgba(255,255,255,.48);
+}
+
+.consent{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  font-size:.82rem;
+  line-height:1.55;
+  color:rgba(47,47,34,.78);
+  margin-top:2px;
+}
+
+.consent input{
+  margin-top:3px;
+  accent-color:#b98b2c;
+}
+
+.submit-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:0 22px;
+  border:none;
+  border-radius:999px;
+  cursor:pointer;
+  background:linear-gradient(135deg,#d4be86,#b5974f);
+  color:#111;
+  font-size:.79rem;
+  font-weight:700;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  box-shadow:0 8px 20px rgba(185,139,44,.18);
+  transition:transform .24s ease, box-shadow .24s ease, filter .24s ease;
+}
+
+.submit-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 28px rgba(185,139,44,.24);
+  filter:brightness(1.02);
+}
+
+.booking-panel .submit-btn{
+  width:100%;
+}
+
+@media (max-width:980px){
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+
+  .form-panel{
+    padding:24px 20px;
+  }
+
+  .ritual-picker{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:760px){
+  .form-row-2{
+    grid-template-columns:1fr;
+  }
+}
+    .contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+  align-items:stretch;
+  margin-top:34px;
+}
   </style>
 </head>
 <body>
@@ -2074,43 +2438,55 @@
   <div class="container">
     <h2 class="section-title">Kontakt a rezervácia</h2>
     <p class="section-subtitle">
-      Napíš nám správu alebo si rovno pošli nezáväznú rezerváciu termínu.
+      Napíš nám správu alebo si rovno odošli nezáväznú rezerváciu termínu.
     </p>
 
     <div class="contact-grid">
-      <div class="soft-card">
-        <h3 class="form-card-title">Kontaktný formulár</h3>
+      <div class="form-panel contact-panel">
+        <h3 class="form-card-title">
+          <span class="title-icon">✉</span>
+          Kontaktný formulár
+        </h3>
+
         <p class="form-card-text">
-          Máš otázku k rituálu, darčekovej poukážke alebo dostupnosti? Napíš nám.
+          Máš otázku k rituálu, dostupnosti, poukážke alebo starostlivosti? Napíš nám a ozveme sa ti späť.
         </p>
 
-        <form
-          action="https://formspree.io/f/xjgayaao"
-          method="POST"
-          class="form-grid"
-        >
+        <form action="https://formspree.io/f/xjgayaao" method="POST" class="form-grid">
           <input type="hidden" name="form_type" value="Kontakt" />
 
           <div class="form-row-2">
             <div class="field">
               <label for="kontakt-meno">Meno a priezvisko</label>
-              <input type="text" id="kontakt-meno" name="Meno a priezvisko" required />
+              <div class="input-wrap">
+                <span class="input-icon">👤</span>
+                <input type="text" id="kontakt-meno" name="Meno a priezvisko" placeholder="Tvoje meno a priezvisko" required />
+              </div>
             </div>
 
             <div class="field">
               <label for="kontakt-telefon">Telefón</label>
-              <input type="tel" id="kontakt-telefon" name="Telefón" required />
+              <div class="input-wrap">
+                <span class="input-icon">📞</span>
+                <input type="tel" id="kontakt-telefon" name="Telefón" placeholder="+421 ..." required />
+              </div>
             </div>
           </div>
 
           <div class="field">
             <label for="kontakt-email">E-mail</label>
-            <input type="email" id="kontakt-email" name="E-mail" required />
+            <div class="input-wrap">
+              <span class="input-icon">✉</span>
+              <input type="email" id="kontakt-email" name="E-mail" placeholder="tvoj@email.sk" required />
+            </div>
           </div>
 
           <div class="field">
             <label for="kontakt-sprava">Správa</label>
-            <textarea id="kontakt-sprava" name="Správa" required></textarea>
+            <div class="input-wrap textarea-wrap">
+              <span class="input-icon">✎</span>
+              <textarea id="kontakt-sprava" name="Správa" placeholder="Napíš nám, s čím ti vieme pomôcť..." required></textarea>
+            </div>
           </div>
 
           <label class="consent">
@@ -2122,64 +2498,92 @@
         </form>
       </div>
 
-      <div class="soft-card" id="rezervacia">
-        <h3 class="form-card-title">Rezervačný formulár</h3>
+      <div class="form-panel booking-panel" id="rezervacia">
+        <h3 class="form-card-title">
+          <span class="title-icon">🗓</span>
+          Rezervačný formulár
+        </h3>
+
         <p class="form-card-text">
-          Vyber si preferovaný dátum a rituál. Po odoslaní ťa budeme kontaktovať pre potvrdenie termínu.
+          Vyber si preferovaný dátum a rituál. Po odoslaní ťa budeme kontaktovať a termín potvrdíme.
         </p>
 
-        <form
-          action="https://formspree.io/f/xjgayaao"
-          method="POST"
-          class="form-grid"
-        >
+        <form action="https://formspree.io/f/xjgayaao" method="POST" class="form-grid">
           <input type="hidden" name="form_type" value="Rezervácia" />
 
           <div class="form-row-2">
             <div class="field">
               <label for="rezervacia-meno">Meno a priezvisko</label>
-              <input type="text" id="rezervacia-meno" name="Meno a priezvisko" required />
+              <div class="input-wrap">
+                <span class="input-icon">👤</span>
+                <input type="text" id="rezervacia-meno" name="Meno a priezvisko" placeholder="Tvoje meno a priezvisko" required />
+              </div>
             </div>
 
             <div class="field">
               <label for="rezervacia-telefon">Telefón</label>
-              <input type="tel" id="rezervacia-telefon" name="Telefón" required />
+              <div class="input-wrap">
+                <span class="input-icon">📞</span>
+                <input type="tel" id="rezervacia-telefon" name="Telefón" placeholder="+421 ..." required />
+              </div>
             </div>
           </div>
 
           <div class="field">
-            <label for="rezervacia-datum">Dátum</label>
-            <input type="date" id="rezervacia-datum" name="Preferovaný dátum" required />
+            <label for="rezervacia-datum">Preferovaný dátum</label>
+            <div class="input-wrap">
+              <span class="input-icon">📅</span>
+              <input type="date" id="rezervacia-datum" name="Preferovaný dátum" required />
+            </div>
           </div>
 
           <div class="field">
-            <label>Vybraný rituál</label>
-            <div class="ritual-checks">
-              <label class="check-item">
-                <input type="checkbox" name="Rituál Harmony" value="Áno" />
-                <span>Harmony</span>
+            <label>Vyber si rituál</label>
+            <div class="ritual-picker">
+              <label class="ritual-option">
+                <input type="radio" name="Vybraný rituál" value="Harmony" required />
+                <span class="ritual-card-option">
+                  <i class="ritual-icon">🌿</i>
+                  <strong>Harmony</strong>
+                  <span>60 min · základný reset a uvoľnenie</span>
+                </span>
               </label>
 
-              <label class="check-item">
-                <input type="checkbox" name="Rituál Deep Flow Ritual" value="Áno" />
-                <span>Deep Flow Ritual</span>
+              <label class="ritual-option">
+                <input type="radio" name="Vybraný rituál" value="Deep Flow Ritual" />
+                <span class="ritual-card-option">
+                  <i class="ritual-icon">💆</i>
+                  <strong>Deep Flow Ritual</strong>
+                  <span>90 min · hlbší oddych tela aj mysle</span>
+                </span>
               </label>
 
-              <label class="check-item">
-                <input type="checkbox" name="Rituál Royal Flow Experience" value="Áno" />
-                <span>Royal Flow Experience</span>
+              <label class="ritual-option">
+                <input type="radio" name="Vybraný rituál" value="Royal Flow Experience" />
+                <span class="ritual-card-option">
+                  <i class="ritual-icon">✨</i>
+                  <strong>Royal Flow Experience</strong>
+                  <span>120 min · komplexný prémiový rituál</span>
+                </span>
               </label>
 
-              <label class="check-item">
-                <input type="checkbox" name="Rituál Men Flow Ritual" value="Áno" />
-                <span>Men Flow Ritual</span>
+              <label class="ritual-option">
+                <input type="radio" name="Vybraný rituál" value="Men Flow Ritual" />
+                <span class="ritual-card-option">
+                  <i class="ritual-icon">🜂</i>
+                  <strong>Men Flow Ritual</strong>
+                  <span>90 min · rituál prispôsobený mužom</span>
+                </span>
               </label>
             </div>
           </div>
 
           <div class="field">
             <label for="rezervacia-poznamka">Poznámka</label>
-            <textarea id="rezervacia-poznamka" name="Poznámka"></textarea>
+            <div class="input-wrap textarea-wrap">
+              <span class="input-icon">✎</span>
+              <textarea id="rezervacia-poznamka" name="Poznámka" placeholder="Napíš nám napríklad preferovaný čas alebo doplňujúcu poznámku..."></textarea>
+            </div>
           </div>
 
           <label class="consent">
