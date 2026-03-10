@@ -1996,6 +1996,351 @@
   align-items:stretch;
   margin-top:34px;
 }
+
+    .contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  align-items:stretch;
+  margin-top:28px;
+}
+
+.form-panel{
+  border-radius:26px;
+  padding:22px;
+  min-height:100%;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  overflow:hidden;
+}
+
+.form-panel > *{
+  position:relative;
+  z-index:2;
+}
+
+.form-panel::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at top right, rgba(201,161,74,.10), transparent 24%),
+    linear-gradient(90deg, transparent 0%, rgba(201,161,74,.04) 22%, transparent 48%);
+}
+
+.contact-panel{
+  background:linear-gradient(180deg, #5a5a39 0%, #49492f 100%);
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow:
+    0 14px 30px rgba(54,54,30,.14),
+    inset 0 1px 0 rgba(255,255,255,.04);
+  color:#f3ecd9;
+}
+
+.contact-panel .form-card-title,
+.contact-panel .form-card-text,
+.contact-panel .field label,
+.contact-panel .field-icon,
+.contact-panel .consent span{
+  color:#f3ecd9;
+}
+
+.contact-panel .form-card-text{
+  color:rgba(243,236,217,.82);
+}
+
+.contact-panel .field input,
+.contact-panel .field textarea,
+.contact-panel .field select{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.10);
+  color:#fff6e5;
+}
+
+.contact-panel .field input::placeholder,
+.contact-panel .field textarea::placeholder{
+  color:rgba(243,236,217,.46);
+}
+
+.contact-panel .field input:focus,
+.contact-panel .field textarea:focus,
+.contact-panel .field select:focus{
+  border-color:rgba(214,182,102,.42);
+  box-shadow:0 0 0 4px rgba(214,182,102,.08);
+  background:rgba(255,255,255,.11);
+}
+
+.contact-panel .submit-btn{
+  background:linear-gradient(135deg,#e1c980,#b98b2c);
+  color:#18150d;
+}
+
+.booking-panel{
+  background:
+    radial-gradient(circle at top right, rgba(201,161,74,.14), transparent 24%),
+    linear-gradient(180deg, rgba(255,255,255,.62), rgba(255,255,255,.28));
+  border:1px solid rgba(82,82,52,.10);
+  box-shadow:
+    0 14px 30px rgba(54,54,30,.07),
+    inset 0 1px 0 rgba(255,255,255,.42);
+  color:var(--text);
+}
+
+.form-card-title{
+  margin:0 0 6px;
+  font-size:1rem;
+  letter-spacing:.01em;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--olive);
+}
+
+.form-card-title .title-icon{
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-size:13px;
+  background:rgba(201,161,74,.14);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4);
+  flex:0 0 28px;
+}
+
+.form-card-text{
+  margin:0 0 16px;
+  font-size:.8rem;
+  line-height:1.6;
+  color:rgba(47,47,34,.78);
+}
+
+.form-grid{
+  display:grid;
+  gap:12px;
+  flex:1;
+}
+
+.form-row-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.field{
+  display:grid;
+  gap:6px;
+}
+
+.field label{
+  font-size:.73rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:#7b6430;
+  font-weight:700;
+}
+
+.input-wrap{
+  position:relative;
+}
+
+.field-icon{
+  position:absolute;
+  left:14px;
+  top:50%;
+  transform:translateY(-50%);
+  width:14px;
+  height:14px;
+  opacity:.78;
+  pointer-events:none;
+}
+
+.textarea-wrap .field-icon{
+  top:14px;
+  transform:none;
+}
+
+.field input,
+.field textarea,
+.field select{
+  width:100%;
+  border:1px solid rgba(82,82,52,.14);
+  background:rgba(255,255,255,.8);
+  border-radius:18px;
+  padding:12px 14px 12px 38px;
+  color:var(--text);
+  outline:none;
+  transition:border-color .22s ease, box-shadow .22s ease, background .22s ease;
+  font-size:.82rem;
+}
+
+.field textarea{
+  min-height:96px;
+  resize:vertical;
+  padding-top:12px;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus{
+  border-color:rgba(185,139,44,.45);
+  box-shadow:0 0 0 4px rgba(201,161,74,.08);
+  background:#fff;
+}
+
+.ritual-picker{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.ritual-option{
+  position:relative;
+}
+
+.ritual-option input{
+  position:absolute;
+  opacity:0;
+  pointer-events:none;
+}
+
+.ritual-card-option{
+  min-height:64px;
+  border-radius:18px;
+  padding:12px 14px;
+  background:rgba(255,255,255,.62);
+  border:1px solid rgba(82,82,52,.10);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.40),
+    0 8px 18px rgba(54,54,30,.04);
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease, color .2s ease;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  cursor:pointer;
+}
+
+.ritual-card-option .ritual-icon{
+  position:absolute;
+  top:8px;
+  right:8px;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:11px;
+  background:rgba(201,161,74,.10);
+  color:#8a6b2b;
+}
+
+.ritual-card-option strong{
+  font-size:.82rem;
+  color:var(--olive);
+  line-height:1.3;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+}
+
+.ritual-option input:checked + .ritual-card-option{
+  background:linear-gradient(135deg, #b5964d 0%, #d9c27f 100%);
+  border-color:#b98b2c;
+  box-shadow:
+    0 12px 22px rgba(185,139,44,.18),
+    inset 0 1px 0 rgba(255,255,255,.24);
+  transform:translateY(-1px);
+}
+
+.ritual-option input:checked + .ritual-card-option strong{
+  color:#16130c;
+}
+
+.ritual-option input:checked + .ritual-card-option .ritual-icon{
+  background:rgba(20,15,8,.14);
+  color:#16130c;
+}
+
+.ritual-option:hover .ritual-card-option{
+  transform:translateY(-1px);
+  box-shadow:
+    0 10px 20px rgba(54,54,30,.06),
+    inset 0 1px 0 rgba(255,255,255,.42);
+}
+
+.consent{
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+  font-size:.76rem;
+  line-height:1.45;
+  color:rgba(47,47,34,.78);
+  margin-top:2px;
+}
+
+.consent input{
+  margin-top:2px;
+  accent-color:#b98b2c;
+}
+
+.submit-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:0 18px;
+  border:none;
+  border-radius:999px;
+  cursor:pointer;
+  background:linear-gradient(135deg,#d4be86,#b5974f);
+  color:#111;
+  font-size:.74rem;
+  font-weight:700;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  box-shadow:0 8px 18px rgba(185,139,44,.16);
+  transition:transform .22s ease, box-shadow .22s ease, filter .22s ease;
+}
+
+.submit-btn:hover{
+  transform:translateY(-1px);
+  box-shadow:0 12px 24px rgba(185,139,44,.22);
+  filter:brightness(1.02);
+}
+
+.booking-panel .submit-btn{
+  width:100%;
+}
+
+@media (max-width:980px){
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+
+  .form-panel{
+    padding:20px;
+  }
+
+  .ritual-picker{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media (max-width:760px){
+  .form-row-2,
+  .ritual-picker{
+    grid-template-columns:1fr;
+  }
+
+  .field textarea{
+    min-height:88px;
+  }
+}
   </style>
 </head>
 <body>
@@ -2434,7 +2779,7 @@
 
     <div class="section-divider" aria-hidden="true"></div>
 
-    <section class="section" id="kontakt">
+   <section class="section" id="kontakt">
   <div class="container">
     <h2 class="section-title">Kontakt a rezervácia</h2>
     <p class="section-subtitle">
@@ -2459,7 +2804,9 @@
             <div class="field">
               <label for="kontakt-meno">Meno a priezvisko</label>
               <div class="input-wrap">
-                <span class="input-icon">👤</span>
+                <svg class="field-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 12c2.761 0 5-2.239 5-5S14.761 2 12 2 7 4.239 7 7s2.239 5 5 5Zm0 2c-3.866 0-7 3.134-7 7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1c0-3.866-3.134-7-7-7Z"/>
+                </svg>
                 <input type="text" id="kontakt-meno" name="Meno a priezvisko" placeholder="Tvoje meno a priezvisko" required />
               </div>
             </div>
@@ -2467,7 +2814,9 @@
             <div class="field">
               <label for="kontakt-telefon">Telefón</label>
               <div class="input-wrap">
-                <span class="input-icon">📞</span>
+                <svg class="field-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.31.56 3.57.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.85 21 3 13.15 3 3a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.26.19 2.45.56 3.57a1 1 0 0 1-.24 1.02l-2.2 2.2Z"/>
+                </svg>
                 <input type="tel" id="kontakt-telefon" name="Telefón" placeholder="+421 ..." required />
               </div>
             </div>
@@ -2476,7 +2825,9 @@
           <div class="field">
             <label for="kontakt-email">E-mail</label>
             <div class="input-wrap">
-              <span class="input-icon">✉</span>
+              <svg class="field-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M4 5a2 2 0 0 0-2 2v.35l10 5.714L22 7.35V7a2 2 0 0 0-2-2H4Zm18 4.65-9.503 5.43a1 1 0 0 1-.994 0L2 9.65V17a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9.65Z"/>
+              </svg>
               <input type="email" id="kontakt-email" name="E-mail" placeholder="tvoj@email.sk" required />
             </div>
           </div>
@@ -2484,7 +2835,9 @@
           <div class="field">
             <label for="kontakt-sprava">Správa</label>
             <div class="input-wrap textarea-wrap">
-              <span class="input-icon">✎</span>
+              <svg class="field-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="m3 17.25 9.878-9.878 3.75 3.75L6.75 21H3v-3.75ZM14.293 5.957l1.414-1.414a2 2 0 0 1 2.829 0l.707.707a2 2 0 0 1 0 2.829l-1.414 1.414-3.536-3.536Z"/>
+              </svg>
               <textarea id="kontakt-sprava" name="Správa" placeholder="Napíš nám, s čím ti vieme pomôcť..." required></textarea>
             </div>
           </div>
@@ -2515,7 +2868,9 @@
             <div class="field">
               <label for="rezervacia-meno">Meno a priezvisko</label>
               <div class="input-wrap">
-                <span class="input-icon">👤</span>
+                <svg class="field-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 12c2.761 0 5-2.239 5-5S14.761 2 12 2 7 4.239 7 7s2.239 5 5 5Zm0 2c-3.866 0-7 3.134-7 7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1c0-3.866-3.134-7-7-7Z"/>
+                </svg>
                 <input type="text" id="rezervacia-meno" name="Meno a priezvisko" placeholder="Tvoje meno a priezvisko" required />
               </div>
             </div>
@@ -2523,7 +2878,9 @@
             <div class="field">
               <label for="rezervacia-telefon">Telefón</label>
               <div class="input-wrap">
-                <span class="input-icon">📞</span>
+                <svg class="field-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.31.56 3.57.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.85 21 3 13.15 3 3a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.26.19 2.45.56 3.57a1 1 0 0 1-.24 1.02l-2.2 2.2Z"/>
+                </svg>
                 <input type="tel" id="rezervacia-telefon" name="Telefón" placeholder="+421 ..." required />
               </div>
             </div>
@@ -2532,7 +2889,9 @@
           <div class="field">
             <label for="rezervacia-datum">Preferovaný dátum</label>
             <div class="input-wrap">
-              <span class="input-icon">📅</span>
+              <svg class="field-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M7 2a1 1 0 0 1 1 1v1h8V3a1 1 0 1 1 2 0v1h1a3 3 0 0 1 3 3v11a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h1V3a1 1 0 0 1 1-1Zm12 8H5v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8ZM6 6a1 1 0 0 0-1 1v1h14V7a1 1 0 0 0-1-1H6Z"/>
+              </svg>
               <input type="date" id="rezervacia-datum" name="Preferovaný dátum" required />
             </div>
           </div>
@@ -2545,7 +2904,6 @@
                 <span class="ritual-card-option">
                   <i class="ritual-icon">🌿</i>
                   <strong>Harmony</strong>
-                  <span>60 min · základný reset a uvoľnenie</span>
                 </span>
               </label>
 
@@ -2554,7 +2912,6 @@
                 <span class="ritual-card-option">
                   <i class="ritual-icon">💆</i>
                   <strong>Deep Flow Ritual</strong>
-                  <span>90 min · hlbší oddych tela aj mysle</span>
                 </span>
               </label>
 
@@ -2563,16 +2920,14 @@
                 <span class="ritual-card-option">
                   <i class="ritual-icon">✨</i>
                   <strong>Royal Flow Experience</strong>
-                  <span>120 min · komplexný prémiový rituál</span>
                 </span>
               </label>
 
               <label class="ritual-option">
                 <input type="radio" name="Vybraný rituál" value="Men Flow Ritual" />
                 <span class="ritual-card-option">
-                  <i class="ritual-icon">🜂</i>
+                  <i class="ritual-icon">△</i>
                   <strong>Men Flow Ritual</strong>
-                  <span>90 min · rituál prispôsobený mužom</span>
                 </span>
               </label>
             </div>
@@ -2581,7 +2936,9 @@
           <div class="field">
             <label for="rezervacia-poznamka">Poznámka</label>
             <div class="input-wrap textarea-wrap">
-              <span class="input-icon">✎</span>
+              <svg class="field-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="m3 17.25 9.878-9.878 3.75 3.75L6.75 21H3v-3.75ZM14.293 5.957l1.414-1.414a2 2 0 0 1 2.829 0l.707.707a2 2 0 0 1 0 2.829l-1.414 1.414-3.536-3.536Z"/>
+              </svg>
               <textarea id="rezervacia-poznamka" name="Poznámka" placeholder="Napíš nám napríklad preferovaný čas alebo doplňujúcu poznámku..."></textarea>
             </div>
           </div>
