@@ -2867,6 +2867,205 @@ cursor:pointer;
     height:240px;
   }
 }
+    .info-section{
+  padding:60px 0 24px;
+  position:relative;
+}
+
+.info-stack{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.info-top{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.info-card{
+  position:relative;
+  padding:24px 22px;
+  border-radius:24px;
+  background:rgba(255,255,255,0.52);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(120,110,70,0.14);
+  box-shadow:
+    0 18px 44px rgba(58,54,33,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.38);
+}
+
+.info-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:24px;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at top right, rgba(255,255,255,0.22), transparent 35%),
+    linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0));
+}
+
+.info-card-head{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:14px;
+}
+
+.info-card-icon{
+  width:42px;
+  height:42px;
+  min-width:42px;
+  border-radius:14px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg, #6d6a3d, #8b8651);
+  color:#fff;
+  box-shadow:0 12px 26px rgba(92,88,53,0.20);
+}
+
+.info-card h3{
+  margin:0;
+  font-size:1.05rem;
+  color:#3a3a29;
+}
+
+.info-card p{
+  margin:0 0 12px;
+  line-height:1.72;
+  color:#55513f;
+}
+
+.info-card p:last-child{
+  margin-bottom:0;
+}
+
+.info-note{
+  display:inline-flex;
+  margin-top:6px;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(108,104,62,0.10);
+  border:1px solid rgba(108,104,62,0.12);
+  color:#5d593b;
+  font-size:.9rem;
+  font-weight:600;
+}
+
+.accordion-list{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.accordion-item{
+  border-radius:20px;
+  overflow:hidden;
+  background:rgba(255,255,255,0.50);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(120,110,70,0.14);
+  box-shadow:
+    0 16px 36px rgba(58,54,33,0.07),
+    inset 0 1px 0 rgba(255,255,255,0.35);
+}
+
+.accordion-toggle{
+  width:100%;
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  padding:18px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  text-align:left;
+  font:inherit;
+  color:inherit;
+}
+
+.accordion-left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.accordion-title{
+  font-size:1rem;
+  font-weight:700;
+  color:#3d3a28;
+}
+
+.accordion-icon{
+  width:40px;
+  height:40px;
+  min-width:40px;
+  border-radius:13px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg, #6d6a3d, #8b8651);
+  color:#fff;
+  box-shadow:0 10px 24px rgba(92,88,53,0.18);
+}
+
+.accordion-chevron{
+  width:18px;
+  height:18px;
+  min-width:18px;
+  transition:transform .25s ease;
+  color:#6a6644;
+}
+
+.accordion-item.active .accordion-chevron{
+  transform:rotate(180deg);
+}
+
+.accordion-content{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .32s ease;
+}
+
+.accordion-inner{
+  padding:0 20px 20px 20px;
+  color:#55513f;
+}
+
+.accordion-inner p{
+  margin:0 0 14px;
+  line-height:1.72;
+}
+
+.accordion-inner p:last-child{
+  margin-bottom:0;
+}
+
+.accordion-inner ul{
+  margin:0;
+  padding-left:20px;
+}
+
+.accordion-inner li{
+  margin-bottom:12px;
+  line-height:1.7;
+  color:#55513f;
+}
+
+.accordion-inner li:last-child{
+  margin-bottom:0;
+}
+
+@media (max-width: 980px){
+  .info-top{
+    grid-template-columns:1fr;
+  }
+}
   </style>
 </head>
 <body>
@@ -3303,9 +3502,175 @@ cursor:pointer;
       </div>
     </section>
 
-    <div class="section-divider" aria-hidden="true"></div>
+       <div class="section-divider" aria-hidden="true"></div>
 
-<section class="booking-section">
+<section class="info-section" id="informacie">
+  <div class="container">
+    <div class="info-stack">
+
+      <div class="info-top">
+
+        <div class="info-card">
+          <div class="info-card-head">
+            <span class="info-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19c3-6 13-6 16 0"></path>
+                <path d="M7 16c.5-5 2.6-8 5-8s4.5 3 5 8"></path>
+                <path d="M9.5 7.5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5S13.4 10 12 10 9.5 8.9 9.5 7.5z"></path>
+              </svg>
+            </span>
+            <h3>Kozmetika</h3>
+          </div>
+
+          <p>V rituáloch sa používa prírodná talianska kozmetika MURÁN, inšpirovaná morom a výťažkami z morských rias bohatých na minerály.</p>
+          <p>Produkty sú zamerané na očistu, výživu a rovnováhu pokožky hlavy. Nie sú súčasťou trichologickej liečby, ale podporujú prirodzenú regeneráciu a zdravý vzhľad pokožky aj vlasov.</p>
+          <p>Vybrané produkty je možné zakúpiť priamo v prevádzke za odporúčané ceny výrobcu.</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-head">
+            <span class="info-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="6" width="18" height="12" rx="2"></rect>
+                <path d="M8 12h8"></path>
+                <path d="M12 8v8"></path>
+              </svg>
+            </span>
+            <h3>Darčekové poukazy</h3>
+          </div>
+
+          <p>Darčekový poukaz je možné vystaviť na konkrétny rituál alebo na hodnotu podľa výberu.</p>
+          <p>Je vhodný ako darček pre výnimočnú osobu, ktorá si zaslúži čas pre seba.</p>
+          <p>Platnosť poukazu je 3 mesiace od dátumu zakúpenia. V prípade potreby je možné jeho platnosť predĺžiť o ďalšie 3 mesiace za administratívny poplatok 20 €.</p>
+
+          <span class="info-note">Poukaz vystavíme podľa dohody</span>
+        </div>
+
+      </div>
+
+      <div class="accordion-list">
+
+        <div class="accordion-item">
+          <button class="accordion-toggle" type="button">
+            <span class="accordion-left">
+              <span class="accordion-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3v3"></path>
+                  <path d="M12 18v3"></path>
+                  <path d="M4.9 4.9l2.1 2.1"></path>
+                  <path d="M17 17l2.1 2.1"></path>
+                  <path d="M3 12h3"></path>
+                  <path d="M18 12h3"></path>
+                  <path d="M4.9 19.1L7 17"></path>
+                  <path d="M17 7l2.1-2.1"></path>
+                </svg>
+              </span>
+              <span class="accordion-title">Pred návštevou rituálu</span>
+            </span>
+
+            <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </button>
+
+          <div class="accordion-content">
+            <div class="accordion-inner">
+              <p>Aby si si mohol alebo mohla vychutnať rituál naplno, odporúčame dodržať niekoľko jednoduchých odporúčaní:</p>
+              <ul>
+                <li>Ideálne je neumývať vlasy približne 24 hodín pred rituálom, aby mohla byť pokožka hlavy dôkladne vyčistená počas ošetrenia.</li>
+                <li>Pred návštevou odporúčame vyhnúť sa väčšiemu množstvu kofeínu, aby sa telo mohlo počas rituálu lepšie uvoľniť.</li>
+                <li>Ak je to možné, nepoužívaj stylingové prípravky ako lak, gél alebo tužidlo, aby mohli produkty počas rituálu pôsobiť čo najefektívnejšie.</li>
+                <li>Pre čo najlepší relax odporúčame odložiť telefón alebo inteligentné hodinky, aby nič nerušilo tvoj čas pre seba.</li>
+                <li>Prosíme, príď na dohodnutý čas, aby bol zachovaný pokojný priebeh rituálov pre všetkých hostí.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-toggle" type="button">
+            <span class="accordion-left">
+              <span class="accordion-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0-6 0"></path>
+                  <path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6z"></path>
+                </svg>
+              </span>
+              <span class="accordion-title">Praktické informácie</span>
+            </span>
+
+            <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </button>
+
+          <div class="accordion-content">
+            <div class="accordion-inner">
+              <p>Prosím, príď približne 5 minút pred rezervovaným časom.</p>
+              <p>Každý rituál si vyžaduje prípravu priestoru, aby si si mohla užiť pokojný začiatok bez čakania.</p>
+              <p>Ak vieš, že sa na termín nebudeš môcť dostaviť, prosím, informuj minimálne 24 hodín vopred. Uvoľníš tak miesto niekomu, kto naň čaká.</p>
+              <p>Zrušenie menej ako 24 hodín vopred môže byť spoplatnené 50 % z ceny rituálu.</p>
+              <p>Rituály nie sú vhodné pri akútnych vírusových ochoreniach, horúčke alebo vážnych zdravotných obmedzeniach. V takom prípade odporúčame termín prebookovať.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-toggle" type="button">
+            <span class="accordion-left">
+              <span class="accordion-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="6" width="18" height="12" rx="2"></rect>
+                  <path d="M3 10h18"></path>
+                </svg>
+              </span>
+              <span class="accordion-title">Platobné podmienky</span>
+            </span>
+
+            <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </button>
+
+          <div class="accordion-content">
+            <div class="accordion-inner">
+              <p>Platba je možná v hotovosti alebo prevodom.</p>
+              <p>Zákazník má právo zvoliť si spôsob úhrady v súlade s platnou legislatívou Slovenskej republiky.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-toggle" type="button">
+            <span class="accordion-left">
+              <span class="accordion-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3l7 4v5c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V7l7-4z"></path>
+                  <path d="M9.5 12.2l1.7 1.7 3.6-4"></path>
+                </svg>
+              </span>
+              <span class="accordion-title">Ochrana osobných údajov (GDPR)</span>
+            </span>
+
+            <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </button>
+
+          <div class="accordion-content">
+            <div class="accordion-inner">
+              <p>Osobné údaje sú spracúvané výhradne za účelom rezervácie a účtovnej evidencie v súlade s platnou legislatívou.</p>
+              <p>Zákazník má právo na prístup, opravu alebo vymazanie údajov.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="booking-section" id="rezervacia">
 
 <div class="container booking-grid">
 
@@ -3454,26 +3819,44 @@ cursor:pointer;
       });
     })();
   </script>
-  <script>
-
+    <script>
 const ritual = document.getElementById("ritual");
 const doplnok = document.getElementById("doplnok");
 
-ritual.addEventListener("change", () => {
-
-if(ritual.value === "RoyalFlow"){
-
-doplnok.value="";
-doplnok.disabled=true;
-
-}else{
-
-doplnok.disabled=false;
-
+if (ritual && doplnok) {
+  ritual.addEventListener("change", () => {
+    if (ritual.value === "RoyalFlow") {
+      doplnok.value = "";
+      doplnok.disabled = true;
+    } else {
+      doplnok.disabled = false;
+    }
+  });
 }
 
-});
+const accordionItems = document.querySelectorAll(".accordion-item");
 
+accordionItems.forEach((item) => {
+  const button = item.querySelector(".accordion-toggle");
+  const content = item.querySelector(".accordion-content");
+
+  if (!button || !content) return;
+
+  button.addEventListener("click", () => {
+    const isActive = item.classList.contains("active");
+
+    accordionItems.forEach((otherItem) => {
+      otherItem.classList.remove("active");
+      const otherContent = otherItem.querySelector(".accordion-content");
+      if (otherContent) otherContent.style.maxHeight = null;
+    });
+
+    if (!isActive) {
+      item.classList.add("active");
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+});
 </script>
 </body>
 </html>
