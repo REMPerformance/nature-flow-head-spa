@@ -411,10 +411,19 @@ html{
       color:#ddd0b0;
     }
 
-    .hero-last{
-      margin-top:14px !important;
-      color:#cdbf9d;
-    }
+   .hero-last{
+  display:block;
+  width:max-content;
+  max-width:none;
+  white-space:nowrap;
+}
+    @media (max-width: 768px){
+  .hero-last{
+    white-space:normal;
+    width:auto;
+    max-width:100%;
+  }
+}
 
     .hero-right{
       justify-self:end;
@@ -3166,6 +3175,33 @@ cursor:pointer;
   position:relative;
   z-index:1;
 }
+    .booking-form button:hover{
+      .booking-note{
+  margin:14px 0 0;
+  text-align:center;
+  color:#6a654b;
+  font-size:.95rem;
+  line-height:1.6;
+}
+
+.booking-contact-mini{
+  margin-top:14px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+}
+
+.booking-contact-mini a{
+  color:#4e4a2f;
+  text-decoration:none;
+  font-weight:600;
+  transition:opacity .2s ease;
+}
+
+.booking-contact-mini a:hover{
+  opacity:.72;
+}
   </style>
 </head>
 <body>
@@ -3607,73 +3643,89 @@ cursor:pointer;
   <div class="container">
     <div class="info-stack">
 
-      <div class="info-top">
+      <div class="accordion-list">
 
-        <div class="info-card">
-          <div class="info-card-head">
-            <span class="info-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 19c3-6 13-6 16 0"></path>
-                <path d="M7 16c.5-5 2.6-8 5-8s4.5 3 5 8"></path>
-                <path d="M9.5 7.5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5S13.4 10 12 10 9.5 8.9 9.5 7.5z"></path>
-              </svg>
-            </span>
-            <h3>Kozmetika</h3>
-          </div>
+  <div class="accordion-item" id="kozmetika">
+    <button class="accordion-toggle" type="button">
+      <span class="accordion-left">
+        <span class="accordion-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19c3-6 13-6 16 0"></path>
+            <path d="M7 16c.5-5 2.6-8 5-8s4.5 3 5 8"></path>
+            <path d="M9.5 7.5c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5S13.4 10 12 10 9.5 8.9 9.5 7.5z"></path>
+          </svg>
+        </span>
+        <span class="accordion-title">Kozmetika</span>
+      </span>
 
+      <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M6 9l6 6 6-6"></path>
+      </svg>
+    </button>
+
+    <div class="accordion-content">
+      <div class="accordion-inner">
           <p>V rituáloch sa používa prírodná talianska kozmetika, inšpirovaná morom a výťažkami z morských rias bohatých na minerály.</p>
           <p>Produkty sú zamerané na očistu, výživu a rovnováhu pokožky hlavy. Nie sú súčasťou trichologickej liečby, ale podporujú prirodzenú regeneráciu a zdravý vzhľad pokožky aj vlasov.</p>
           <p>Vybrané produkty je možné zakúpiť si na objednávku na prevádzke.</p>
         </div>
+    </div>
+  </div>
 
-        <div class="info-card">
-          <div class="info-card-head">
-            <span class="info-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="6" width="18" height="12" rx="2"></rect>
-                <path d="M8 12h8"></path>
-                <path d="M12 8v8"></path>
-              </svg>
-            </span>
-            <h3>Darčekové poukazy</h3>
-          </div>
+  <div class="accordion-item" id="poukazy">
+    <button class="accordion-toggle" type="button">
+      <span class="accordion-left">
+        <span class="accordion-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="6" width="18" height="12" rx="2"></rect>
+            <path d="M8 12h8"></path>
+            <path d="M12 8v8"></path>
+          </svg>
+        </span>
+        <span class="accordion-title">Darčekové poukazy</span>
+      </span>
 
+      <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M6 9l6 6 6-6"></path>
+      </svg>
+    </button>
+
+    <div class="accordion-content">
+      <div class="accordion-inner">
           <p>Darčekový poukaz je možné vystaviť na konkrétny rituál alebo na hodnotu podľa výberu.</p>
           <p>Je vhodný ako darček pre výnimočnú osobu, ktorá si zaslúži čas pre seba.</p>
           <p>Platnosť poukazu je 3 mesiace od dátumu zakúpenia. V prípade potreby je možné jeho platnosť predĺžiť o ďalšie 3 mesiace za administratívny poplatok 20 €.</p>
 
           <span class="info-note">Poukaz vystavíme podľa dohody</span>
         </div>
+    </div>
+  </div>
 
-      </div>
+  <div class="accordion-item">
+    <button class="accordion-toggle" type="button">
+      <span class="accordion-left">
+        <span class="accordion-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v3"></path>
+            <path d="M12 18v3"></path>
+            <path d="M4.9 4.9l2.1 2.1"></path>
+            <path d="M17 17l2.1 2.1"></path>
+            <path d="M3 12h3"></path>
+            <path d="M18 12h3"></path>
+            <path d="M4.9 19.1L7 17"></path>
+            <path d="M17 7l2.1-2.1"></path>
+          </svg>
+        </span>
+        <span class="accordion-title">Pred návštevou rituálu</span>
+      </span>
 
-      <div class="accordion-list">
+      <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M6 9l6 6 6-6"></path>
+      </svg>
+    </button>
 
-        <div class="accordion-item">
-          <button class="accordion-toggle" type="button">
-            <span class="accordion-left">
-              <span class="accordion-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 3v3"></path>
-                  <path d="M12 18v3"></path>
-                  <path d="M4.9 4.9l2.1 2.1"></path>
-                  <path d="M17 17l2.1 2.1"></path>
-                  <path d="M3 12h3"></path>
-                  <path d="M18 12h3"></path>
-                  <path d="M4.9 19.1L7 17"></path>
-                  <path d="M17 7l2.1-2.1"></path>
-                </svg>
-              </span>
-              <span class="accordion-title">Pred návštevou rituálu</span>
-            </span>
-
-            <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M6 9l6 6 6-6"></path>
-            </svg>
-          </button>
-
-          <div class="accordion-content">
-            <div class="accordion-inner">
+    <div class="accordion-content">
+      <div class="accordion-inner">
               <p>Aby si si mohol alebo mohla vychutnať rituál naplno, odporúčame dodržať niekoľko jednoduchých odporúčaní:</p>
               <ul>
                 <li>Ideálne je neumývať vlasy približne 24 hodín pred rituálom, aby mohla byť pokožka hlavy dôkladne vyčistená počas ošetrenia</li>
@@ -3885,6 +3937,13 @@ cursor:pointer;
 
 <button type="submit">Rezervovať termín</button>
 
+<p class="booking-note">Ohľadom termínu vás budeme kontaktovať telefonicky.</p>
+
+<div class="booking-contact-mini">
+  <a href="tel:0918309500">0918 309 500</a>
+  <a href="mailto:natureflowheadspa@gmail.com">natureflowheadspa@gmail.com</a>
+</div>
+
 </form>
 
 </div>
@@ -3939,7 +3998,6 @@ if (ritual && doplnok) {
 }
 
 const ritualLinks = document.querySelectorAll("[data-ritual-select]");
-
 ritualLinks.forEach((link) => {
   link.addEventListener("click", () => {
     const selectedRitual = link.getAttribute("data-ritual-select");
@@ -3949,6 +4007,56 @@ ritualLinks.forEach((link) => {
     updateAddonState();
   });
 });
+
+const accordionItems = document.querySelectorAll(".accordion-item");
+
+function closeAllAccordions() {
+  accordionItems.forEach((item) => {
+    item.classList.remove("active");
+    const content = item.querySelector(".accordion-content");
+    if (content) content.style.maxHeight = null;
+  });
+}
+
+function openAccordion(item) {
+  if (!item) return;
+  const content = item.querySelector(".accordion-content");
+  if (!content) return;
+
+  item.classList.add("active");
+  content.style.maxHeight = content.scrollHeight + "px";
+}
+
+accordionItems.forEach((item) => {
+  const button = item.querySelector(".accordion-toggle");
+  const content = item.querySelector(".accordion-content");
+
+  if (!button || !content) return;
+
+  button.addEventListener("click", () => {
+    const isActive = item.classList.contains("active");
+
+    closeAllAccordions();
+
+    if (!isActive) {
+      openAccordion(item);
+    }
+  });
+});
+
+const voucherMenuLink = document.getElementById("voucher-menu-link");
+
+if (voucherMenuLink) {
+  voucherMenuLink.addEventListener("click", () => {
+    setTimeout(() => {
+      const voucherAccordion = document.getElementById("poukazy");
+      if (!voucherAccordion) return;
+
+      closeAllAccordions();
+      openAccordion(voucherAccordion);
+    }, 250);
+  });
+}
 </script>
 </body>
 </html>
