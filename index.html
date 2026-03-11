@@ -2517,6 +2517,119 @@ color:white;
 cursor:pointer;
 font-weight:600;
 }
+
+    .booking-section{
+padding:80px 0;
+}
+
+.booking-grid{
+display:grid;
+grid-template-columns:420px 1fr;
+gap:80px;
+}
+
+/* HOURS */
+
+.hours{
+display:flex;
+flex-direction:column;
+gap:10px;
+margin-bottom:35px;
+}
+
+.hours .row{
+display:flex;
+justify-content:space-between;
+padding:14px 18px;
+background:var(--beige-2);
+border-radius:14px;
+border:1px solid var(--line);
+}
+
+/* ADDRESS */
+
+.address-title{
+margin-bottom:10px;
+margin-top:10px;
+}
+
+.address-box{
+background:white;
+padding:16px;
+border-radius:12px;
+border:1px solid var(--line);
+margin-bottom:18px;
+}
+
+.address-text{
+line-height:1.5;
+}
+
+/* MAP */
+
+.map{
+border-radius:16px;
+overflow:hidden;
+margin-bottom:16px;
+border:1px solid var(--line);
+}
+
+.map iframe{
+width:100%;
+height:220px;
+border:0;
+}
+
+/* NAV BUTTON */
+
+.nav-btn{
+display:inline-block;
+padding:12px 20px;
+background:var(--olive);
+color:white;
+border-radius:10px;
+text-decoration:none;
+font-weight:600;
+}
+
+/* FORM */
+
+.booking-form{
+background:white;
+padding:35px;
+border-radius:20px;
+border:1px solid var(--line);
+}
+
+.booking-form form{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea{
+padding:12px 14px;
+border-radius:10px;
+border:1px solid var(--line);
+}
+
+.booking-form textarea{
+min-height:90px;
+resize:vertical;
+}
+
+.booking-form button{
+margin-top:10px;
+padding:14px;
+border:none;
+border-radius:12px;
+background:var(--olive);
+color:white;
+font-weight:600;
+cursor:pointer;
+}
   </style>
 </head>
 <body>
@@ -2965,6 +3078,7 @@ font-weight:600;
 <h2>Otváracie hodiny</h2>
 
 <div class="hours">
+
 <div class="row">
 <span>Pondelok – Piatok</span>
 <strong>09:00 – 19:00</strong>
@@ -2979,24 +3093,35 @@ font-weight:600;
 <span>Nedeľa</span>
 <strong>10:00 – 17:00</strong>
 </div>
+
 </div>
 
-<h3 class="address-title">Adresa</h3>
+<h3 class="address-title">Adresa salónu</h3>
 
-<p class="address">
-Winterova 1745<br>
-Piešťany 92101
-</p>
+<div class="address-box">
 
-<a class="map-box" 
-href="https://www.google.com/maps/search/?api=1&query=Winterova+1745+Piestany+92101" 
+<div class="address-text">
+<strong>Winterova 1745</strong><br>
+92101 Piešťany<br>
+Slovensko
+</div>
+
+</div>
+
+<div class="map">
+
+<iframe
+src="https://maps.google.com/maps?q=Winterova%201745%20Piestany&t=&z=15&ie=UTF8&iwloc=&output=embed"
+loading="lazy">
+</iframe>
+
+</div>
+
+<a class="nav-btn"
+href="https://www.google.com/maps/dir/?api=1&destination=Winterova+1745+Piestany+92101"
 target="_blank">
 
-<div class="map-icon">📍</div>
-<div>
-<strong>Otvoriť navigáciu</strong>
-<p>Zobraziť v Google Maps</p>
-</div>
+Navigovať
 
 </a>
 
@@ -3004,6 +3129,7 @@ target="_blank">
 
 
 <!-- RIGHT FORM -->
+
 <div class="booking-form">
 
 <h2>Rezervácia termínu</h2>
@@ -3016,19 +3142,30 @@ target="_blank">
 
 <input type="tel" name="telefon" placeholder="Telefónne číslo" required>
 
-<select name="ritual" required>
+
+<select id="ritual" name="ritual" required>
+
 <option value="">Vyberte rituál</option>
-<option>Relax Ritual</option>
-<option>Deep Head Therapy</option>
-<option>Luxury Head Spa</option>
+
+<option value="Harmony">Harmony 60 min</option>
+
+<option value="DeepFlow">Deep Flow 90 min</option>
+
+<option value="RoyalFlow">Royal Flow 120 min</option>
+
+<option value="MenFlow">Men Flow 90 min</option>
+
 </select>
 
-<select name="doplnok">
+
+<select id="doplnok" name="doplnok">
+
 <option value="">Doplnková služba</option>
-<option>Masáž šije</option>
-<option>Aromaterapia</option>
-<option>Hair treatment</option>
+
+<option value="Masaz noh">+ Masáž nôh 15 min (15€)</option>
+
 </select>
+
 
 <textarea name="poznamka" placeholder="Poznámka"></textarea>
 
@@ -3099,5 +3236,26 @@ target="_blank">
       });
     })();
   </script>
+  <script>
+
+const ritual = document.getElementById("ritual");
+const doplnok = document.getElementById("doplnok");
+
+ritual.addEventListener("change", () => {
+
+if(ritual.value === "RoyalFlow"){
+
+doplnok.value="";
+doplnok.disabled=true;
+
+}else{
+
+doplnok.disabled=false;
+
+}
+
+});
+
+</script>
 </body>
 </html>
