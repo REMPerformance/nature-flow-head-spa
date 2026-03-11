@@ -2406,6 +2406,117 @@
   cursor:pointer;
   white-space:nowrap;
 }
+
+    .booking-section{
+padding:80px 0;
+}
+
+.booking-grid{
+display:grid;
+grid-template-columns: 420px 1fr;
+gap:80px;
+align-items:start;
+}
+
+/* LEFT PANEL */
+
+.booking-info h2{
+margin-bottom:20px;
+}
+
+.hours{
+display:flex;
+flex-direction:column;
+gap:10px;
+margin-bottom:35px;
+}
+
+.hours .row{
+display:flex;
+justify-content:space-between;
+padding:14px 18px;
+background:var(--beige-2);
+border-radius:14px;
+border:1px solid var(--line);
+}
+
+.address-title{
+margin-top:10px;
+margin-bottom:10px;
+font-size:1.2rem;
+}
+
+.address{
+margin-bottom:20px;
+line-height:1.5;
+}
+
+.map-box{
+display:flex;
+align-items:center;
+gap:14px;
+padding:16px;
+background:white;
+border-radius:14px;
+border:1px solid var(--line);
+text-decoration:none;
+color:inherit;
+transition:.2s;
+}
+
+.map-box:hover{
+transform:translateY(-2px);
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.map-icon{
+font-size:24px;
+}
+
+
+/* FORM */
+
+.booking-form{
+background:white;
+padding:35px;
+border-radius:20px;
+border:1px solid var(--line);
+}
+
+.booking-form h2{
+margin-bottom:20px;
+}
+
+.booking-form form{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea{
+padding:12px 14px;
+border-radius:10px;
+border:1px solid var(--line);
+font-family:inherit;
+}
+
+.booking-form textarea{
+min-height:90px;
+resize:vertical;
+}
+
+.booking-form button{
+margin-top:10px;
+padding:14px;
+border:none;
+border-radius:12px;
+background:var(--olive);
+color:white;
+cursor:pointer;
+font-weight:600;
+}
   </style>
 </head>
 <body>
@@ -2844,31 +2955,91 @@
 
     <div class="section-divider" aria-hidden="true"></div>
 
-   <section class="opening-hours">
-  <div class="container hours-box">
+<section class="booking-section">
 
-    <h2>Otváracie hodiny</h2>
+<div class="container booking-grid">
 
-    <div class="hours-grid">
-      <div class="hours-row">
-        <span>Pondelok – Piatok</span>
-        <strong>09:00 – 19:00</strong>
-      </div>
+<!-- LEFT INFO -->
+<div class="booking-info">
 
-      <div class="hours-row">
-        <span>Sobota</span>
-        <strong>10:00 – 18:00</strong>
-      </div>
+<h2>Otváracie hodiny</h2>
 
-      <div class="hours-row">
-        <span>Nedeľa</span>
-        <strong>10:00 – 17:00</strong>
-      </div>
-    </div>
+<div class="hours">
+<div class="row">
+<span>Pondelok – Piatok</span>
+<strong>09:00 – 19:00</strong>
+</div>
 
-  </div>
+<div class="row">
+<span>Sobota</span>
+<strong>10:00 – 18:00</strong>
+</div>
+
+<div class="row">
+<span>Nedeľa</span>
+<strong>10:00 – 17:00</strong>
+</div>
+</div>
+
+<h3 class="address-title">Adresa</h3>
+
+<p class="address">
+Winterova 1745<br>
+Piešťany 92101
+</p>
+
+<a class="map-box" 
+href="https://www.google.com/maps/search/?api=1&query=Winterova+1745+Piestany+92101" 
+target="_blank">
+
+<div class="map-icon">📍</div>
+<div>
+<strong>Otvoriť navigáciu</strong>
+<p>Zobraziť v Google Maps</p>
+</div>
+
+</a>
+
+</div>
+
+
+<!-- RIGHT FORM -->
+<div class="booking-form">
+
+<h2>Rezervácia termínu</h2>
+
+<form action="https://formspree.io/f/xjgayaao" method="POST">
+
+<input type="hidden" name="form_type" value="Rezervácia">
+
+<input type="text" name="meno" placeholder="Meno a priezvisko" required>
+
+<input type="tel" name="telefon" placeholder="Telefónne číslo" required>
+
+<select name="ritual" required>
+<option value="">Vyberte rituál</option>
+<option>Relax Ritual</option>
+<option>Deep Head Therapy</option>
+<option>Luxury Head Spa</option>
+</select>
+
+<select name="doplnok">
+<option value="">Doplnková služba</option>
+<option>Masáž šije</option>
+<option>Aromaterapia</option>
+<option>Hair treatment</option>
+</select>
+
+<textarea name="poznamka" placeholder="Poznámka"></textarea>
+
+<button type="submit">Rezervovať termín</button>
+
+</form>
+
+</div>
+
+</div>
 </section>
-    <section class="reservation">
 <div class="container">
 
 <form action="https://formspree.io/f/xjgayaao" method="POST" class="reservation-form">
