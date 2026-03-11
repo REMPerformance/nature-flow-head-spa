@@ -2,9 +2,27 @@
 <html lang="sk">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nature Flow Head Spa Piešťany</title>
-  <meta name="description" content="Nature Flow Head Spa Piešťany – pokojný priestor pre uvoľnenie hlavy, šije a mysle. Luxusné head spa rituály, prírodná kozmetika a hlboký oddych." />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Nature Flow Head Spa Piešťany | Luxusný head spa rituál</title>
+<meta name="description" content="Nature Flow Head Spa Piešťany ponúka luxusné head spa rituály, uvoľnenie hlavy, šije a ramien, prírodnú kozmetiku a pokojný priestor pre regeneráciu tela aj mysle." />
+<meta name="keywords" content="head spa Piešťany, head spa Slovensko, masáž hlavy Piešťany, relax Piešťany, wellness Piešťany, Nature Flow Head Spa, starostlivosť o pokožku hlavy, darčekový poukaz head spa" />
+<meta name="author" content="Nature Flow Head Spa Piešťany" />
+<meta name="robots" content="index, follow" />
+
+<meta property="og:title" content="Nature Flow Head Spa Piešťany | Luxusný head spa rituál" />
+<meta property="og:description" content="Pokojný priestor pre uvoľnenie hlavy, šije, ramien a mysle. Luxusné rituály, prírodná kozmetika a hlboký oddych v Piešťanoch." />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="sk_SK" />
+<meta property="og:image" content="og-image.jpg" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Nature Flow Head Spa Piešťany | Luxusný head spa rituál" />
+<meta name="twitter:description" content="Luxusné head spa rituály a hlboké uvoľnenie v pokojnom priestore v Piešťanoch." />
+<meta name="twitter:image" content="og-image.jpg" />
+
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="apple-touch-icon" href="favicon.png" />
   <style>
     :root{
       --olive:#525234;
@@ -60,7 +78,9 @@
       position:relative;
       overflow:visible;
     }
-
+html{
+  scroll-behavior:smooth;
+}
     .brand{
       display:flex;
       align-items:center;
@@ -3066,6 +3086,86 @@ cursor:pointer;
     grid-template-columns:1fr;
   }
 }
+
+    .hero{
+  overflow:hidden;
+}
+
+.hero-orbs{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+}
+
+.hero-orb{
+  position:absolute;
+  display:block;
+  border-radius:50%;
+  filter:blur(55px);
+  opacity:.42;
+  mix-blend-mode:screen;
+}
+
+.orb-1{
+  width:340px;
+  height:340px;
+  top:8%;
+  left:6%;
+  background:radial-gradient(circle, rgba(196,186,125,0.34) 0%, rgba(196,186,125,0.16) 35%, rgba(196,186,125,0) 72%);
+  animation:orbFloat1 16s ease-in-out infinite alternate;
+}
+
+.orb-2{
+  width:300px;
+  height:300px;
+  top:14%;
+  right:10%;
+  background:radial-gradient(circle, rgba(164,153,92,0.28) 0%, rgba(164,153,92,0.12) 36%, rgba(164,153,92,0) 72%);
+  animation:orbFloat2 19s ease-in-out infinite alternate;
+}
+
+.orb-3{
+  width:260px;
+  height:260px;
+  bottom:10%;
+  left:18%;
+  background:radial-gradient(circle, rgba(236,229,197,0.34) 0%, rgba(236,229,197,0.14) 34%, rgba(236,229,197,0) 72%);
+  animation:orbFloat3 15s ease-in-out infinite alternate;
+}
+
+.orb-4{
+  width:380px;
+  height:380px;
+  bottom:-4%;
+  right:12%;
+  background:radial-gradient(circle, rgba(145,136,77,0.22) 0%, rgba(145,136,77,0.10) 34%, rgba(145,136,77,0) 72%);
+  animation:orbFloat4 20s ease-in-out infinite alternate;
+}
+
+@keyframes orbFloat1{
+  from{transform:translate3d(0,0,0) scale(1);}
+  to{transform:translate3d(24px,-18px,0) scale(1.08);}
+}
+@keyframes orbFloat2{
+  from{transform:translate3d(0,0,0) scale(1);}
+  to{transform:translate3d(-18px,22px,0) scale(1.06);}
+}
+@keyframes orbFloat3{
+  from{transform:translate3d(0,0,0) scale(1);}
+  to{transform:translate3d(18px,-14px,0) scale(1.05);}
+}
+@keyframes orbFloat4{
+  from{transform:translate3d(0,0,0) scale(1);}
+  to{transform:translate3d(-22px,-20px,0) scale(1.07);}
+}
+
+.hero-container,
+.hero-gloss,
+.hero-flow{
+  position:relative;
+  z-index:1;
+}
   </style>
 </head>
 <body>
@@ -3082,8 +3182,9 @@ cursor:pointer;
       <nav aria-label="Hlavná navigácia">
         <ul class="nav-list">
           <li><a href="#onas">O nás</a></li>
-          <li><a href="#headspa-info">Čo je to headspa</a></li>
+          <li><a href="#headspa-info">Čo je HEAD SPA</a></li>
           <li><a href="#ritualy">Rituály</a></li>
+          <li><a href="#informacie">Užitočné informácie</a></li>
           <li><a href="#kontakt">Kontakt</a></li>
         </ul>
       </nav>
@@ -3094,11 +3195,14 @@ cursor:pointer;
 
   <main id="domov">
     <section class="hero">
-      <div class="hero-gloss" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+  <div class="hero-orbs" aria-hidden="true">
+    <span class="hero-orb orb-1"></span>
+    <span class="hero-orb orb-2"></span>
+    <span class="hero-orb orb-3"></span>
+    <span class="hero-orb orb-4"></span>
+  </div>
+
+  <div class="hero-gloss" aria-hidden="true">
 
       <div class="hero-flow" aria-hidden="true">
         <span class="flow-layer flow-1"></span>
@@ -3114,10 +3218,10 @@ cursor:pointer;
           </h1>
 
           <div class="hero-text">
-            <p>Odplav stres a napätie.</p>
-            <p>Zaži uvoľnenie hlavy aj chodidiel.</p>
-            <p>Spomaľ. Dopraj si pokoj, ktorý patrí len tebe.</p>
-            <p class="hero-last">Miesto, kde sa vždy vrátiš, keď potrebuješ znovu nájsť seba.</p>
+            <p>Odplav stres a napätie</p>
+            <p>Zaži uvoľnenie hlavy aj chodidiel</p>
+            <p>Spomaľ... dopraj si pokoj, ktorý patrí len tebe.</p>
+            <p class="hero-last">Miesto, kde sa vždy vrátiš, keď potrebuješ znovu nájsť seba</p>
           </div>
         </div>
 
@@ -3133,10 +3237,9 @@ cursor:pointer;
       <div class="container">
         <div class="headspa-shell" id="headspa-info">
           <div class="headspa-top">
-            <span class="headspa-kicker">🌿 Čo je to head spa</span>
-            <h2 class="headspa-title">Čo je to Head Spa</h2>
+            <h2 class="headspa-title">🌿 Čo je to HEAD SPA</h2>
             <p class="headspa-lead">
-              Head Spa je relaxačný rituál, ktorý spája starostlivosť o pokožku hlavy, masáž hlavy, šije a ramien s hlbokým uvoľnením tela. V Nature Flow Head Spa tento zážitok dopĺňame aj o masáž chodidiel, vďaka čomu sa napätie uvoľňuje zhora aj zdola a telo sa prirodzene dostáva do stavu pokoja.
+              HEAD SPA je relaxačný rituál, ktorý spája starostlivosť o pokožku hlavy, masáž hlavy, šije a ramien s hlbokým uvoľnením tela. V Nature Flow HEAD SPA tento zážitok dopĺňame aj o masáž chodidiel, vďaka čomu sa napätie uvoľňuje zhora aj zdola a telo sa prirodzene dostáva do stavu pokoja.
             </p>
           </div>
 
@@ -3158,8 +3261,10 @@ cursor:pointer;
                 <h3 class="headspa-subtitle">Čo môžeš očakávať</h3>
                 <div class="headspa-lines">
                   <div class="headspa-line">uvoľnenie pokožky hlavy, šije a ramien</div>
+                   <div class="headspa-line">odplavenie stresu a napätia</div>
                   <div class="headspa-line">príjemné prepojenie relaxácie hlavy a chodidiel</div>
                   <div class="headspa-line">hlboké spomalenie tela aj mysle</div>
+                   <div class="headspa-line">čas len pre teba</div>
                 </div>
               </div>
             </div>
@@ -3168,7 +3273,7 @@ cursor:pointer;
               <div class="headspa-note">
                 <h3 class="headspa-note-title">ℹ️ Dôležitá informácia</h3>
                 <p>
-                  Nature Flow Head Spa nie je trichologické centrum. Našim cieľom je hĺbkové čistenie pokožky hlavy, relaxačný rituál a uvoľnenie napätia. Počas procedúry je možné voliteľne nahliadnuť na stav pokožky hlavy pomocou mikrokamery.
+                  Nature Flow HEAD SPA nie je trichologické centrum. Našim cieľom je hĺbkové čistenie pokožky hlavy, relaxačný rituál a uvoľnenie napätia. Pred rituálom a na jeho konci je možné voliteľne nahliadnuť na stav pokožky hlavy pomocou mikrokamery.
                 </p>
               </div>
             </div>
@@ -3182,8 +3287,7 @@ cursor:pointer;
     <section class="section rituals-section" id="ritualy">
       <div class="container">
         <div class="rituals-head">
-          <span class="rituals-kicker">✨ Naše rituály</span>
-          <h2 class="section-title">Rituály</h2>
+          <h2 class="section-title">✨ Naše rituály</h2>
           <p class="section-subtitle rituals-subtitle">
             Každý rituál má svoje tempo a svoju hĺbku oddychu. Vyber si podľa toho, čo práve potrebuješ.
           </p>
@@ -3197,17 +3301,17 @@ cursor:pointer;
             <div class="ritual-card-inner">
               <h3>Harmony</h3>
               <p class="ritual-short">
-                Základný rituál pre hĺbkovú očistu pokožky hlavy a uvoľnenie napätia v oblasti hlavy, šije a ramien.
+                Ideálny základ, keď potrebuješ spomaliť a uvoľniť napätie.
               </p>
 
               <div class="ritual-price-row">
-                <span class="ritual-price-label">Cena od</span>
+                <span class="ritual-price-label">Cena</span>
                 <span class="ritual-price-line" aria-hidden="true"></span>
                 <span class="ritual-price-value">60 €</span>
               </div>
 
               <div class="ritual-actions">
-                <a href="#rezervacia" class="ritual-book-btn">Rezervovať tento rituál</a>
+                <a href="#rezervacia" class="ritual-book-btn" data-ritual-select="Harmony">Rezervovať tento rituál</a>
                 <button class="ritual-more-btn" type="button" data-toggle-card="harmonyCard">Zistiť viac</button>
               </div>
 
@@ -3239,7 +3343,7 @@ cursor:pointer;
                       </div>
                       <div class="ritual-expand-block">
                         <h4>Pre koho je vhodný</h4>
-                        <p>Ideálny základ, keď potrebuješ spomaliť a uvoľniť napätie.</p>
+                        <p>Základný rituál pre hĺbkovú očistu pokožky hlavy a uvoľnenie napätia v oblasti hlavy, šije a ramien.</p>
                       </div>
                     </div>
                   </div>
@@ -3252,17 +3356,17 @@ cursor:pointer;
             <div class="ritual-card-inner">
               <h3>Deep Flow Ritual</h3>
               <p class="ritual-short">
-                Rozšírená verzia základného rituálu pre hlbšie uvoľnenie tela aj mysle.
+                Pre chvíle, keď cítiš, že hodina nestačí.
               </p>
 
               <div class="ritual-price-row">
-                <span class="ritual-price-label">Cena od</span>
+                <span class="ritual-price-label">Cena</span>
                 <span class="ritual-price-line" aria-hidden="true"></span>
                 <span class="ritual-price-value">90 €</span>
               </div>
 
               <div class="ritual-actions">
-                <a href="#rezervacia" class="ritual-book-btn">Rezervovať tento rituál</a>
+                <a href="#rezervacia" class="ritual-book-btn" data-ritual-select="DeepFlow">Rezervovať tento rituál</a>
                 <button class="ritual-more-btn" type="button" data-toggle-card="deepFlowCard">Zistiť viac</button>
               </div>
 
@@ -3283,8 +3387,7 @@ cursor:pointer;
                         <ul>
                           <li>masáž šije, ramien a trapézov</li>
                           <li>masáž tváre</li>
-                          <li>predĺženú masáž hlavy</li>
-                          <li>intenzívnejšiu masáž tváre</li>
+                          <li>masáž hlavy a pokožky podporujúcu prekrvenie</li>
                           <li>aromaterapiu</li>
                           <li>bahenný peeling pokožky hlavy</li>
                           <li>dôkladné čistenie a 2x umytie šampónom</li>
@@ -3296,7 +3399,7 @@ cursor:pointer;
                       </div>
                       <div class="ritual-expand-block">
                         <h4>Pre koho je vhodný</h4>
-                        <p>Pre chvíle, keď cítiš, že hodina nestačí.</p>
+                        <p>Rozšírená verzia základného rituálu pre hlbšie uvoľnenie tela aj mysle.</p>
                       </div>
                     </div>
                   </div>
@@ -3309,17 +3412,17 @@ cursor:pointer;
             <div class="ritual-card-inner">
               <h3>Royal Flow Experience</h3>
               <p class="ritual-short">
-                Komplexný rituál pre úplné spomalenie a prepojenie hlavy a tela.
+                Rituál, ktorý si dopraješ, keď chceš viac než len oddych.
               </p>
 
               <div class="ritual-price-row">
-                <span class="ritual-price-label">Cena od</span>
+                <span class="ritual-price-label">Cena</span>
                 <span class="ritual-price-line" aria-hidden="true"></span>
                 <span class="ritual-price-value">120 €</span>
               </div>
 
               <div class="ritual-actions">
-                <a href="#rezervacia" class="ritual-book-btn">Rezervovať tento rituál</a>
+                <a href="#rezervacia" class="ritual-book-btn" data-ritual-select="RoyalFlow">Rezervovať tento rituál</a>
                 <button class="ritual-more-btn" type="button" data-toggle-card="royalFlowCard">Zistiť viac</button>
               </div>
 
@@ -3339,7 +3442,7 @@ cursor:pointer;
                         <h4>Zahŕňa</h4>
                         <ul>
                           <li>masáž šije a trapézov</li>
-                          <li>predĺženú masáž hlavy</li>
+                          <li>masáž hlavy a pokožky podporujúcu prekrvenie</li>
                           <li>masáž tváre</li>
                           <li>aromaterapiu</li>
                           <li>masáž chodidiel</li>
@@ -3350,7 +3453,7 @@ cursor:pointer;
                       </div>
                       <div class="ritual-expand-block">
                         <h4>Pre koho je vhodný</h4>
-                        <p>Rituál, ktorý si dopraješ, keď chceš viac než len oddych.</p>
+                        <p>Komplexný rituál pre úplné spomalenie a prepojenie hlavy a tela.</p>
                       </div>
                     </div>
                   </div>
@@ -3363,17 +3466,17 @@ cursor:pointer;
             <div class="ritual-card-inner">
               <h3>Men Flow Ritual</h3>
               <p class="ritual-short">
-                Rituál prispôsobený mužom so zameraním na uvoľnenie napätia v oblasti hlavy, šije a ramien.
+                Ideálny reset po náročnom pracovnom dni.
               </p>
 
               <div class="ritual-price-row">
-                <span class="ritual-price-label">Cena od</span>
+                <span class="ritual-price-label">Cena</span>
                 <span class="ritual-price-line" aria-hidden="true"></span>
                 <span class="ritual-price-value">90 €</span>
               </div>
 
               <div class="ritual-actions">
-                <a href="#rezervacia" class="ritual-book-btn">Rezervovať tento rituál</a>
+                <a href="#rezervacia" class="ritual-book-btn" data-ritual-select="MenFlow">Rezervovať tento rituál</a>
                 <button class="ritual-more-btn" type="button" data-toggle-card="menFlowCard">Zistiť viac</button>
               </div>
 
@@ -3386,7 +3489,7 @@ cursor:pointer;
                         <ul>
                           <li>Dĺžka rituálu: 90 min</li>
                           <li>Cena: 90 €</li>
-                          <li>Starostlivosť môže byť doplnená o produkty určené na bradu</li>
+                          <li>Tento rituál sa zameriava i na masáž brady</li>
                         </ul>
                       </div>
                       <div class="ritual-expand-block">
@@ -3395,8 +3498,6 @@ cursor:pointer;
                           <li>masáž šije, ramien a trapézov</li>
                           <li>masáž hlavy a pokožky podporujúcu prekrvenie</li>
                           <li>aromaterapiu podľa výberu</li>
-                          <li>dezinfekciu</li>
-                          <li>šampónovanie a masáž brady</li>
                           <li>masáž tváre a brady</li>
                           <li>peeling pokožky hlavy</li>
                           <li>čistenie hlavy a 2x umytie šampónom</li>
@@ -3409,7 +3510,7 @@ cursor:pointer;
                       </div>
                       <div class="ritual-expand-block">
                         <h4>Pre koho je vhodný</h4>
-                        <p>Ideálny reset po náročnom pracovnom dni.</p>
+                        <p>Rituál prispôsobený mužom so zameraním na uvoľnenie napätia v oblasti hlavy, šije a ramien.</p>
                       </div>
                     </div>
                   </div>
@@ -3426,32 +3527,31 @@ cursor:pointer;
    <section class="section more-section">
   <div class="container">
     <div class="more-shell">
-      <span class="more-kicker">✦ Viac než rituál</span>
-      <h2 class="more-title">VIAC NEŽ RITUÁL</h2>
+      <h2 class="more-title">✦ Viac než rituál</h2>
 
       <div class="more-grid">
         <div class="more-line">
           <p>
-            Lebo každodenný stres sa vždy vráti.<br>
-            Hlava sa znovu zaplní.<br>
-            Telo opäť stuhne.
+            Lebo každodenný stres sa vždy vráti...<br>
+            Hlava sa znovu zaplní...<br>
+            Svaly sa opäť unavia...
           </p>
         </div>
 
         <div class="more-line">
           <p>
-            <strong>Nie je to luxus z rozmaru.</strong><br>
-            Je to vedomá starostlivosť o seba.<br><br>
-            <strong>Nie je to únik.</strong><br>
-            Je to návrat k sebe.
+            <strong>Nie je to luxus z rozmaru...</strong><br>
+            Je to vedomá starostlivosť o seba...<br><br>
+            <strong>Nie je to únik...</strong><br>
+            Je to návrat k sebe...
           </p>
         </div>
 
         <div class="more-line">
           <p>
-            To nie je jednorazový zážitok.<br>
-            Je to krásny, zdravý návyk.<br><br>
-            Tichý reset, ku ktorému sa budeš chcieť vracať.
+            To nie je jednorazový zážitok...<br>
+            Je to krásny, zdravý návyk...<br><br>
+            Tichý reset, ku ktorému sa budeš chcieť vracať...
           </p>
         </div>
       </div>
@@ -3464,11 +3564,10 @@ cursor:pointer;
     <section class="section visit-section">
       <div class="container">
         <div class="visit-shell">
-          <span class="visit-kicker">◎ Ako prebieha návšteva</span>
           <h2 class="visit-title">AKO PREBIEHA NÁVŠTEVA</h2>
 
           <p class="visit-intro">
-            Na začiatku je možnosť nahliadnuť kamerou na aktuálny stav pokožky hlavy a po jeho ukončení porovnať výsledok. Nejde o odbornú trichologickú diagnostiku, ale o vizuálne porovnanie pred a po.
+            Na začiatku je možnosť nahliadnuť kamerou na aktuálny stav pokožky hlavy a po jeho ukončení porovnať výsledok. Nejde o odbornú trichologickú diagnostiku, ale o vizuálne porovnanie pred a po vybranom rituáli.
           </p>
 
           <div class="visit-grid">
@@ -3477,8 +3576,9 @@ cursor:pointer;
               <div class="visit-lines">
                 <div class="visit-line">masáže šije, krku, ramien a trapézov</div>
                 <div class="visit-line">následne masáž hlavy a tváre</div>
-                <div class="visit-line">podľa zvoleného rituálu alebo doplnkovej služby aj masáž chodidiel</div>
+                <div class="visit-line">podľa zvoleného rituálu alebo doplnkovej služby masáž chodidiel</div>
                 <div class="visit-line">počas celej fázy sa pracuje s vybraným aromaterapeutickým olejom</div>
+                <div class="visit-line">pri pánskom rituáli mje zahrnutá špeciálna masáž brady</div>
               </div>
             </article>
 
@@ -3490,13 +3590,12 @@ cursor:pointer;
                 <div class="visit-line">dôkladné čistenie – 2x umytie šampónom</div>
                 <div class="visit-line">kondicionér alebo regeneračná maska podľa rituálu</div>
                 <div class="visit-line">v pánskom rituáli starostlivosť o bradu</div>
-                <div class="visit-line">parná sauna s aromaterapiou, ktorá podporuje účinok produktov a prehlbuje relax</div>
               </div>
             </article>
           </div>
 
           <div class="visit-finish">
-            <strong>Záver návštevy:</strong> rituál končí pokojným dosušením vlasov bez ponáhľania.
+            <strong>Záver návštevy:</strong> rituál končí dosušením vlasov bez ponáhľania. (Nieje zahrnutý styling)
           </div>
         </div>
       </div>
@@ -3522,9 +3621,9 @@ cursor:pointer;
             <h3>Kozmetika</h3>
           </div>
 
-          <p>V rituáloch sa používa prírodná talianska kozmetika MURÁN, inšpirovaná morom a výťažkami z morských rias bohatých na minerály.</p>
+          <p>V rituáloch sa používa prírodná talianska kozmetika, inšpirovaná morom a výťažkami z morských rias bohatých na minerály.</p>
           <p>Produkty sú zamerané na očistu, výživu a rovnováhu pokožky hlavy. Nie sú súčasťou trichologickej liečby, ale podporujú prirodzenú regeneráciu a zdravý vzhľad pokožky aj vlasov.</p>
-          <p>Vybrané produkty je možné zakúpiť priamo v prevádzke za odporúčané ceny výrobcu.</p>
+          <p>Vybrané produkty je možné zakúpiť si na objednávku na prevádzke.</p>
         </div>
 
         <div class="info-card">
@@ -3577,11 +3676,11 @@ cursor:pointer;
             <div class="accordion-inner">
               <p>Aby si si mohol alebo mohla vychutnať rituál naplno, odporúčame dodržať niekoľko jednoduchých odporúčaní:</p>
               <ul>
-                <li>Ideálne je neumývať vlasy približne 24 hodín pred rituálom, aby mohla byť pokožka hlavy dôkladne vyčistená počas ošetrenia.</li>
-                <li>Pred návštevou odporúčame vyhnúť sa väčšiemu množstvu kofeínu, aby sa telo mohlo počas rituálu lepšie uvoľniť.</li>
-                <li>Ak je to možné, nepoužívaj stylingové prípravky ako lak, gél alebo tužidlo, aby mohli produkty počas rituálu pôsobiť čo najefektívnejšie.</li>
-                <li>Pre čo najlepší relax odporúčame odložiť telefón alebo inteligentné hodinky, aby nič nerušilo tvoj čas pre seba.</li>
-                <li>Prosíme, príď na dohodnutý čas, aby bol zachovaný pokojný priebeh rituálov pre všetkých hostí.</li>
+                <li>Ideálne je neumývať vlasy približne 24 hodín pred rituálom, aby mohla byť pokožka hlavy dôkladne vyčistená počas ošetrenia</li>
+                <li>Pred návštevou odporúčame vyhnúť sa väčšiemu množstvu kofeínu, aby sa telo mohlo počas rituálu lepšie uvoľniť</li>
+                <li>Ak je to možné, nepoužívaj stylingové prípravky ako lak, gél alebo tužidlo, aby mohli produkty počas rituálu pôsobiť čo najefektívnejšie</li>
+                <li>Pre čo najlepší relax odporúčame odložiť telefón alebo inteligentné hodinky, aby nič nerušilo tvoj čas pre seba</li>
+                <li>Prosíme, príď na dohodnutý čas, aby bol zachovaný pokojný priebeh rituálov pre všetkých hostí</li>
               </ul>
             </div>
           </div>
@@ -3634,7 +3733,7 @@ cursor:pointer;
 
           <div class="accordion-content">
             <div class="accordion-inner">
-              <p>Platba je možná v hotovosti alebo prevodom.</p>
+              <p>Platba je možná v hotovosti alebo prevodom pomocou QR kódu.</p>
               <p>Zákazník má právo zvoliť si spôsob úhrady v súlade s platnou legislatívou Slovenskej republiky.</p>
             </div>
           </div>
@@ -3819,42 +3918,35 @@ cursor:pointer;
       });
     })();
   </script>
-    <script>
+   <script>
 const ritual = document.getElementById("ritual");
 const doplnok = document.getElementById("doplnok");
 
-if (ritual && doplnok) {
-  ritual.addEventListener("change", () => {
-    if (ritual.value === "RoyalFlow") {
-      doplnok.value = "";
-      doplnok.disabled = true;
-    } else {
-      doplnok.disabled = false;
-    }
-  });
+function updateAddonState() {
+  if (!ritual || !doplnok) return;
+
+  if (ritual.value === "RoyalFlow") {
+    doplnok.value = "";
+    doplnok.disabled = true;
+  } else {
+    doplnok.disabled = false;
+  }
 }
 
-const accordionItems = document.querySelectorAll(".accordion-item");
+if (ritual && doplnok) {
+  ritual.addEventListener("change", updateAddonState);
+  updateAddonState();
+}
 
-accordionItems.forEach((item) => {
-  const button = item.querySelector(".accordion-toggle");
-  const content = item.querySelector(".accordion-content");
+const ritualLinks = document.querySelectorAll("[data-ritual-select]");
 
-  if (!button || !content) return;
+ritualLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    const selectedRitual = link.getAttribute("data-ritual-select");
+    if (!ritual) return;
 
-  button.addEventListener("click", () => {
-    const isActive = item.classList.contains("active");
-
-    accordionItems.forEach((otherItem) => {
-      otherItem.classList.remove("active");
-      const otherContent = otherItem.querySelector(".accordion-content");
-      if (otherContent) otherContent.style.maxHeight = null;
-    });
-
-    if (!isActive) {
-      item.classList.add("active");
-      content.style.maxHeight = content.scrollHeight + "px";
-    }
+    ritual.value = selectedRitual;
+    updateAddonState();
   });
 });
 </script>
