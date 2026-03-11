@@ -2630,6 +2630,237 @@ color:white;
 font-weight:600;
 cursor:pointer;
 }
+    .booking-section{
+  padding:90px 0;
+  position:relative;
+}
+
+.booking-grid{
+  display:grid;
+  grid-template-columns:420px 1fr;
+  gap:44px;
+  align-items:start;
+}
+
+.booking-info,
+.booking-form{
+  position:relative;
+  background:rgba(255,255,255,0.58);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(120,110,70,0.18);
+  box-shadow:
+    0 18px 55px rgba(58,54,33,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.45);
+}
+
+.booking-info{
+  padding:28px;
+  border-radius:24px;
+}
+
+.booking-info h2{
+  margin:0 0 20px;
+  font-size:1.15rem;
+  letter-spacing:.02em;
+}
+
+.hours{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-bottom:28px;
+}
+
+.hours .row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  padding:15px 18px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.72), rgba(244,239,221,0.70));
+  border:1px solid rgba(120,110,70,0.14);
+  border-radius:16px;
+  box-shadow:0 8px 20px rgba(58,54,33,0.06);
+}
+
+.hours .row span{
+  color:#5f5a43;
+  font-weight:500;
+}
+
+.hours .row strong{
+  color:#3e4124;
+  font-weight:700;
+}
+
+.section-label{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:0 0 14px;
+  font-size:1.02rem;
+  color:#3f4227;
+}
+
+.info-icon{
+  width:38px;
+  height:38px;
+  min-width:38px;
+  border-radius:12px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg, #6d6a3d, #8a8652);
+  color:#fff;
+  box-shadow:0 10px 24px rgba(92,88,53,0.22);
+}
+
+.address-box{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  padding:18px;
+  margin-bottom:18px;
+  border-radius:18px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.82), rgba(241,235,214,0.72));
+  border:1px solid rgba(120,110,70,0.15);
+  box-shadow:0 12px 28px rgba(58,54,33,0.08);
+}
+
+.address-text{
+  line-height:1.65;
+  color:#5d5944;
+}
+
+.address-text strong{
+  color:#2f311d;
+  font-size:1.02rem;
+}
+
+.map{
+  position:relative;
+  overflow:hidden;
+  border-radius:22px;
+  margin-bottom:16px;
+  border:1px solid rgba(120,110,70,0.16);
+  box-shadow:
+    0 20px 46px rgba(58,54,33,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.35);
+}
+
+.map::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0)),
+    radial-gradient(circle at top right, rgba(255,255,255,0.14), transparent 36%);
+  pointer-events:none;
+  z-index:2;
+}
+
+.map iframe{
+  width:100%;
+  height:280px;
+  border:0;
+  display:block;
+  filter:grayscale(0.15) contrast(1.05) saturate(0.92);
+}
+
+.nav-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:13px 20px;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:700;
+  color:#fff;
+  background:linear-gradient(135deg, #5e5b34, #767248);
+  box-shadow:0 14px 30px rgba(78,75,43,0.24);
+  transition:transform .22s ease, box-shadow .22s ease, filter .22s ease;
+}
+
+.nav-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 18px 36px rgba(78,75,43,0.30);
+  filter:brightness(1.04);
+}
+
+.booking-form{
+  padding:34px;
+  border-radius:24px;
+}
+
+.booking-form h2{
+  margin:0 0 18px;
+}
+
+.booking-form form{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea{
+  width:100%;
+  padding:14px 16px;
+  border-radius:14px;
+  border:1px solid rgba(120,110,70,0.16);
+  background:rgba(255,255,255,0.78);
+  font-family:inherit;
+  font-size:.98rem;
+  color:#2d2d2d;
+  outline:none;
+  transition:border-color .22s ease, box-shadow .22s ease, background .22s ease;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus{
+  border-color:#7b7748;
+  box-shadow:0 0 0 4px rgba(123,119,72,0.12);
+  background:#fff;
+}
+
+.booking-form textarea{
+  min-height:110px;
+  resize:vertical;
+}
+
+.booking-form button{
+  margin-top:6px;
+  padding:15px 18px;
+  border:none;
+  border-radius:16px;
+  background:linear-gradient(135deg, #5e5b34, #7c7748);
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 16px 34px rgba(78,75,43,0.24);
+  transition:transform .22s ease, box-shadow .22s ease, filter .22s ease;
+}
+
+.booking-form button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 20px 40px rgba(78,75,43,0.30);
+  filter:brightness(1.04);
+}
+
+@media (max-width: 980px){
+  .booking-grid{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+
+  .map iframe{
+    height:240px;
+  }
+}
   </style>
 </head>
 <body>
@@ -3075,55 +3306,74 @@ cursor:pointer;
 <!-- LEFT INFO -->
 <div class="booking-info">
 
-<h2>Otváracie hodiny - Len na objednávku</h2>
+  <h2 class="section-label">
+    <span class="info-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9"></circle>
+        <path d="M12 7v5l3 2"></path>
+      </svg>
+    </span>
+    Otváracie hodiny – Len na objednávku
+  </h2>
 
-<div class="hours">
+  <div class="hours">
+    <div class="row">
+      <span>Pondelok – Piatok</span>
+      <strong>17:00 – 21:00</strong>
+    </div>
 
-<div class="row">
-<span>Pondelok – Piatok</span>
-<strong>17:00 –21:00</strong>
-</div>
+    <div class="row">
+      <span>Sobota</span>
+      <strong>10:00 – 18:00</strong>
+    </div>
 
-<div class="row">
-<span>Sobota</span>
-<strong>10:00 – 18:00</strong>
-</div>
+    <div class="row">
+      <span>Nedeľa</span>
+      <strong>10:00 – 17:00</strong>
+    </div>
+  </div>
 
-<div class="row">
-<span>Nedeľa</span>
-<strong>10:00 – 17:00</strong>
-</div>
+  <h3 class="section-label">
+    <span class="info-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 21s-6-5.33-6-11a6 6 0 1 1 12 0c0 5.67-6 11-6 11z"></path>
+        <circle cx="12" cy="10" r="2.2"></circle>
+      </svg>
+    </span>
+    Adresa salónu
+  </h3>
 
-</div>
+  <div class="address-box">
+    <span class="info-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 21s-6-5.33-6-11a6 6 0 1 1 12 0c0 5.67-6 11-6 11z"></path>
+        <circle cx="12" cy="10" r="2.2"></circle>
+      </svg>
+    </span>
 
-<h3 class="address-title">Adresa salónu</h3>
+    <div class="address-text">
+      <strong>Winterova 1745</strong><br>
+      921 01 Piešťany<br>
+      Slovensko
+    </div>
+  </div>
 
-<div class="address-box">
+  <div class="map">
+    <iframe
+      src="https://www.google.com/maps?q=Winterova+1745,+Pie%C5%A1%C5%A5any&z=16&output=embed"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
 
-<div class="address-text">
-<strong>Winterova 1745</strong><br>
-92101 Piešťany<br>
-Slovensko
-</div>
-
-</div>
-
-<div class="map">
-
-<iframe
-src="https://maps.google.com/maps?q=Winterova%201745%20Piestany&t=&z=15&ie=UTF8&iwloc=&output=embed"
-loading="lazy">
-</iframe>
-
-</div>
-
-<a class="nav-btn"
-href="https://www.google.com/maps/dir/?api=1&destination=Winterova+1745+Piestany+92101"
-target="_blank">
-
-Navigovať
-
-</a>
+  <a class="nav-btn"
+     href="https://www.google.com/maps/dir/?api=1&destination=Winterova+1745+Piešťany+92101"
+     target="_blank">
+    <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M3 11.5L21 3l-8.5 18-2.2-7.3L3 11.5z"></path>
+    </svg>
+    Navigovať
+  </a>
 
 </div>
 
@@ -3174,38 +3424,6 @@ Navigovať
 </form>
 
 </div>
-
-</div>
-</section>
-<div class="container">
-
-<form action="https://formspree.io/f/xjgayaao" method="POST" class="reservation-form">
-
-<input type="hidden" name="form_type" value="Rezervácia">
-
-<input type="text" name="meno" placeholder="Meno a priezvisko" required>
-
-<input type="tel" name="telefon" placeholder="Telefónne číslo" required>
-
-<select name="ritual" required>
-<option value="">Vyberte rituál</option>
-<option>Relax Ritual</option>
-<option>Deep Head Therapy</option>
-<option>Luxury Head Spa</option>
-</select>
-
-<select name="doplnok">
-<option value="">Doplnková služba</option>
-<option>Masáž šije</option>
-<option>Aromaterapia</option>
-<option>Hair treatment</option>
-</select>
-
-<input type="text" name="poznamka" placeholder="Poznámka">
-
-<button type="submit">Rezervovať termín</button>
-
-</form>
 
 </div>
 </section>
