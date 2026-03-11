@@ -2341,6 +2341,71 @@
     min-height:88px;
   }
 }
+    .opening-hours{
+  padding:70px 0 40px;
+}
+
+.hours-box{
+  max-width:520px;
+}
+
+.hours-box h2{
+  font-size:1.6rem;
+  margin-bottom:20px;
+}
+
+.hours-grid{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.hours-row{
+  display:flex;
+  justify-content:space-between;
+  padding:14px 18px;
+  background:var(--beige-2);
+  border-radius:14px;
+  border:1px solid var(--line);
+}
+    .reservation{
+  padding:40px 0 80px;
+}
+
+.reservation-form{
+  display:grid;
+  grid-template-columns:
+  1.2fr
+  1fr
+  1fr
+  1fr
+  1.2fr
+  auto;
+
+  gap:12px;
+  align-items:center;
+}
+
+.reservation-form input,
+.reservation-form select{
+  height:46px;
+  padding:0 14px;
+  border-radius:10px;
+  border:1px solid var(--line);
+  background:white;
+  font-family:inherit;
+}
+
+.reservation-form button{
+  height:46px;
+  padding:0 22px;
+  border:none;
+  border-radius:10px;
+  background:var(--olive);
+  color:white;
+  cursor:pointer;
+  white-space:nowrap;
+}
   </style>
 </head>
 <body>
@@ -2779,180 +2844,62 @@
 
     <div class="section-divider" aria-hidden="true"></div>
 
-   <section class="section" id="kontakt">
-  <div class="container">
-    <h2 class="section-title">Kontakt a rezervácia</h2>
-    <p class="section-subtitle">
-      Napíš nám správu alebo si rovno odošli nezáväznú rezerváciu termínu.
-    </p>
+   <section class="opening-hours">
+  <div class="container hours-box">
 
-    <div class="contact-grid">
-      <div class="form-panel contact-panel">
-        <h3 class="form-card-title">
-          <span class="title-icon">✉</span>
-          Kontaktný formulár
-        </h3>
+    <h2>Otváracie hodiny</h2>
 
-        <p class="form-card-text">
-          Máš otázku k rituálu, dostupnosti, poukážke alebo starostlivosti? Napíš nám a ozveme sa ti späť.
-        </p>
-
-        <form action="https://formspree.io/f/xjgayaao" method="POST" class="form-grid">
-          <input type="hidden" name="form_type" value="Kontakt" />
-
-          <div class="form-row-2">
-            <div class="field">
-              <label for="kontakt-meno">Meno a priezvisko</label>
-              <div class="input-wrap">
-                <svg class="field-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 12c2.761 0 5-2.239 5-5S14.761 2 12 2 7 4.239 7 7s2.239 5 5 5Zm0 2c-3.866 0-7 3.134-7 7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1c0-3.866-3.134-7-7-7Z"/>
-                </svg>
-                <input type="text" id="kontakt-meno" name="Meno a priezvisko" placeholder="Tvoje meno a priezvisko" required />
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="kontakt-telefon">Telefón</label>
-              <div class="input-wrap">
-                <svg class="field-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.31.56 3.57.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.85 21 3 13.15 3 3a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.26.19 2.45.56 3.57a1 1 0 0 1-.24 1.02l-2.2 2.2Z"/>
-                </svg>
-                <input type="tel" id="kontakt-telefon" name="Telefón" placeholder="+421 ..." required />
-              </div>
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="kontakt-email">E-mail</label>
-            <div class="input-wrap">
-              <svg class="field-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M4 5a2 2 0 0 0-2 2v.35l10 5.714L22 7.35V7a2 2 0 0 0-2-2H4Zm18 4.65-9.503 5.43a1 1 0 0 1-.994 0L2 9.65V17a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9.65Z"/>
-              </svg>
-              <input type="email" id="kontakt-email" name="E-mail" placeholder="tvoj@email.sk" required />
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="kontakt-sprava">Správa</label>
-            <div class="input-wrap textarea-wrap">
-              <svg class="field-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="m3 17.25 9.878-9.878 3.75 3.75L6.75 21H3v-3.75ZM14.293 5.957l1.414-1.414a2 2 0 0 1 2.829 0l.707.707a2 2 0 0 1 0 2.829l-1.414 1.414-3.536-3.536Z"/>
-              </svg>
-              <textarea id="kontakt-sprava" name="Správa" placeholder="Napíš nám, s čím ti vieme pomôcť..." required></textarea>
-            </div>
-          </div>
-
-          <label class="consent">
-            <input type="checkbox" name="Súhlas so spracovaním osobných údajov" required />
-            <span>Súhlasím so spracovaním osobných údajov za účelom spätného kontaktovania.</span>
-          </label>
-
-          <button type="submit" class="submit-btn">Odoslať správu</button>
-        </form>
+    <div class="hours-grid">
+      <div class="hours-row">
+        <span>Pondelok – Piatok</span>
+        <strong>09:00 – 19:00</strong>
       </div>
 
-      <div class="form-panel booking-panel" id="rezervacia">
-        <h3 class="form-card-title">
-          <span class="title-icon">🗓</span>
-          Rezervačný formulár
-        </h3>
+      <div class="hours-row">
+        <span>Sobota</span>
+        <strong>10:00 – 18:00</strong>
+      </div>
 
-        <p class="form-card-text">
-          Vyber si preferovaný dátum a rituál. Po odoslaní ťa budeme kontaktovať a termín potvrdíme.
-        </p>
-
-        <form action="https://formspree.io/f/xjgayaao" method="POST" class="form-grid">
-          <input type="hidden" name="form_type" value="Rezervácia" />
-
-          <div class="form-row-2">
-            <div class="field">
-              <label for="rezervacia-meno">Meno a priezvisko</label>
-              <div class="input-wrap">
-                <svg class="field-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 12c2.761 0 5-2.239 5-5S14.761 2 12 2 7 4.239 7 7s2.239 5 5 5Zm0 2c-3.866 0-7 3.134-7 7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1c0-3.866-3.134-7-7-7Z"/>
-                </svg>
-                <input type="text" id="rezervacia-meno" name="Meno a priezvisko" placeholder="Tvoje meno a priezvisko" required />
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="rezervacia-telefon">Telefón</label>
-              <div class="input-wrap">
-                <svg class="field-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.31.56 3.57.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.85 21 3 13.15 3 3a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.26.19 2.45.56 3.57a1 1 0 0 1-.24 1.02l-2.2 2.2Z"/>
-                </svg>
-                <input type="tel" id="rezervacia-telefon" name="Telefón" placeholder="+421 ..." required />
-              </div>
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="rezervacia-datum">Preferovaný dátum</label>
-            <div class="input-wrap">
-              <svg class="field-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M7 2a1 1 0 0 1 1 1v1h8V3a1 1 0 1 1 2 0v1h1a3 3 0 0 1 3 3v11a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h1V3a1 1 0 0 1 1-1Zm12 8H5v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8ZM6 6a1 1 0 0 0-1 1v1h14V7a1 1 0 0 0-1-1H6Z"/>
-              </svg>
-              <input type="date" id="rezervacia-datum" name="Preferovaný dátum" required />
-            </div>
-          </div>
-
-          <div class="field">
-            <label>Vyber si rituál</label>
-            <div class="ritual-picker">
-              <label class="ritual-option">
-                <input type="radio" name="Vybraný rituál" value="Harmony" required />
-                <span class="ritual-card-option">
-                  <i class="ritual-icon">🌿</i>
-                  <strong>Harmony</strong>
-                </span>
-              </label>
-
-              <label class="ritual-option">
-                <input type="radio" name="Vybraný rituál" value="Deep Flow Ritual" />
-                <span class="ritual-card-option">
-                  <i class="ritual-icon">💆</i>
-                  <strong>Deep Flow Ritual</strong>
-                </span>
-              </label>
-
-              <label class="ritual-option">
-                <input type="radio" name="Vybraný rituál" value="Royal Flow Experience" />
-                <span class="ritual-card-option">
-                  <i class="ritual-icon">✨</i>
-                  <strong>Royal Flow Experience</strong>
-                </span>
-              </label>
-
-              <label class="ritual-option">
-                <input type="radio" name="Vybraný rituál" value="Men Flow Ritual" />
-                <span class="ritual-card-option">
-                  <i class="ritual-icon">△</i>
-                  <strong>Men Flow Ritual</strong>
-                </span>
-              </label>
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="rezervacia-poznamka">Poznámka</label>
-            <div class="input-wrap textarea-wrap">
-              <svg class="field-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="m3 17.25 9.878-9.878 3.75 3.75L6.75 21H3v-3.75ZM14.293 5.957l1.414-1.414a2 2 0 0 1 2.829 0l.707.707a2 2 0 0 1 0 2.829l-1.414 1.414-3.536-3.536Z"/>
-              </svg>
-              <textarea id="rezervacia-poznamka" name="Poznámka" placeholder="Napíš nám napríklad preferovaný čas alebo doplňujúcu poznámku..."></textarea>
-            </div>
-          </div>
-
-          <label class="consent">
-            <input type="checkbox" name="Súhlas so spracovaním osobných údajov" required />
-            <span>Súhlasím so spracovaním osobných údajov za účelom vybavenia rezervácie.</span>
-          </label>
-
-          <button type="submit" class="submit-btn">Odoslať rezerváciu</button>
-        </form>
+      <div class="hours-row">
+        <span>Nedeľa</span>
+        <strong>10:00 – 17:00</strong>
       </div>
     </div>
+
   </div>
+</section>
+    <section class="reservation">
+<div class="container">
+
+<form action="https://formspree.io/f/xjgayaao" method="POST" class="reservation-form">
+
+<input type="hidden" name="form_type" value="Rezervácia">
+
+<input type="text" name="meno" placeholder="Meno a priezvisko" required>
+
+<input type="tel" name="telefon" placeholder="Telefónne číslo" required>
+
+<select name="ritual" required>
+<option value="">Vyberte rituál</option>
+<option>Relax Ritual</option>
+<option>Deep Head Therapy</option>
+<option>Luxury Head Spa</option>
+</select>
+
+<select name="doplnok">
+<option value="">Doplnková služba</option>
+<option>Masáž šije</option>
+<option>Aromaterapia</option>
+<option>Hair treatment</option>
+</select>
+
+<input type="text" name="poznamka" placeholder="Poznámka">
+
+<button type="submit">Rezervovať termín</button>
+
+</form>
+
+</div>
 </section>
   </main>
 
