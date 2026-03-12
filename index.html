@@ -3771,6 +3771,115 @@ cursor:pointer;
       }
     }
 
+
+    .facts-section{
+      padding:34px 0 44px;
+    }
+
+    .facts-shell{
+      position:relative;
+      overflow:hidden;
+      border-radius:30px;
+      background:
+        radial-gradient(circle at top right, rgba(201,161,74,.14), transparent 24%),
+        linear-gradient(180deg, rgba(255,255,255,.62), rgba(255,255,255,.28));
+      border:1px solid rgba(82,82,52,.10);
+      box-shadow:
+        0 14px 34px rgba(54,54,30,.06),
+        inset 0 1px 0 rgba(255,255,255,.42);
+      padding:30px 28px 24px;
+    }
+
+    .facts-shell::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(90deg, transparent 0%, rgba(201,161,74,.05) 18%, transparent 42%),
+        radial-gradient(circle at 86% 14%, rgba(201,161,74,.08), transparent 22%);
+      opacity:.95;
+    }
+
+    .facts-shell > *{position:relative;z-index:2;}
+
+    .facts-kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 12px;
+      border-radius:999px;
+      background:rgba(201,161,74,.07);
+      border:1px solid rgba(201,161,74,.14);
+      color:#8a6b2b;
+      font-size:.72rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:10px;
+    }
+
+    .facts-title{
+      margin:0 0 12px;
+      font-size:var(--name-size);
+      line-height:1.08;
+      letter-spacing:.03em;
+      color:var(--olive);
+    }
+
+    .facts-intro{
+      max-width:900px;
+      margin:0 0 18px;
+      font-size:.86rem;
+      line-height:1.72;
+      color:rgba(47,47,34,.78);
+    }
+
+    .facts-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:16px;
+    }
+
+    .fact-card{
+      min-height:100%;
+      padding:22px 18px 18px;
+      border-radius:22px;
+      background:rgba(255,255,255,.34);
+      border:1px solid rgba(201,161,74,.12);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.34);
+    }
+
+    .fact-number{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:34px;
+      height:34px;
+      border-radius:50%;
+      margin-bottom:14px;
+      background:linear-gradient(180deg,#d6b566,#b98b2c);
+      color:#fff;
+      font-size:.86rem;
+      font-weight:700;
+      box-shadow:0 8px 18px rgba(185,139,44,.18);
+    }
+
+    .fact-card h3{
+      margin:0 0 10px;
+      font-size:.96rem;
+      line-height:1.4;
+      color:var(--olive);
+      font-style:italic;
+      font-weight:600;
+    }
+
+    .fact-card p{
+      margin:0;
+      font-size:.84rem;
+      line-height:1.7;
+      color:rgba(47,47,34,.80);
+    }
+
   </style>
 </head>
 <body>
@@ -4157,6 +4266,45 @@ cursor:pointer;
 </section>
 
     <div class="section-divider" aria-hidden="true"></div>
+
+    <section class="section facts-section">
+      <div class="container">
+        <div class="facts-shell">
+          <span class="facts-kicker">🌿 Starostlivosť o pokožku hlavy</span>
+          <h2 class="facts-title">Zaujímavé fakty o pokožke hlavy</h2>
+          <p class="facts-intro">
+            Pokožka hlavy si zaslúži rovnakú pozornosť ako pleť. Keď je v rovnováhe, lepšie sa regeneruje, pôsobí pokojnejšie a vytvára zdravšie prostredie pre vlasy.
+          </p>
+
+          <div class="facts-grid">
+            <article class="fact-card">
+              <span class="fact-number">1</span>
+              <h3>Pokožka hlavy starne rovnako ako pokožka tváre</h3>
+              <p>
+                Tak ako sa staráme o pleť, mali by sme sa starať aj o pokožku hlavy. S pribúdajúcim časom sa spomaľuje regenerácia buniek, znižuje sa hydratácia a pokožka môže byť citlivejšia.
+              </p>
+            </article>
+
+            <article class="fact-card">
+              <span class="fact-number">2</span>
+              <h3>Stres sa často ukladá práve v oblasti hlavy a šije</h3>
+              <p>
+                Napätie z každodenného života sa veľmi často hromadí v oblasti hlavy, krku, ramien a chodidiel. Masáž pokožky hlavy a zároveň i chodidiel pomáha uvoľniť toto napätie.
+              </p>
+            </article>
+
+            <article class="fact-card">
+              <span class="fact-number">3</span>
+              <h3>Zdravá pokožka hlavy je základ zdravých vlasov</h3>
+              <p>
+                Rovnako ako pôda ovplyvňuje rast rastlín, aj stav pokožky hlavy ovplyvňuje kvalitu vlasov. Pravidelná starostlivosť a čistenie pokožky pomáha vytvárať lepšie prostredie pre ich prirodzený rast.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
     <section class="section visit-section">
       <div class="container">
@@ -4626,5 +4774,19 @@ if (voucherMenuLink) {
   });
 }
 </script>
+
+    @media (max-width:980px){
+      .facts-grid{grid-template-columns:1fr;}
+    }
+
+    @media (max-width:760px){
+      .facts-section{padding:26px 0 34px;}
+      .facts-shell{padding:20px 14px 16px;border-radius:24px;}
+      .facts-title{font-size:1rem;}
+      .facts-intro,.fact-card p{font-size:.88rem;line-height:1.62;}
+      .fact-card{padding:18px 14px 14px;border-radius:18px;}
+      .fact-card h3{font-size:.9rem;}
+    }
+
 </body>
 </html>
