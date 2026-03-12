@@ -99,6 +99,21 @@ html{
   height:68px;
 }
 
+    .brand::before{
+  content:"";
+  position:absolute;
+  left:-8px;          /* doladíš podľa oka */
+  top:-6px;           /* doladíš podľa oka */
+  width:200px;        /* veľkosť kruhu */
+  height:200px;
+  border-radius:50%;
+  background:#ede8d0; /* rovnaká farba ako header */
+  box-shadow:
+    0 12px 28px rgba(0,0,0,.18),
+    0 0 0 2px rgba(201,161,74,.35); /* jemná zlatá linka */
+  z-index:1;
+}
+
 .brand img{
   width:230px;
   height:230px;
@@ -116,24 +131,21 @@ html{
     drop-shadow(0 22px 46px rgba(201,161,74,.12));
 }
 
-   .brand::after{
+ .brand::after{
   content:"";
   position:absolute;
-  left:38px;
-  top:56px;
-  width:200px;
-  height:200px;
+  left:30px;
+  top:60px;
+  width:180px;
+  height:180px;
   border-radius:50%;
-  pointer-events:none;
-  z-index:1;
-  background:
-    radial-gradient(circle,
-      rgba(214,182,102,.28) 0%,
-      rgba(214,182,102,.14) 30%,
-      rgba(214,182,102,.06) 56%,
-      rgba(214,182,102,0) 78%);
-  filter:blur(24px);
-  transform:translateY(46px);
+  background:radial-gradient(circle,
+      rgba(214,182,102,.25) 0%,
+      rgba(214,182,102,.12) 35%,
+      rgba(214,182,102,0) 70%);
+  filter:blur(22px);
+  transform:translateY(40px);
+  z-index:0;
 }
 .site-header{
   box-shadow:0 10px 35px rgba(0,0,0,.12);
