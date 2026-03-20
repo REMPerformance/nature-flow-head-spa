@@ -4047,6 +4047,25 @@ cursor:pointer;
     max-width:420px;
   }
 }
+
+    .hero-image-wrap{
+  position:relative;
+  width:380px;
+  height:260px; /* FIXNA VÝŠKA → drží hero */
+  max-width:100%;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.45);
+}
+
+.hero-image{
+  width:100%;
+  height:100%;
+  object-fit:cover; /* OREŽE namiesto natiahnutia */
+  display:block;
+  transition:transform .6s ease;
+  filter:contrast(1.05) brightness(.95);
+}
   </style>
 </head>
 <body>
