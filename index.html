@@ -4066,6 +4066,40 @@ cursor:pointer;
   transition:transform .6s ease;
   filter:contrast(1.05) brightness(.95);
 }
+    .hero-slider{
+  position:relative;
+  width:380px;
+  height:260px; /* nemení výšku hero */
+  overflow:hidden;
+  border-radius:20px;
+  box-shadow:0 20px 60px rgba(0,0,0,.45);
+  background:#000;
+}
+
+/* všetky obrázky */
+.hero-slide{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain; /* MAXIMUM VIDITEĽNÉ */
+  opacity:0;
+  transform:scale(1);
+  transition:opacity 1.2s ease;
+}
+
+/* aktívny */
+.hero-slide.active{
+  opacity:1;
+  animation:zoomInOut 12s ease-in-out infinite;
+}
+
+/* zoom animácia */
+@keyframes zoomInOut{
+  0%{ transform:scale(1); }
+  50%{ transform:scale(1.08); }
+  100%{ transform:scale(1); }
+}
   </style>
 </head>
 <body>
@@ -4118,11 +4152,15 @@ cursor:pointer;
     </div>
 
     <!-- NOVÉ -->
-    <div class="hero-right">
-      <div class="hero-image-wrap">
-        <img src="98987.jpeg" alt="Head Spa interiér" class="hero-image">
-      </div>
-    </div>
+   <div class="hero-right">
+  <div class="hero-slider">
+
+    <img src="98987.jpeg" class="hero-slide active">
+    <img src="456.jpeg" class="hero-slide">
+    <img src="123.jpeg" class="hero-slide">
+
+  </div>
+</div>
 
   </div>
 </section>
@@ -4964,18 +5002,15 @@ if (voucherMenuLink) {
 }
 </script>
 
-    @media (max-width:980px){
-      .facts-grid{grid-template-columns:1fr;}
-    }
+   <script>
+const slides = document.querySelectorAll('.hero-slide');
+let index = 0;
 
-    @media (max-width:760px){
-      .facts-section{padding:26px 0 34px;}
-      .facts-shell{padding:20px 14px 16px;border-radius:24px;}
-      .facts-title{font-size:1rem;}
-      .facts-intro,.fact-card p{font-size:.88rem;line-height:1.62;}
-      .fact-card{padding:18px 14px 14px;border-radius:18px;}
-      .fact-card h3{font-size:.9rem;}
-    }
-
+setInterval(() => {
+  slides[index].classList.remove('active');
+  index = (index + 1) % slides.length;
+  slides[index].classList.add('active');
+}, 5000);
+</script>
 </body>
 </html>
