@@ -4383,6 +4383,30 @@ cursor:pointer;
   border-radius:20px;
   box-shadow:0 14px 34px rgba(54,54,30,.18);
 }
+    .headspa-col--right{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+}
+
+.headspa-images-row{
+  display:flex;
+  gap:14px;
+  justify-content:flex-end;
+  align-items:flex-start;
+  margin-top:18px;
+}
+
+.headspa-corner-image{
+  width:170px;
+  height:220px;
+  object-fit:cover;
+  border-radius:22px;
+  box-shadow:0 14px 34px rgba(54,54,30,.18);
+  display:block;
+  position:static;
+  flex:0 0 auto;
+}
   </style>
 </head>
 <body>
@@ -4488,7 +4512,7 @@ cursor:pointer;
               </div>
             </div>
 
-            <div class="headspa-col">
+            <div class="headspa-col headspa-col--right">
               <div class="headspa-note">
                 <h3 class="headspa-note-title">ℹ️ Dôležitá informácia</h3>
                 <p>
@@ -4498,9 +4522,9 @@ cursor:pointer;
             </div>
           </div>
 <div class="headspa-images-row">
-  <img src="898519.jpeg" class="headspa-corner-image" alt="Detail head spa">
-  <img src="789.jpeg" class="headspa-corner-image" alt="Detail head spa 2">
-</div>
+      <img src="898519.jpeg" class="headspa-corner-image" alt="Detail head spa">
+      <img src="789.jpeg" class="headspa-corner-image" alt="Detail head spa 2">
+    </div>
       </div>
     </section>
 
