@@ -4357,6 +4357,18 @@ cursor:pointer;
 
   opacity:.98;
 }
+    .headspa-images-row{
+  display:flex;
+  gap:16px;
+  justify-content:flex-end; /* zarovnanie doprava */
+  align-items:flex-end;
+}
+
+.headspa-images-row img{
+  width:200px; /* uprav podľa potreby */
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
   </style>
 </head>
 <body>
@@ -4471,8 +4483,10 @@ cursor:pointer;
               </div>
             </div>
           </div>
-<img src="898519.jpeg" class="headspa-corner-image" alt="Detail head spa">
-        </div>
+<div class="headspa-images-row">
+  <img src="898519.jpeg" class="headspa-corner-image" alt="Detail head spa">
+  <img src="789.jpeg" class="headspa-corner-image" alt="Detail head spa 2">
+</div>
       </div>
     </section>
 
