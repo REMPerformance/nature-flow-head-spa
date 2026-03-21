@@ -485,6 +485,48 @@ margin-top:0;
       color:#ddd0b0;
     }
 
+
+.hero-discount{
+  margin-top:18px;
+  font-size:15px;
+  color:#e6ddc7;
+  background:rgba(201,161,74,.12);
+  border:1px solid rgba(201,161,74,.28);
+  padding:12px 18px;
+  border-radius:14px;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  backdrop-filter:blur(6px);
+  max-width:100%;
+  line-height:1.45;
+  flex-wrap:nowrap;
+}
+
+.hero-discount .discount-icon{
+  flex:0 0 auto;
+  font-size:16px;
+}
+
+.hero-discount .discount-text{
+  display:block;
+}
+
+.hero-discount strong{
+  color:#d6b566;
+  font-weight:700;
+}
+
+@media (max-width:768px){
+  .hero-discount{
+    display:flex;
+    white-space:normal;
+    line-height:1.4;
+    padding:12px 14px;
+  }
+}
+
+
    .hero-last{
   display:block;
   width:max-content;
@@ -4216,6 +4258,7 @@ cursor:pointer;
 }
     .hero-left{
   display:flex;
+  flex-direction:column;
   align-items:flex-start;
 }
 
@@ -4494,6 +4537,10 @@ cursor:pointer;
   pusti to po vode...<br>
   Odplav stres a napätie...
 </h1>
+      <div class="hero-discount">
+        <span class="discount-icon">🔥</span>
+        <span class="discount-text">Do <strong>31.3.2026</strong> platí <strong>-25%</strong> zľava na všetky objednávky</span>
+      </div>
     </div>
 
     <!-- NOVÉ -->
