@@ -4340,7 +4340,7 @@ cursor:pointer;
   }
 }
     .headspa-corner-image{
-  position:absolute;
+  position:static;
 
   right:120px;   /* ← POSUN DOĽAVA */
   bottom:20px;
@@ -4368,6 +4368,20 @@ cursor:pointer;
   width:200px; /* uprav podľa potreby */
   border-radius:18px;
   box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+    .headspa-images-row{
+  display:flex;
+  gap:16px;
+  justify-content:flex-end;
+  margin-top:20px;
+}
+
+.headspa-corner-image{
+  width:180px;
+  height:220px;
+  object-fit:cover;
+  border-radius:20px;
+  box-shadow:0 14px 34px rgba(54,54,30,.18);
 }
   </style>
 </head>
