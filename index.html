@@ -4488,7 +4488,243 @@ cursor:pointer;
   position:static !important;
   margin:0;
 }
-  </style>
+  
+
+/* === MOBILE READABILITY OVERRIDES === */
+@media (max-width: 768px){
+  html{
+    -webkit-text-size-adjust:100%;
+    text-size-adjust:100%;
+  }
+
+  body{
+    font-size:16px;
+    line-height:1.65;
+  }
+
+  .container,
+  .hero-container{
+    width:min(100%, calc(100% - 28px)) !important;
+  }
+
+  .site-header{
+    backdrop-filter:blur(10px);
+  }
+
+  .header-inner{
+    gap:12px;
+    padding:10px 0 12px;
+  }
+
+  .nav-list{
+    gap:10px 14px !important;
+  }
+
+  .nav-list a,
+  .btn-reserve{
+    font-size:.95rem !important;
+  }
+
+  .hero{
+    padding:26px 0 24px !important;
+  }
+
+  .hero-title{
+    font-size:1.9rem !important;
+    line-height:1.18 !important;
+    letter-spacing:-0.01em !important;
+    white-space:normal !important;
+    text-wrap:balance;
+    margin-bottom:14px !important;
+  }
+
+  .hero-text p{
+    font-size:1rem !important;
+    line-height:1.72 !important;
+    max-width:100% !important;
+  }
+
+  .hero-discount,
+  .hero-last{
+    font-size:.96rem !important;
+    line-height:1.55 !important;
+    white-space:normal !important;
+  }
+
+  .ritual-btn{
+    width:100%;
+    min-width:0 !important;
+    padding:15px 18px !important;
+    font-size:.84rem !important;
+    line-height:1.35 !important;
+    text-align:center;
+  }
+
+  .section{
+    padding:54px 0 !important;
+  }
+
+  .section-title,
+  .headspa-title,
+  .more-title,
+  .visit-title,
+  .facts-title,
+  .philosophy h2{
+    font-size:1.35rem !important;
+    line-height:1.24 !important;
+    letter-spacing:.01em !important;
+  }
+
+  .section-subtitle,
+  .headspa-lead,
+  .visit-intro,
+  .facts-intro,
+  .more-line p,
+  .philosophy p,
+  .contact-item,
+  .footer,
+  .footer-inner,
+  .form-card-text{
+    font-size:.98rem !important;
+    line-height:1.72 !important;
+  }
+
+  .headspa-text p,
+  .headspa-line,
+  .headspa-note p,
+  .visit-line,
+  .visit-finish,
+  .check-list li,
+  .process-card p,
+  .accordion-inner p,
+  .accordion-inner li,
+  .contact-item,
+  .fact-card p{
+    font-size:.97rem !important;
+    line-height:1.72 !important;
+  }
+
+  .headspa-subtitle,
+  .visit-card h3,
+  .accordion-title,
+  .fact-card h3,
+  .process-card h3,
+  .form-card-title{
+    font-size:1.02rem !important;
+    line-height:1.4 !important;
+  }
+
+  .ritual-card h3{
+    font-size:1.2rem !important;
+    line-height:1.15 !important;
+    white-space:normal !important;
+  }
+
+  .ritual-short,
+  .ritual-expand-block p,
+  .ritual-expand-block li,
+  .ritual-addon p,
+  .ritual-price-value,
+  .ritual-price-label,
+  .ritual-book-btn,
+  .ritual-more-btn{
+    font-size:.95rem !important;
+    line-height:1.6 !important;
+  }
+
+  .ritual-book-btn,
+  .ritual-more-btn,
+  .submit-btn{
+    min-height:46px !important;
+    padding:12px 16px !important;
+  }
+
+  .field label,
+  .contact-item strong,
+  .ritual-expand-block h4,
+  .voucher-badge,
+  .headspa-kicker,
+  .rituals-kicker,
+  .more-kicker,
+  .visit-kicker{
+    font-size:.76rem !important;
+    line-height:1.35 !important;
+  }
+
+  .field input,
+  .field textarea,
+  .field select{
+    font-size:16px !important;
+    line-height:1.5 !important;
+  }
+
+  .accordion-toggle{
+    padding:16px 14px !important;
+  }
+
+  .accordion-title{
+    font-size:1rem !important;
+  }
+
+  .more-line,
+  .visit-card,
+  .soft-card,
+  .process-card,
+  .form-panel,
+  .fact-card{
+    padding-left:18px !important;
+    padding-right:18px !important;
+  }
+
+  .more-line{
+    min-height:auto !important;
+  }
+}
+
+@media (max-width: 480px){
+  .hero-title{
+    font-size:1.65rem !important;
+  }
+
+  .section-title,
+  .headspa-title,
+  .more-title,
+  .visit-title,
+  .facts-title,
+  .philosophy h2,
+  .ritual-card h3{
+    font-size:1.16rem !important;
+  }
+
+  .hero-text p,
+  .section-subtitle,
+  .headspa-lead,
+  .headspa-text p,
+  .headspa-line,
+  .headspa-note p,
+  .visit-intro,
+  .visit-line,
+  .visit-finish,
+  .ritual-short,
+  .ritual-expand-block p,
+  .ritual-expand-block li,
+  .ritual-addon p,
+  .more-line p,
+  .fact-card p,
+  .accordion-inner p,
+  .accordion-inner li,
+  .contact-item,
+  .form-card-text,
+  .check-list li,
+  .process-card p,
+  .philosophy p,
+  .footer-inner{
+    font-size:.94rem !important;
+    line-height:1.68 !important;
+  }
+}
+
+</style>
 </head>
 <body>
   <header class="site-header">
