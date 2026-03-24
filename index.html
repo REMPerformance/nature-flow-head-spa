@@ -4723,7 +4723,146 @@ cursor:pointer;
     line-height:1.68 !important;
   }
 }
+/* ================= MOBILE FIX ================= */
+@media (max-width: 768px){
 
+  /* GLOBAL */
+  body{
+    font-size:16px;
+    line-height:1.6;
+  }
+
+  .container{
+    width:calc(100% - 24px);
+  }
+
+  /* HEADER */
+  .header-inner{
+    flex-direction:column;
+    gap:12px;
+    height:auto;
+    padding:10px 0;
+  }
+
+  nav{
+    position:static;
+    transform:none;
+    width:100%;
+  }
+
+  .nav-list{
+    flex-wrap:wrap;
+    gap:12px;
+  }
+
+  /* LOGO */
+  .brand img{
+    width:110px;
+    height:auto;
+    margin:0;
+  }
+
+  .brand::before,
+  .brand::after{
+    display:none;
+  }
+
+  /* HERO */
+  .hero{
+    padding:24px 0;
+  }
+
+  .hero-container{
+    grid-template-columns:1fr;
+    gap:20px;
+    width:calc(100% - 24px);
+  }
+
+  .hero-title{
+    font-size:22px !important;
+    line-height:1.2 !important;
+  }
+
+  .hero-text p{
+    font-size:15px;
+  }
+
+  .hero-discount{
+    font-size:14px;
+    padding:10px 12px;
+  }
+
+  .ritual-btn{
+    width:100%;
+    min-width:unset;
+  }
+
+  /* SEKCIE */
+  .section{
+    padding:50px 0;
+  }
+
+  .section-title{
+    font-size:20px;
+  }
+
+  /* GRIDY -> 1 STĹPEC */
+  .headspa-grid,
+  .rituals-grid,
+  .visit-grid,
+  .more-grid,
+  .cosmetics-grid,
+  .voucher-grid,
+  .contact-grid,
+  .process-wrap{
+    grid-template-columns:1fr !important;
+    gap:16px;
+  }
+
+  /* CARDS */
+  .ritual-card-inner{
+    padding:16px;
+  }
+
+  .ritual-card h3{
+    font-size:18px;
+  }
+
+  .ritual-short,
+  .ritual-expand-block p,
+  .ritual-expand-block li{
+    font-size:14px;
+  }
+
+  /* FORM */
+  .form-row-2{
+    grid-template-columns:1fr;
+  }
+
+  .ritual-picker{
+    grid-template-columns:1fr;
+  }
+
+  .field input,
+  .field textarea,
+  .field select{
+    font-size:16px;
+    padding:12px;
+  }
+
+  /* BUTTONY */
+  .submit-btn,
+  .ritual-book-btn,
+  .ritual-more-btn{
+    width:100%;
+  }
+
+  /* TEXTY */
+  p{
+    font-size:15px;
+  }
+
+}
 </style>
 </head>
 <body>
