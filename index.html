@@ -5032,19 +5032,20 @@ cursor:pointer;
 }
 
 /* =====================================================
-   AUDIT FIX – mriežka rituálov (5 kariet, vycentrovaná)
+   AUDIT FIX – mriežka rituálov (5 kariet v jednom rade na PC)
    ===================================================== */
 @media (min-width:1181px){
   .rituals-grid{
     display:flex;
-    flex-wrap:wrap;
+    flex-wrap:nowrap;
     justify-content:center;
+    align-items:stretch;
     gap:14px;
   }
   .rituals-grid .ritual-card{
-    flex:1 1 calc(25% - 11px);
-    max-width:calc(25% - 11px);
-    min-width:230px;
+    flex:1 1 calc(20% - 11.2px);
+    max-width:calc(20% - 11.2px);
+    min-width:0;
   }
 }
 </style>
