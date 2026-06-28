@@ -4015,6 +4015,30 @@ cursor:pointer;
   font-weight:700;
 }
 
+    /* Detský rituál – jemný šalviový akcent */
+    .ritual-badge-kids{
+  background:linear-gradient(135deg,#9aa86b,#7d8c4f);
+  color:#fff;
+}
+
+    .ritual-card.little-flow{
+  background:linear-gradient(180deg, rgba(154,168,107,.16), rgba(255,255,255,.30));
+  border-color:rgba(125,140,79,.22);
+}
+
+    .ritual-card.little-flow:hover{
+  border-color:rgba(125,140,79,.38);
+}
+
+    .ritual-card.little-flow h3{
+  color:#5d6b34;
+}
+
+    .ritual-card.little-flow h3::after{
+  background:linear-gradient(90deg,#a9b878 0%, #6f7d3f 100%);
+  box-shadow:0 0 12px rgba(125,140,79,.22);
+}
+
     .hero-right{
   position:relative;
   display:flex;
@@ -4863,6 +4887,166 @@ cursor:pointer;
   }
 
 }
+
+/* =====================================================
+   AUDIT FIX – mobilná hlavička (hamburger menu)
+   Zámerne na konci kvôli najvyššej priorite poradia.
+   ===================================================== */
+
+/* Hamburger je na desktope skrytý, CTA v menu tiež. */
+.nav-toggle{ display:none; }
+.nav-cta-mobile{ display:none; }
+
+@media (max-width:1180px){
+  /* Kompaktný jednoriadkový bar: logo vľavo, hamburger vpravo */
+  .header-inner{
+    display:flex !important;
+    flex-direction:row !important;
+    flex-wrap:nowrap !important;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    height:60px;
+    padding:6px 0;
+  }
+
+  .brand{
+    min-width:0;
+    flex:0 1 auto;
+    height:auto;
+    transform:none;
+    justify-content:flex-start;
+  }
+
+  /* Hamburger tlačidlo */
+  .nav-toggle{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:46px;
+    height:46px;
+    flex:0 0 auto;
+    border:1px solid rgba(185,139,44,.30);
+    border-radius:14px;
+    background:rgba(255,255,255,.55);
+    box-shadow:0 6px 16px rgba(54,54,30,.08);
+    cursor:pointer;
+    position:relative;
+    z-index:60;
+  }
+  .nav-toggle-bars,
+  .nav-toggle-bars::before,
+  .nav-toggle-bars::after{
+    content:"";
+    display:block;
+    width:22px;
+    height:2px;
+    border-radius:2px;
+    background:var(--olive);
+    transition:transform .28s ease, opacity .2s ease;
+  }
+  .nav-toggle-bars::before{ position:absolute; transform:translateY(-7px); }
+  .nav-toggle-bars::after{ position:absolute; transform:translateY(7px); }
+  .site-header.nav-open .nav-toggle-bars{ background:transparent; }
+  .site-header.nav-open .nav-toggle-bars::before{ transform:translateY(0) rotate(45deg); }
+  .site-header.nav-open .nav-toggle-bars::after{ transform:translateY(0) rotate(-45deg); }
+
+  /* Rozbaľovacie menu pod barom */
+  nav{
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    width:100%;
+    transform:translateY(-10px);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    background:rgba(237,232,208,.985);
+    backdrop-filter:blur(16px);
+    border-top:1px solid var(--line);
+    box-shadow:0 24px 44px rgba(54,54,30,.18);
+    transition:opacity .26s ease, transform .26s ease, visibility .26s ease;
+    max-height:calc(100vh - 60px);
+    overflow-y:auto;
+    z-index:55;
+  }
+  .site-header.nav-open nav{
+    transform:translateY(0);
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+  }
+
+  .nav-list{
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+    width:100%;
+    padding:6px 22px 18px;
+    overflow:visible;
+    flex-wrap:nowrap;
+  }
+  .nav-list li{ width:100%; flex:0 0 auto; }
+  .nav-list a{
+    display:block;
+    width:100%;
+    padding:15px 2px;
+    font-size:1.02rem;
+    border-bottom:1px solid var(--line);
+  }
+  .nav-list a::before{ display:none; }
+
+  /* CTA: v bare skryť, v menu zobraziť ako plné tlačidlo */
+  .btn-reserve--bar{ display:none !important; }
+  .nav-cta-mobile{ display:block; margin-top:14px; }
+  .nav-cta-mobile a{ border-bottom:none; padding:0; }
+  .btn-reserve--menu{
+    width:100%;
+    text-align:center;
+    padding:14px 18px;
+    font-size:.92rem;
+  }
+}
+
+/* Veľmi úzke displeje – menšie logo, aby bar nepretekal */
+@media (max-width:420px){
+  .header-inner{ height:56px; }
+  .brand img{ width:96px !important; height:96px !important; }
+  .brand-text strong{ font-size:.9rem; }
+  .brand-text span{ font-size:.5rem; }
+}
+
+/* =====================================================
+   AUDIT FIX – rezervácia: zabrániť pretečeniu na mobile
+   (dlhý e-mail roztiahol jednostĺpcovú mriežku)
+   ===================================================== */
+@media (max-width:980px){
+  .booking-grid{ grid-template-columns:1fr !important; }
+  .booking-info,
+  .booking-form{ min-width:0; }
+  .booking-contact-mini a{
+    overflow-wrap:anywhere;
+    word-break:break-word;
+  }
+}
+
+/* =====================================================
+   AUDIT FIX – mriežka rituálov (5 kariet, vycentrovaná)
+   ===================================================== */
+@media (min-width:1181px){
+  .rituals-grid{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:14px;
+  }
+  .rituals-grid .ritual-card{
+    flex:1 1 calc(25% - 11px);
+    max-width:calc(25% - 11px);
+    min-width:230px;
+  }
+}
 </style>
 </head>
 <body>
@@ -4876,17 +5060,22 @@ cursor:pointer;
         </div>
       </a>
 
-      <nav aria-label="Hlavná navigácia">
+      <button class="nav-toggle" type="button" aria-label="Otvoriť menu" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+      </button>
+
+      <nav id="primary-nav" aria-label="Hlavná navigácia">
         <ul class="nav-list">
           <li><a href="#onas">O nás</a></li>
           <li><a href="#headspa-info">Čo je HEAD SPA</a></li>
           <li><a href="#ritualy">Rituály</a></li>
           <li><a href="#informacie">Užitočné informácie</a></li>
           <li><a href="#kontakt">Kontakt</a></li>
+          <li class="nav-cta-mobile"><a href="#rezervacia" class="btn-reserve btn-reserve--menu">Rezervovať termín</a></li>
         </ul>
       </nav>
 
-      <a href="#rezervacia" class="btn-reserve">Rezervovať termín</a>
+      <a href="#rezervacia" class="btn-reserve btn-reserve--bar">Rezervovať termín</a>
     </div>
   </header>
 
@@ -5214,6 +5403,58 @@ cursor:pointer;
                       <div class="ritual-expand-block">
                         <h4>Pre koho je vhodný</h4>
                         <p>Rituál prispôsobený mužom so zameraním na uvoľnenie napätia v oblasti hlavy, šije a ramien.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="ritual-card little-flow" id="littleFlowCard">
+            <div class="ritual-card-inner">
+              <h3>Little Flow Ritual</h3>
+              <span class="ritual-badge ritual-badge-kids">Pre deti do 15 rokov</span>
+              <p class="ritual-short">
+                Jemný rituál vytvorený špeciálne pre deti.
+              </p>
+
+              <div class="ritual-price-row">
+                <span class="ritual-price-label">Cena</span>
+                <span class="ritual-price-line" aria-hidden="true"></span>
+                <span class="ritual-price-value">45 €</span>
+              </div>
+
+              <div class="ritual-actions">
+                <a href="#rezervacia" class="ritual-book-btn" data-ritual-select="LittleFlow">Rezervovať tento rituál</a>
+                <button class="ritual-more-btn" type="button" data-toggle-card="littleFlowCard">Zistiť viac</button>
+              </div>
+
+              <div class="ritual-expand">
+                <div>
+                  <div class="ritual-expand-content">
+                    <div class="ritual-expand-grid">
+                      <div class="ritual-expand-block">
+                        <h4>Detail</h4>
+                        <ul>
+                          <li>Dĺžka rituálu: 45 min</li>
+                          <li>Cena: 45 €</li>
+                          <li>Sušenie: +10 min</li>
+                        </ul>
+                      </div>
+                      <div class="ritual-expand-block">
+                        <h4>Zahŕňa</h4>
+                        <ul>
+                          <li>jemnú masáž pokožky hlavy podporujúcu prekrvenie</li>
+                          <li>aromaterapiu podľa výberu</li>
+                          <li>šetrný peeling pokožky hlavy vhodný pre deti</li>
+                          <li>dôkladné čistenie a 3× umytie šampónom</li>
+                          <li>záverečný kondicionér</li>
+                        </ul>
+                      </div>
+                      <div class="ritual-expand-block">
+                        <h4>Pre koho je vhodný</h4>
+                        <p>Jemný Head Spa rituál vytvorený špeciálne pre deti. Šetrne čistí pokožku hlavy, podporuje jej zdravie a prináša príjemný oddych v pokojnej a bezpečnej atmosfére.</p>
                       </div>
                     </div>
                   </div>
@@ -5627,6 +5868,8 @@ cursor:pointer;
 
 <option value="MenFlow">Men Flow 90 min</option>
 
+<option value="LittleFlow">Little Flow 45 min (deti do 15 r.)</option>
+
 </select>
 
 
@@ -5687,6 +5930,42 @@ cursor:pointer;
 
           this.textContent = isOpen ? 'Zistiť viac' : 'Menej';
         });
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const header = document.querySelector('.site-header');
+      const toggle = document.querySelector('.nav-toggle');
+      const nav = document.getElementById('primary-nav');
+      if (!header || !toggle || !nav) return;
+
+      function setOpen(open) {
+        header.classList.toggle('nav-open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Zatvoriť menu' : 'Otvoriť menu');
+      }
+
+      toggle.addEventListener('click', function () {
+        setOpen(!header.classList.contains('nav-open'));
+      });
+
+      // Po kliknutí na položku menu sa menu zatvorí
+      nav.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => setOpen(false));
+      });
+
+      // Zatvorenie klávesom Esc
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') setOpen(false);
+      });
+
+      // Zatvorenie pri kliknutí mimo hlavičky
+      document.addEventListener('click', (e) => {
+        if (header.classList.contains('nav-open') && !header.contains(e.target)) {
+          setOpen(false);
+        }
       });
     })();
   </script>
