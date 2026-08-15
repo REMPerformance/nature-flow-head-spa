@@ -2116,6 +2116,15 @@ margin-top:0;
       .lang-opt{ padding:2px; }
       .lang-opt .flag{ width:19px; height:13px; }
     }
+    /* Desktop: čistý flex-rad, aby sa menu neprekrývalo s prepínačom */
+    @media (min-width:1181px){
+      .header-inner{ display:flex !important; align-items:center; gap:20px; }
+      .brand{ order:1; }
+      nav{ order:2; position:static !important; left:auto !important; transform:none !important; flex:1 1 auto; display:flex; justify-content:center; }
+      .nav-list{ justify-content:center; gap:22px; flex-wrap:nowrap; }
+      .lang-switch{ order:3; margin-left:0; flex:0 0 auto; }
+      .header-inner .btn-reserve--bar{ order:4; margin-left:0; flex:0 0 auto; }
+    }
   </style>
 
   <script>
