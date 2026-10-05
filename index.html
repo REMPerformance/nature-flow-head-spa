@@ -1390,6 +1390,12 @@ html{
           <p>Platnosť poukazu je 3 mesiace od dátumu zakúpenia. V prípade potreby je možné jeho platnosť predĺžiť o ďalšie 3 mesiace za administratívny poplatok 20 €.</p>
 
           <span class="info-note">Poukaz vystavíme podľa dohody</span>
+
+          <div class="voucher-inline">
+            <button type="button" class="voucher-cta-btn voucher-cta-btn--small" data-open-voucher>
+              <span>Objednať darčekovú poukážku</span>
+            </button>
+          </div>
         </div>
     </div>
   </div>
@@ -1600,6 +1606,16 @@ html{
     </svg>
   </a>
 
+  <button type="button" class="voucher-cta-btn" data-open-voucher>
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="3" y="8" width="18" height="4" rx="1"></rect>
+      <path d="M5 12v8h14v-8"></path>
+      <path d="M12 8v12"></path>
+      <path d="M12 8c-1.2-3.2-5-3.4-5-1.2C7 8 9.6 8 12 8zm0 0c1.2-3.2 5-3.4 5-1.2C17 8 14.4 8 12 8z"></path>
+    </svg>
+    <span>Objednať darčekovú poukážku</span>
+  </button>
+
   <p class="booking-note">V prípade akýchkoľvek otázok nás neváhajte kontaktovať.</p>
 
   <div class="booking-contact-mini">
@@ -1629,6 +1645,77 @@ html{
 </section>
   </main>
 
+  <dialog class="voucher-dialog" id="voucherDialog" aria-labelledby="voucherTitle">
+    <div class="voucher-box">
+      <button type="button" class="voucher-close" data-close-voucher aria-label="Zavrieť">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+      </button>
+
+      <h2 id="voucherTitle">Objednávka darčekovej poukážky</h2>
+
+      <form class="voucher-form" id="voucherForm" action="https://formspree.io/f/xjgayaao" method="POST">
+        <p class="voucher-lead">Vyplňte formulár a ozveme sa vám s ďalšími informáciami k elektronickej darčekovej poukážke.</p>
+
+        <input type="hidden" name="_subject" value="Objednávka darčekovej poukážky – natureflowheadspa.sk">
+        <input type="text" name="_gotcha" class="voucher-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="voucher-field">
+          <label for="vName">Vaše meno a priezvisko</label>
+          <input id="vName" type="text" name="Meno objednávateľa" autocomplete="name" required>
+        </div>
+
+        <div class="voucher-row">
+          <div class="voucher-field">
+            <label for="vPhone">Telefón</label>
+            <input id="vPhone" type="tel" name="Telefón" autocomplete="tel" inputmode="tel" required>
+          </div>
+          <div class="voucher-field">
+            <label for="vEmail">E-mail</label>
+            <input id="vEmail" type="email" name="email" autocomplete="email" required>
+          </div>
+        </div>
+
+        <div class="voucher-field">
+          <label for="vRitual">Rituál</label>
+          <select id="vRitual" name="Rituál" required>
+            <option value="" selected disabled>Vyberte rituál</option>
+            <option value="Harmony – 60 €">Harmony – 60 €</option>
+            <option value="Deep Flow Ritual – 90 €">Deep Flow Ritual – 90 €</option>
+            <option value="Royal Flow Experience – 120 €">Royal Flow Experience – 120 €</option>
+            <option value="Men Flow Ritual – 90 €">Men Flow Ritual – 90 €</option>
+            <option value="Little Flow Ritual – 45 €">Little Flow Ritual – 45 €</option>
+            <option value="Poukážka na hodnotu podľa výberu">Poukážka na hodnotu podľa výberu</option>
+          </select>
+        </div>
+
+        <div class="voucher-field">
+          <label for="vRecipient">Meno a priezvisko obdarovanej osoby</label>
+          <input id="vRecipient" type="text" name="Obdarovaná osoba" autocomplete="off" required>
+        </div>
+
+        <div class="voucher-field">
+          <label for="vNote">Poznámka (nepovinné)</label>
+          <textarea id="vNote" name="Poznámka" rows="3"></textarea>
+        </div>
+
+        <label class="voucher-consent">
+          <input type="checkbox" name="Súhlas so spracovaním údajov" value="áno" required>
+          <span>Súhlasím so spracovaním osobných údajov za účelom vybavenia objednávky darčekovej poukážky.</span>
+        </label>
+
+        <p class="voucher-error" id="voucherError" role="alert" hidden>Odoslanie sa nepodarilo. Skúste to prosím znova alebo nás kontaktujte telefonicky či e-mailom.</p>
+
+        <button type="submit" class="voucher-submit" id="voucherSubmit">Odoslať objednávku</button>
+      </form>
+
+      <div class="voucher-success" id="voucherSuccess" role="status" hidden>
+        <p class="voucher-success-title">Ďakujeme, objednávka bola odoslaná.</p>
+        <p>Čoskoro sa vám ozveme.</p>
+        <button type="button" class="voucher-submit" data-close-voucher>Zavrieť</button>
+      </div>
+    </div>
+  </dialog>
+
   <footer class="footer">
     <div class="footer-inner">
       <div>© 2026 Nature Flow Head Spa Piešťany</div>
@@ -1637,6 +1724,42 @@ html{
   </footer>
 
   <style>
+    .voucher-cta-btn{ margin-top:14px; margin-bottom:6px; display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:15px 30px; border-radius:999px; border:1.5px solid rgba(82,82,52,.42); background:rgba(255,255,255,.62); color:var(--olive); font:inherit; font-weight:700; font-size:.9rem; letter-spacing:.04em; text-transform:uppercase; cursor:pointer; transition:transform .25s ease, background .25s ease, box-shadow .25s ease; }
+    .voucher-cta-btn:hover{ transform:translateY(-2px); background:#fff; box-shadow:0 12px 28px rgba(78,74,47,.14); }
+    .voucher-cta-btn--small{ margin:0; padding:12px 22px; font-size:.8rem; }
+    .voucher-inline{ margin-top:16px; }
+    .voucher-dialog{ padding:0; border:none; background:transparent; width:min(560px, calc(100% - 24px)); max-width:none; max-height:calc(100dvh - 24px); overflow:visible; color:var(--text); font-family:'SUSE Mono', monospace; }
+    .voucher-dialog::backdrop{ background:rgba(40,40,24,.55); backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px); }
+    .voucher-box{ position:relative; max-height:calc(100dvh - 24px); overflow-y:auto; padding:34px 30px 30px; border-radius:24px; background:var(--beige-2); border:1px solid rgba(120,110,70,.2); box-shadow:0 30px 80px rgba(40,40,24,.35); }
+    .voucher-box h2{ margin:0 40px 10px 0; font-size:1.35rem; color:var(--olive); }
+    .voucher-lead{ margin:0 0 20px; font-size:.9rem; line-height:1.65; color:rgba(47,47,34,.84); }
+    .voucher-close{ position:absolute; top:16px; right:16px; width:38px; height:38px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; border:1px solid rgba(82,82,52,.2); background:rgba(255,255,255,.7); color:var(--olive); cursor:pointer; }
+    .voucher-close:hover{ background:#fff; }
+    .voucher-form{ display:flex; flex-direction:column; gap:14px; }
+    .voucher-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .voucher-field{ display:flex; flex-direction:column; gap:6px; min-width:0; }
+    .voucher-field label{ font-size:.78rem; font-weight:700; letter-spacing:.03em; color:#4e4a2f; }
+    .voucher-field input,.voucher-field select,.voucher-field textarea{ width:100%; padding:12px 14px; border-radius:14px; border:1px solid rgba(82,82,52,.26); background:#fff; color:var(--text); font:inherit; font-size:16px; }
+    .voucher-field textarea{ resize:vertical; min-height:84px; }
+    .voucher-field input:focus,.voucher-field select:focus,.voucher-field textarea:focus{ outline:2px solid rgba(201,161,74,.7); outline-offset:1px; border-color:transparent; }
+    .voucher-hp{ position:absolute !important; left:-9999px !important; width:1px; height:1px; opacity:0; }
+    .voucher-consent{ display:flex; align-items:flex-start; gap:10px; font-size:.82rem; line-height:1.55; color:#55513f; cursor:pointer; }
+    .voucher-consent input{ flex:0 0 auto; width:18px; height:18px; margin:2px 0 0; accent-color:#6d6a3d; }
+    .voucher-error{ margin:0; padding:10px 14px; border-radius:12px; background:rgba(160,50,40,.08); border:1px solid rgba(160,50,40,.25); color:#8a2f25; font-size:.85rem; line-height:1.55; }
+    .voucher-submit{ align-self:center; margin-top:4px; padding:15px 34px; border:none; border-radius:999px; background:linear-gradient(135deg,#d4af37,#b8962e); color:#fff; font:inherit; font-weight:700; font-size:.92rem; letter-spacing:.04em; text-transform:uppercase; cursor:pointer; box-shadow:0 10px 28px rgba(185,139,44,.28); transition:transform .25s ease, box-shadow .25s ease, opacity .2s ease; }
+    .voucher-submit:hover{ transform:translateY(-2px); box-shadow:0 16px 36px rgba(185,139,44,.38); }
+    .voucher-submit:disabled{ opacity:.6; cursor:wait; transform:none; }
+    .voucher-success{ text-align:center; padding:10px 0 4px; }
+    .voucher-success p{ margin:0 0 14px; line-height:1.65; color:#55513f; }
+    .voucher-success .voucher-success-title{ font-size:1.05rem; font-weight:700; color:var(--olive); }
+    .voucher-dialog [hidden]{ display:none !important; }
+    @media (max-width:560px){
+      .voucher-row{ grid-template-columns:1fr; }
+      .voucher-box{ padding:28px 18px 22px; border-radius:20px; }
+      .voucher-box h2{ font-size:1.15rem; }
+      .voucher-cta-btn{ padding:14px 20px; font-size:.82rem; }
+      .voucher-submit{ align-self:stretch; }
+    }
     .lang-toggle{display:none !important;}
     .lang-switch{
       display:inline-flex;
@@ -1788,6 +1911,43 @@ html{
   </script>
 
   <script>
+    (function(){
+      var dlg = document.getElementById('voucherDialog');
+      var form = document.getElementById('voucherForm');
+      if(!dlg || !form) return;
+      var ok = document.getElementById('voucherSuccess');
+      var err = document.getElementById('voucherError');
+      var btn = document.getElementById('voucherSubmit');
+
+      function openDlg(){
+        form.hidden = false; ok.hidden = true; err.hidden = true;
+        if(typeof dlg.showModal === 'function'){ if(!dlg.open) dlg.showModal(); }
+        else { dlg.setAttribute('open',''); }
+        document.documentElement.style.overflow = 'hidden';
+      }
+      function closeDlg(){
+        if(typeof dlg.close === 'function'){ if(dlg.open) dlg.close(); }
+        else { dlg.removeAttribute('open'); }
+      }
+      dlg.addEventListener('close', function(){ document.documentElement.style.overflow = ''; });
+      document.querySelectorAll('[data-open-voucher]').forEach(function(b){ b.addEventListener('click', openDlg); });
+      document.querySelectorAll('[data-close-voucher]').forEach(function(b){ b.addEventListener('click', closeDlg); });
+      dlg.addEventListener('click', function(e){ if(e.target === dlg) closeDlg(); });
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        if(!form.checkValidity()){ form.reportValidity(); return; }
+        err.hidden = true;
+        btn.disabled = true;
+        fetch(form.action, { method:'POST', body:new FormData(form), headers:{ 'Accept':'application/json' } })
+          .then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); })
+          .then(function(){ form.reset(); form.hidden = true; ok.hidden = false; })
+          .catch(function(){ err.hidden = false; })
+          .then(function(){ btn.disabled = false; });
+      });
+    })();
+  </script>
+  <script>
     window.__NF_LANG = 'sk';
     window.__NF_I18N = { en:{}, de:{}, uk:{} };
     window.__NF_PH   = { en:{}, de:{}, uk:{} };
@@ -1881,7 +2041,24 @@ html{
       "Jemný Head Spa rituál vytvorený špeciálne pre deti. Šetrne čistí pokožku hlavy, podporuje jej zdravie a prináša príjemný oddych v pokojnej a bezpečnej atmosfére.":"A gentle Head Spa ritual created especially for children. It gently cleanses the scalp, supports its health and brings pleasant rest in a calm, safe atmosphere.",
       "Rezervovať termín":"Book appointment",
       "Vyberte si rituál a zarezervujte si presný dátum a čas jednoducho online cez náš rezervačný systém.":"Choose a ritual and book an exact date and time easily online via our booking system.",
-      "V prípade akýchkoľvek otázok nás neváhajte kontaktovať.":"Feel free to contact us if you have any questions."
+      "V prípade akýchkoľvek otázok nás neváhajte kontaktovať.":"Feel free to contact us if you have any questions.",
+      "Objednať darčekovú poukážku":"Order a gift voucher",
+      "Objednávka darčekovej poukážky":"Gift voucher order",
+      "Vyplňte formulár a ozveme sa vám s ďalšími informáciami k elektronickej darčekovej poukážke.":"Fill in the form and we will get back to you with further details about your electronic gift voucher.",
+      "Vaše meno a priezvisko":"Your first and last name",
+      "Telefón":"Phone",
+      "E-mail":"E-mail",
+      "Rituál":"Ritual",
+      "Vyberte rituál":"Choose a ritual",
+      "Poukážka na hodnotu podľa výberu":"Voucher for a value of your choice",
+      "Meno a priezvisko obdarovanej osoby":"First and last name of the recipient",
+      "Poznámka (nepovinné)":"Note (optional)",
+      "Súhlasím so spracovaním osobných údajov za účelom vybavenia objednávky darčekovej poukážky.":"I agree to the processing of my personal data for the purpose of handling the gift voucher order.",
+      "Odoslanie sa nepodarilo. Skúste to prosím znova alebo nás kontaktujte telefonicky či e-mailom.":"Sending failed. Please try again or contact us by phone or e-mail.",
+      "Odoslať objednávku":"Send order",
+      "Ďakujeme, objednávka bola odoslaná.":"Thank you, your order has been sent.",
+      "Čoskoro sa vám ozveme.":"We will be in touch shortly.",
+      "Zavrieť":"Close"
     });
   </script>
   <script>
@@ -1963,7 +2140,24 @@ html{
       "Jemný Head Spa rituál vytvorený špeciálne pre deti. Šetrne čistí pokožku hlavy, podporuje jej zdravie a prináša príjemný oddych v pokojnej a bezpečnej atmosfére.":"Ein sanftes Head-Spa-Ritual, das speziell für Kinder gestaltet wurde. Es reinigt die Kopfhaut schonend, unterstützt ihre Gesundheit und bringt angenehme Erholung in einer ruhigen und sicheren Atmosphäre.",
       "Rezervovať cez Bookio":"Über Bookio buchen",
       "Vyberte si rituál a zarezervujte si presný dátum a čas jednoducho online cez náš rezervačný systém Bookio.":"Wählen Sie ein Ritual und buchen Sie ganz einfach online über unser Bookio-Reservierungssystem.",
-      "V prípade akýchkoľvek otázok nás neváhajte kontaktovať.":"Bei Fragen stehen wir Ihnen gerne zur Verfügung."
+      "V prípade akýchkoľvek otázok nás neváhajte kontaktovať.":"Bei Fragen stehen wir Ihnen gerne zur Verfügung.",
+      "Objednať darčekovú poukážku":"Geschenkgutschein bestellen",
+      "Objednávka darčekovej poukážky":"Geschenkgutschein-Bestellung",
+      "Vyplňte formulár a ozveme sa vám s ďalšími informáciami k elektronickej darčekovej poukážke.":"Füllen Sie das Formular aus und wir melden uns mit weiteren Informationen zu Ihrem elektronischen Geschenkgutschein.",
+      "Vaše meno a priezvisko":"Ihr Vor- und Nachname",
+      "Telefón":"Telefon",
+      "E-mail":"E-Mail",
+      "Rituál":"Ritual",
+      "Vyberte rituál":"Ritual auswählen",
+      "Poukážka na hodnotu podľa výberu":"Gutschein über einen Wunschbetrag",
+      "Meno a priezvisko obdarovanej osoby":"Vor- und Nachname der beschenkten Person",
+      "Poznámka (nepovinné)":"Anmerkung (optional)",
+      "Súhlasím so spracovaním osobných údajov za účelom vybavenia objednávky darčekovej poukážky.":"Ich stimme der Verarbeitung meiner personenbezogenen Daten zur Bearbeitung der Gutscheinbestellung zu.",
+      "Odoslanie sa nepodarilo. Skúste to prosím znova alebo nás kontaktujte telefonicky či e-mailom.":"Das Senden ist fehlgeschlagen. Bitte versuchen Sie es erneut oder kontaktieren Sie uns telefonisch oder per E-Mail.",
+      "Odoslať objednávku":"Bestellung absenden",
+      "Ďakujeme, objednávka bola odoslaná.":"Vielen Dank, Ihre Bestellung wurde gesendet.",
+      "Čoskoro sa vám ozveme.":"Wir melden uns in Kürze bei Ihnen.",
+      "Zavrieť":"Schließen"
     });
   </script>
   <script>
@@ -2045,7 +2239,24 @@ html{
       "Jemný Head Spa rituál vytvorený špeciálne pre deti. Šetrne čistí pokožku hlavy, podporuje jej zdravie a prináša príjemný oddych v pokojnej a bezpečnej atmosfére.":"Ніжний Head Spa ритуал, створений спеціально для дітей. Він делікатно очищує шкіру голови, підтримує її здоров'я та дарує приємний відпочинок у спокійній і безпечній атмосфері.",
       "Rezervovať cez Bookio":"Забронювати через Bookio",
       "Vyberte si rituál a zarezervujte si presný dátum a čas jednoducho online cez náš rezervačný systém Bookio.":"Оберіть ритуал та забронюйте точний час онлайн через нашу систему Bookio.",
-      "V prípade akýchkoľvek otázok nás neváhajte kontaktovať.":"У разі будь-яких запитань, будь ласка, звертайтеся до нас."
+      "V prípade akýchkoľvek otázok nás neváhajte kontaktovať.":"У разі будь-яких запитань, будь ласка, звертайтеся до нас.",
+      "Objednať darčekovú poukážku":"Замовити подарунковий сертифікат",
+      "Objednávka darčekovej poukážky":"Замовлення подарункового сертифіката",
+      "Vyplňte formulár a ozveme sa vám s ďalšími informáciami k elektronickej darčekovej poukážke.":"Заповніть форму, і ми звʼяжемося з вами щодо електронного подарункового сертифіката.",
+      "Vaše meno a priezvisko":"Ваше імʼя та прізвище",
+      "Telefón":"Телефон",
+      "E-mail":"E-mail",
+      "Rituál":"Ритуал",
+      "Vyberte rituál":"Оберіть ритуал",
+      "Poukážka na hodnotu podľa výberu":"Сертифікат на суму за вашим вибором",
+      "Meno a priezvisko obdarovanej osoby":"Імʼя та прізвище отримувача",
+      "Poznámka (nepovinné)":"Примітка (необовʼязково)",
+      "Súhlasím so spracovaním osobných údajov za účelom vybavenia objednávky darčekovej poukážky.":"Я погоджуюся на обробку персональних даних з метою оформлення замовлення подарункового сертифіката.",
+      "Odoslanie sa nepodarilo. Skúste to prosím znova alebo nás kontaktujte telefonicky či e-mailom.":"Не вдалося надіслати. Спробуйте ще раз або звʼяжіться з нами телефоном чи електронною поштою.",
+      "Odoslať objednávku":"Надіслати замовлення",
+      "Ďakujeme, objednávka bola odoslaná.":"Дякуємо, ваше замовлення надіслано.",
+      "Čoskoro sa vám ozveme.":"Ми звʼяжемося з вами найближчим часом.",
+      "Zavrieť":"Закрити"
     });
   </script>
   <script>
