@@ -377,7 +377,7 @@ body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--body);f
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;cursor:pointer}
-h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.01em;line-height:1.12;margin:0;text-wrap:balance}
 p{margin:0}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
 .wrap{width:min(var(--wrap),100%);margin-inline:auto;padding-inline:var(--gutter)}
@@ -622,6 +622,7 @@ dialog[open] .rd-box,dialog[open] .voucher-box{animation:dlgIn .4s cubic-bezier(
 .voucher-success p{margin:0 0 14px;color:var(--muted)}
 .voucher-success .voucher-success-title{font-family:var(--display);font-size:1.4rem;color:var(--ink)}
 [hidden]{display:none !important}
+.mobile-bar{display:none}
 
 /* odkrývanie pri skrolovaní – obsah je viditeľný aj bez JS */
 .js .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.22,.8,.24,1),transform .8s cubic-bezier(.22,.8,.24,1)}
@@ -653,6 +654,15 @@ dialog[open] .rd-box,dialog[open] .voucher-box{animation:dlgIn .4s cubic-bezier(
 }
 @media (max-width:640px){
   body{font-size:16px}
+  .mobile-bar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(42,46,29,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transform:translateY(110%);transition:transform .35s cubic-bezier(.22,.8,.24,1)}
+  .mobile-bar.is-on{transform:none}
+  .mobile-bar .btn{flex:1 1 auto;padding:14px 20px}
+  .mobile-bar-call{flex:0 0 auto;width:50px;height:50px;border-radius:50%;border:1px solid rgba(244,238,225,.3);color:var(--on-deep);display:inline-flex;align-items:center;justify-content:center}
+  .footer{padding-bottom:104px}
+  .hero h1{font-size:clamp(2.5rem,12.5vw,3.4rem)}
+  .rc-more{padding:12px 2px}
+  .accordion-toggle{padding:18px 2px}
+  .lang-opt{min-height:36px}
   .nav-book{display:none}
   .brand img{width:40px;height:40px}
   .brand-text strong{font-size:1.08rem}
@@ -1368,6 +1378,11 @@ dialog[open] .rd-box,dialog[open] .voucher-box{animation:dlgIn .4s cubic-bezier(
   </div>
 </footer>
 
+<div class="mobile-bar" id="mobileBar">
+  <a class="btn btn-gold" href="https://system.easybooking.sk/x/head-spa" target="_blank" rel="noopener noreferrer"><span>Rezervovať termín</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+  <a class="mobile-bar-call" href="tel:+421918309500" aria-label="Zavolať 0918 309 500"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg></a>
+</div>
+
 <dialog class="ritual-dialog" id="ritualDialog" aria-labelledby="ritualDialogTitle">
   <div class="rd-box">
     <button type="button" class="dlg-close" data-close-ritual aria-label="Zavrieť"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
@@ -1468,7 +1483,11 @@ dialog[open] .rd-box,dialog[open] .voucher-box{animation:dlgIn .4s cubic-bezier(
       document.querySelectorAll('#primary-nav a').forEach(function(a){ a.addEventListener('click', function(){ setOpen(false); }); });
       document.addEventListener('keydown', function(e){ if(e.key === 'Escape') setOpen(false); });
       document.addEventListener('click', function(e){ if(header.classList.contains('nav-open') && !header.contains(e.target)) setOpen(false); });
-      function onScroll(){ header.classList.toggle('is-scrolled', window.scrollY > 8); }
+      var bar = document.getElementById('mobileBar'), foot = document.querySelector('.foot-cta');
+      function onScroll(){
+        header.classList.toggle('is-scrolled', window.scrollY > 8);
+        if(bar){ var nearEnd = foot && foot.getBoundingClientRect().top < window.innerHeight - 120; bar.classList.toggle('is-on', window.scrollY > 520 && !nearEnd); }
+      }
       window.addEventListener('scroll', onScroll, { passive:true }); onScroll();
 
       /* detail rituálu v dialógu – presúva sa pôvodný uzol, aby ostal preložený */
