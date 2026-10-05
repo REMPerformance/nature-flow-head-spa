@@ -1667,7 +1667,30 @@ html{
         <div class="voucher-row">
           <div class="voucher-field">
             <label for="vPhone">Telefón</label>
-            <input id="vPhone" type="tel" name="Telefón" autocomplete="tel" inputmode="tel" required>
+            <div class="voucher-phone">
+              <select id="vPrefix" name="Predvoľba" aria-label="Predvoľba krajiny" autocomplete="tel-country-code">
+                <option value="+421" selected>SK +421</option>
+                <option value="+420">CZ +420</option>
+                <option value="+43">AT +43</option>
+                <option value="+49">DE +49</option>
+                <option value="+36">HU +36</option>
+                <option value="+48">PL +48</option>
+                <option value="+380">UA +380</option>
+                <option value="+44">GB +44</option>
+                <option value="+353">IE +353</option>
+                <option value="+41">CH +41</option>
+                <option value="+39">IT +39</option>
+                <option value="+33">FR +33</option>
+                <option value="+34">ES +34</option>
+                <option value="+31">NL +31</option>
+                <option value="+32">BE +32</option>
+                <option value="+386">SI +386</option>
+                <option value="+385">HR +385</option>
+                <option value="+40">RO +40</option>
+                <option value="+1">US +1</option>
+              </select>
+              <input id="vPhone" type="tel" name="Telefón" autocomplete="tel-national" inputmode="tel" required>
+            </div>
           </div>
           <div class="voucher-field">
             <label for="vEmail">E-mail</label>
@@ -1684,7 +1707,6 @@ html{
             <option value="Royal Flow Experience – 120 €">Royal Flow Experience – 120 €</option>
             <option value="Men Flow Ritual – 90 €">Men Flow Ritual – 90 €</option>
             <option value="Little Flow Ritual – 45 €">Little Flow Ritual – 45 €</option>
-            <option value="Poukážka na hodnotu podľa výberu">Poukážka na hodnotu podľa výberu</option>
           </select>
         </div>
 
@@ -1736,11 +1758,14 @@ html{
     .voucher-close{ position:absolute; top:16px; right:16px; width:38px; height:38px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; border:1px solid rgba(82,82,52,.2); background:rgba(255,255,255,.7); color:var(--olive); cursor:pointer; }
     .voucher-close:hover{ background:#fff; }
     .voucher-form{ display:flex; flex-direction:column; gap:14px; }
-    .voucher-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .voucher-row{ display:grid; grid-template-columns:minmax(0, 1.25fr) minmax(0, 1fr); gap:14px; }
     .voucher-field{ display:flex; flex-direction:column; gap:6px; min-width:0; }
     .voucher-field label{ font-size:.78rem; font-weight:700; letter-spacing:.03em; color:#4e4a2f; }
     .voucher-field input,.voucher-field select,.voucher-field textarea{ width:100%; padding:12px 14px; border-radius:14px; border:1px solid rgba(82,82,52,.26); background:#fff; color:var(--text); font:inherit; font-size:16px; }
     .voucher-field textarea{ resize:vertical; min-height:84px; }
+    .voucher-phone{ display:flex; gap:8px; }
+    .voucher-phone select{ flex:0 0 auto; width:auto; padding-left:10px; padding-right:6px; }
+    .voucher-phone input{ flex:1 1 auto; min-width:0; padding-left:12px; padding-right:10px; }
     .voucher-field input:focus,.voucher-field select:focus,.voucher-field textarea:focus{ outline:2px solid rgba(201,161,74,.7); outline-offset:1px; border-color:transparent; }
     .voucher-hp{ position:absolute !important; left:-9999px !important; width:1px; height:1px; opacity:0; }
     .voucher-consent{ display:flex; align-items:flex-start; gap:10px; font-size:.82rem; line-height:1.55; color:#55513f; cursor:pointer; }
@@ -2026,7 +2051,16 @@ html{
         if(!form.checkValidity()){ form.reportValidity(); return; }
         err.hidden = true;
         btn.disabled = true;
-        fetch(form.action, { method:'POST', body:new FormData(form), headers:{ 'Accept':'application/json' } })
+        var data = new FormData(form);
+        var num = String(data.get('Telefón') || '').trim();
+        var pre = String(data.get('Predvoľba') || '');
+        if(pre && !/^(\+|00)/.test(num)){
+          if(pre !== '+39') num = num.replace(/^0(?=\d)/, '');
+          num = pre + ' ' + num;
+        }
+        data.set('Telefón', num);
+        data.delete('Predvoľba');
+        fetch(form.action, { method:'POST', body:data, headers:{ 'Accept':'application/json' } })
           .then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); })
           .then(function(){ form.reset(); form.hidden = true; ok.hidden = false; })
           .catch(function(){ err.hidden = false; })
@@ -2137,7 +2171,6 @@ html{
       "E-mail":"E-mail",
       "Rituál":"Ritual",
       "Vyberte rituál":"Choose a ritual",
-      "Poukážka na hodnotu podľa výberu":"Voucher for a value of your choice",
       "Meno a priezvisko obdarovanej osoby":"First and last name of the recipient",
       "Poznámka (nepovinné)":"Note (optional)",
       "Súhlasím so spracovaním osobných údajov za účelom vybavenia objednávky darčekovej poukážky.":"I agree to the processing of my personal data for the purpose of handling the gift voucher order.",
@@ -2236,7 +2269,6 @@ html{
       "E-mail":"E-Mail",
       "Rituál":"Ritual",
       "Vyberte rituál":"Ritual auswählen",
-      "Poukážka na hodnotu podľa výberu":"Gutschein über einen Wunschbetrag",
       "Meno a priezvisko obdarovanej osoby":"Vor- und Nachname der beschenkten Person",
       "Poznámka (nepovinné)":"Anmerkung (optional)",
       "Súhlasím so spracovaním osobných údajov za účelom vybavenia objednávky darčekovej poukážky.":"Ich stimme der Verarbeitung meiner personenbezogenen Daten zur Bearbeitung der Gutscheinbestellung zu.",
@@ -2335,7 +2367,6 @@ html{
       "E-mail":"E-mail",
       "Rituál":"Ритуал",
       "Vyberte rituál":"Оберіть ритуал",
-      "Poukážka na hodnotu podľa výberu":"Сертифікат на суму за вашим вибором",
       "Meno a priezvisko obdarovanej osoby":"Імʼя та прізвище отримувача",
       "Poznámka (nepovinné)":"Примітка (необовʼязково)",
       "Súhlasím so spracovaním osobných údajov za účelom vybavenia objednávky darčekovej poukážky.":"Я погоджуюся на обробку персональних даних з метою оформлення замовлення подарункового сертифіката.",
