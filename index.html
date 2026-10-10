@@ -721,7 +721,7 @@ html{scroll-padding-top:calc(var(--hdr,88px) + 8px)}
 .rc .lbl-less{display:none}
 .rc.is-open .lbl-more{display:none}
 .rc.is-open .lbl-less{display:inline}
-.rc.is-open{grid-column:1/-1;grid-row:auto;order:-1}
+.rc.is-open{grid-column:1/-1;grid-row:auto}
 .rc.is-open .rc-expand{display:block}
 .rc--hot.is-open .rc-label,.rc--hot.is-open .rc-list{display:none}
 .rc.is-open{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,2fr);grid-template-rows:auto 1fr;column-gap:clamp(28px,4vw,56px);row-gap:26px;align-items:start}
@@ -835,6 +835,117 @@ html{scroll-padding-top:calc(var(--hdr,88px) + 8px)}
   .site-header,.menu-pill{transition:none}
   ::view-transition-group(*){animation-duration:0s}
 }
+/* ===== v3 ===== */
+/* väčšie logo */
+.brand img{width:84px;height:84px;box-shadow:0 8px 22px rgba(42,46,29,.32)}
+.brand-text strong{font-size:1.7rem}
+.brand-text small{font-size:.7rem}
+.nav{padding-block:10px}
+
+/* levitujúci kruh: kruh sa vznáša, tieň pod ním dýcha */
+.ring{background:none;border:none;box-shadow:none;animation:none;display:block;overflow:visible}
+.ring-in{position:absolute;inset:0;border-radius:50%;border:1px solid var(--gold);background:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  box-shadow:0 22px 44px rgba(42,46,29,.14), inset 0 0 0 6px var(--cream), inset 0 0 0 7px rgba(194,160,87,.35);
+  animation:levitate 6s ease-in-out infinite;will-change:transform}
+.ring::after{content:"";position:absolute;left:18%;right:18%;bottom:-26px;height:16px;border-radius:50%;background:radial-gradient(closest-side,rgba(42,46,29,.28),rgba(42,46,29,0));
+  animation:levShadow 6s ease-in-out infinite;z-index:-1}
+@keyframes levitate{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-18px) rotate(1.5deg)}}
+@keyframes levShadow{0%,100%{transform:scaleX(1);opacity:.9}50%{transform:scaleX(.72);opacity:.45}}
+@media (hover:hover){
+  .ring:hover{transform:none;background:none}
+  .ring:hover .ring-in{background:var(--deep);color:var(--gold);animation-play-state:paused}
+  .ring-in{transition:background .4s ease,color .4s ease}
+}
+
+/* rituály: otvorená karta veľká, ostatné sa zmenšia do bočného stĺpca */
+.rc{cursor:pointer;position:relative}
+.rc-go{width:44px;height:44px;flex:0 0 auto;border-radius:50%;border:1px solid rgba(244,238,225,.3);display:inline-flex;align-items:center;justify-content:center;transition:background .25s ease,color .25s ease,transform .25s ease}
+.rc--hot .rc-go{background:var(--ink);border-color:var(--ink);color:var(--gold)}
+.rc-more{pointer-events:auto}
+.rc-close{display:none;position:absolute;top:18px;right:18px;width:42px;height:42px;border-radius:50%;border:1px solid rgba(244,238,225,.3);background:rgba(244,238,225,.06);color:inherit;align-items:center;justify-content:center;z-index:2}
+.rc--hot .rc-close{border-color:rgba(35,38,26,.3);background:rgba(35,38,26,.08)}
+.rc.is-open{cursor:default;order:0}
+.rc.is-open .rc-close{display:inline-flex}
+.rc.is-open .rc-actions{display:none}
+
+.rit-grid.has-open{grid-template-columns:minmax(0,1fr) minmax(230px,290px);align-items:stretch}
+.rit-grid.has-open .rc.is-open{grid-column:1;grid-row:1/span 4}
+.rit-grid.has-open .rc:not(.is-open){grid-column:2;grid-row:auto;padding:16px 20px;gap:8px;justify-content:center;min-height:0}
+.rit-grid.has-open .rc:not(.is-open) .rc-short,
+.rit-grid.has-open .rc:not(.is-open) .rc-label,
+.rit-grid.has-open .rc:not(.is-open) .rc-list,
+.rit-grid.has-open .rc:not(.is-open) .tag,
+.rit-grid.has-open .rc:not(.is-open) .rc-more{display:none}
+.rit-grid.has-open .rc:not(.is-open) h3{font-size:1.3rem;margin:6px 0 0}
+.rit-grid.has-open .rc:not(.is-open) .rc-foot{padding-top:10px}
+.rit-grid.has-open .rc:not(.is-open) .rc-price{font-size:1.5rem}
+.rit-grid.has-open .rc:not(.is-open) .rc-go{width:36px;height:36px}
+.rc.is-open .rc-head{padding-right:40px}
+
+@media (hover:hover){
+  .rc:not(.is-open):hover .rc-go{background:var(--gold);color:var(--ink);border-color:var(--gold);transform:rotate(-35deg)}
+  .rc--hot:not(.is-open):hover .rc-go{background:var(--deep);color:var(--on-deep)}
+  .rit-grid.has-open .rc:not(.is-open):hover{transform:translateX(-4px)}
+  .rc-close:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+}
+
+@media (max-width:980px){
+  .rit-grid.has-open{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rit-grid.has-open .rc.is-open{grid-column:1/-1;grid-row:1}
+  .rit-grid.has-open .rc:not(.is-open){grid-column:auto}
+}
+@media (max-width:640px){
+  .brand img{width:62px;height:62px}
+  .brand-text strong{font-size:1.3rem}
+  .rit-grid.has-open{gap:10px}
+  .rit-grid.has-open .rc:not(.is-open){padding:14px 16px}
+  .rit-grid.has-open .rc:not(.is-open) h3{font-size:1.08rem}
+  .rit-grid.has-open .rc:not(.is-open) .rc-price{font-size:1.25rem}
+  .rit-grid.has-open .rc:not(.is-open) .rc-go{display:none}
+  .rit-grid.has-open .rc:not(.is-open) .rc-meta{font-size:.62rem}
+  .ring::after{bottom:-20px}
+}
+@media (max-width:360px){
+  .brand img{width:52px;height:52px}
+  .brand-text strong{font-size:1.12rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .ring-in,.ring::after{animation:none}
+}
+/* v3b: doladenie hlavičky a otvorenej karty */
+.brand-text strong{font-size:1.55rem}
+.brand-text small{font-size:.6rem;letter-spacing:.26em}
+.brand{gap:14px;flex-shrink:0}
+.nav{gap:16px}
+.rc.is-open h3{font-size:clamp(1.8rem,2.5vw,2.3rem) !important}
+.rit-grid.has-open .rc.is-open{grid-template-columns:minmax(0,.8fr) minmax(0,1.7fr)}
+@media (min-width:1181px) and (max-width:1360px){
+  .brand img{width:70px;height:70px}
+  .brand-text strong{font-size:1.3rem}
+  .brand-text small{font-size:.54rem}
+  .menu a{padding:9px 12px}
+}
+@media (max-width:1180px){
+  .brand{order:1;min-width:0;flex:1 1 auto}
+  .brand img{width:66px;height:66px}
+  .brand-text strong{font-size:1.3rem}
+  .nav-right{order:2;flex:0 0 auto}
+}
+@media (max-width:980px){
+  .rit-grid.has-open .rc.is-open{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:640px){
+  .brand{gap:10px}
+  .brand img{width:56px !important;height:56px !important}
+  .brand-text strong{font-size:1.14rem}
+  .brand-text small{font-size:.48rem;letter-spacing:.16em}
+  .lang-switch{gap:0}
+  .lang-opt{padding:6px 4px;font-size:.66rem;letter-spacing:.06em}
+}
+@media (max-width:360px){
+  .brand img{width:46px !important;height:46px !important}
+  .brand-text strong{font-size:1rem}
+}
 @media (prefers-reduced-motion:reduce){
   *{animation:none !important;scroll-behavior:auto !important}
   .js .reveal{opacity:1;transform:none;transition:none}
@@ -890,7 +1001,7 @@ html{scroll-padding-top:calc(var(--hdr,88px) + 8px)}
       </dl>
     </div>
     <div class="hero-art">
-      <div class="ring" aria-hidden="true"><span>Pokoj</span><span>Dotyk</span><span>Regenerácia</span></div>
+      <div class="ring" aria-hidden="true"><div class="ring-in"><span>Pokoj</span><span>Dotyk</span><span>Regenerácia</span></div></div>
       <div class="arch arch-main"><img src="head-spa-piestany-interier-2.webp" alt="Vodný oblúk nad umývacím lôžkom počas head spa rituálu v Piešťanoch" width="720" height="960" decoding="async" fetchpriority="high"></div>
       <div class="arch arch-small"><img src="head-spa-piestany-interier-3.webp" alt="Oddychový kútik s kreslom v Nature Flow Head Spa Piešťany" width="720" height="960" decoding="async"></div>
       <div class="hours-card">
@@ -951,9 +1062,10 @@ html{scroll-padding-top:calc(var(--hdr,88px) + 8px)}
             <div class="rc-price">90 €</div>
             <div class="rc-actions">
               <button type="button" class="rc-more" data-ritual="deepFlowCard" aria-expanded="false" aria-controls="deepFlowCard-detail"><span class="lbl-more">Zistiť viac</span><span class="lbl-less">Menej</span></button>
-              <a class="rc-book" href="https://system.easybooking.sk/x/head-spa" target="_blank" rel="noopener noreferrer" aria-label="Rezervovať – Deep Flow Ritual"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+              <span class="rc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></span>
             </div>
           </div>
+          <button type="button" class="rc-close" data-close-card aria-label="Zavrieť"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
           <div class="rc-expand" id="deepFlowCard-detail">
             <div class="ritual-expand-grid"><div class="ritual-expand-block">
 <h4>Detail</h4>
@@ -998,9 +1110,10 @@ html{scroll-padding-top:calc(var(--hdr,88px) + 8px)}
             <div class="rc-price">60 €</div>
             <div class="rc-actions">
               <button type="button" class="rc-more" data-ritual="harmonyCard" aria-expanded="false" aria-controls="harmonyCard-detail"><span class="lbl-more">Zistiť viac</span><span class="lbl-less">Menej</span></button>
-              <a class="rc-book" href="https://system.easybooking.sk/x/head-spa" target="_blank" rel="noopener noreferrer" aria-label="Rezervovať – Harmony"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+              <span class="rc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></span>
             </div>
           </div>
+          <button type="button" class="rc-close" data-close-card aria-label="Zavrieť"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
           <div class="rc-expand" id="harmonyCard-detail">
             <div class="ritual-expand-grid"><div class="ritual-expand-block">
 <h4>Detail</h4>
@@ -1044,9 +1157,10 @@ html{scroll-padding-top:calc(var(--hdr,88px) + 8px)}
             <div class="rc-price">120 €</div>
             <div class="rc-actions">
               <button type="button" class="rc-more" data-ritual="royalFlowCard" aria-expanded="false" aria-controls="royalFlowCard-detail"><span class="lbl-more">Zistiť viac</span><span class="lbl-less">Menej</span></button>
-              <a class="rc-book" href="https://system.easybooking.sk/x/head-spa" target="_blank" rel="noopener noreferrer" aria-label="Rezervovať – Royal Flow Experience"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+              <span class="rc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></span>
             </div>
           </div>
+          <button type="button" class="rc-close" data-close-card aria-label="Zavrieť"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
           <div class="rc-expand" id="royalFlowCard-detail">
             <div class="ritual-expand-grid"><div class="ritual-expand-block">
 <h4>Detail</h4>
@@ -1089,9 +1203,10 @@ html{scroll-padding-top:calc(var(--hdr,88px) + 8px)}
             <div class="rc-price">90 €</div>
             <div class="rc-actions">
               <button type="button" class="rc-more" data-ritual="menFlowCard" aria-expanded="false" aria-controls="menFlowCard-detail"><span class="lbl-more">Zistiť viac</span><span class="lbl-less">Menej</span></button>
-              <a class="rc-book" href="https://system.easybooking.sk/x/head-spa" target="_blank" rel="noopener noreferrer" aria-label="Rezervovať – Men Flow Ritual"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+              <span class="rc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></span>
             </div>
           </div>
+          <button type="button" class="rc-close" data-close-card aria-label="Zavrieť"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
           <div class="rc-expand" id="menFlowCard-detail">
             <div class="ritual-expand-grid"><div class="ritual-expand-block">
 <h4>Detail</h4>
@@ -1137,9 +1252,10 @@ html{scroll-padding-top:calc(var(--hdr,88px) + 8px)}
             <div class="rc-price">45 €</div>
             <div class="rc-actions">
               <button type="button" class="rc-more" data-ritual="littleFlowCard" aria-expanded="false" aria-controls="littleFlowCard-detail"><span class="lbl-more">Zistiť viac</span><span class="lbl-less">Menej</span></button>
-              <a class="rc-book" href="https://system.easybooking.sk/x/head-spa" target="_blank" rel="noopener noreferrer" aria-label="Rezervovať – Little Flow Ritual"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+              <span class="rc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></span>
             </div>
           </div>
+          <button type="button" class="rc-close" data-close-card aria-label="Zavrieť"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
           <div class="rc-expand" id="littleFlowCard-detail">
             <div class="ritual-expand-grid"><div class="ritual-expand-block">
 <h4>Detail</h4>
@@ -1680,30 +1796,39 @@ html{scroll-padding-top:calc(var(--hdr,88px) + 8px)}
 
       /* karta rituálu sa zväčší a ukáže detail */
       var cards = Array.prototype.slice.call(document.querySelectorAll('.rc'));
-      function toggleCard(card){
-        var opening = !card.classList.contains('is-open');
+      var grid = document.querySelector('.rit-grid');
+      function setOpen(card){
+        var current = grid.querySelector('.rc.is-open');
+        if(card === current) return;
         var apply = function(){
           cards.forEach(function(c){
-            var on = c === card && opening;
+            var on = c === card;
             c.classList.toggle('is-open', on);
             var b = c.querySelector('.rc-more'); if(b) b.setAttribute('aria-expanded', on ? 'true' : 'false');
           });
+          grid.classList.toggle('has-open', !!card);
         };
         var after = function(){
-          var target = opening ? card : card;
-          var r = target.getBoundingClientRect(), hdr = header.getBoundingClientRect().bottom;
-          if(r.top < hdr + 8 || (opening && r.top > window.innerHeight * 0.55)){
-            window.scrollTo({ top: window.scrollY + r.top - hdr - 14, behavior: reduce ? 'auto' : 'smooth' });
+          var r = grid.getBoundingClientRect(), hdr = header.getBoundingClientRect().bottom;
+          var target = card && window.innerWidth <= 980 ? card.getBoundingClientRect() : r;
+          if(target.top < hdr + 8 || target.top > window.innerHeight * 0.5){
+            window.scrollTo({ top: window.scrollY + target.top - hdr - 14, behavior: reduce ? 'auto' : 'smooth' });
           }
+          if(card){ var cta = card.querySelector('.rd-cta'); if(cta && document.activeElement && document.activeElement.classList.contains('rc-more')) cta.focus({ preventScroll:true }); }
         };
         if(document.startViewTransition && !reduce){
           var t = document.startViewTransition(apply);
           t.finished.then(after, after);
         } else { apply(); after(); }
       }
-      document.querySelectorAll('[data-ritual]').forEach(function(btn){
-        btn.addEventListener('click', function(){ toggleCard(document.getElementById(btn.getAttribute('data-ritual'))); });
+      cards.forEach(function(card){
+        card.addEventListener('click', function(e){
+          if(e.target.closest('a')) return;                       /* rezervácia v detaile presmeruje */
+          if(e.target.closest('[data-close-card]')){ setOpen(null); return; }
+          if(!card.classList.contains('is-open')) setOpen(card);
+        });
       });
+      document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && grid.querySelector('.rc.is-open')) setOpen(null); });
 
       /* jemné odkrývanie sekcií */
       var els = document.querySelectorAll('.about-photos,.about-copy,.rit-head,.more-grid p,.facts-head,.facts-grid article,.steps li,.voucher,.info-heading,.foot-cta,.foot-info');
