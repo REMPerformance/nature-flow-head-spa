@@ -688,6 +688,153 @@ dialog[open] .rd-box,dialog[open] .voucher-box{animation:dlgIn .4s cubic-bezier(
   .brand-text small{display:none}
   .lang-opt{padding:6px 3px}
 }
+/* ===== v2: hlavička so sledovaním sekcie, väčšie logo, rozbaľovacie karty, hover ===== */
+.site-header{position:fixed;left:0;right:0;top:0;padding-top:env(safe-area-inset-top,0px);transition:transform .45s cubic-bezier(.22,.8,.24,1),border-color .3s ease,box-shadow .3s ease}
+.site-header.is-scrolled{box-shadow:0 10px 30px rgba(35,38,26,.08)}
+.hdr-spacer{height:var(--hdr,88px)}
+html{scroll-padding-top:calc(var(--hdr,88px) + 8px)}
+.brand img{width:64px;height:64px;border-radius:50%;box-shadow:0 6px 18px rgba(42,46,29,.28);transition:transform .6s cubic-bezier(.22,.8,.24,1)}
+.brand-text strong{font-size:1.5rem}
+.brand-text small{font-size:.64rem}
+.nav{padding-block:12px}
+.nav-toggle,.menu-cta{display:none !important}
+
+.menu{position:relative;isolation:isolate}
+.menu li{position:relative;z-index:1}
+.menu a{position:relative;transition:color .35s ease}
+.menu a:hover{background:transparent;color:var(--ink)}
+.menu a.is-active,.menu a.is-active:hover{color:var(--on-deep)}
+.menu-pill{position:absolute !important;z-index:0 !important;left:0;top:6px;bottom:6px;width:0;border-radius:999px;background:var(--deep);opacity:0;pointer-events:none;
+  transition:transform .55s cubic-bezier(.22,.8,.24,1),width .55s cubic-bezier(.22,.8,.24,1),opacity .3s ease;box-shadow:0 6px 16px rgba(42,46,29,.25)}
+.menu-pill.is-on{opacity:1}
+
+.ring{z-index:3;width:200px;height:200px;gap:8px;font-size:.78rem;left:-2%;top:6%;box-shadow:0 18px 40px rgba(42,46,29,.10)}
+.arch-main{right:9%}
+.hours-card{right:-34px;bottom:1%}
+
+.strip{white-space:normal;padding-block:18px}
+.strip-track{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 0;animation:none;width:100%}
+.strip span{margin-inline:22px}
+
+/* karty rituálov */
+.rc-expand{display:none}
+.rc .lbl-less{display:none}
+.rc.is-open .lbl-more{display:none}
+.rc.is-open .lbl-less{display:inline}
+.rc.is-open{grid-column:1/-1;grid-row:auto;order:-1}
+.rc.is-open .rc-expand{display:block}
+.rc--hot.is-open .rc-label,.rc--hot.is-open .rc-list{display:none}
+.rc.is-open{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,2fr);grid-template-rows:auto 1fr;column-gap:clamp(28px,4vw,56px);row-gap:26px;align-items:start}
+.rc.is-open .rc-head{grid-column:1;grid-row:1}
+.rc.is-open .rc-foot{grid-column:1;grid-row:2;align-self:end}
+.rc.is-open .rc-expand{grid-column:2;grid-row:1/span 2}
+.rc.is-open h3{font-size:clamp(2rem,3.4vw,2.8rem)}
+.rc:not(.rc--hot).is-open{background:rgba(244,238,225,.06);border-color:rgba(194,160,87,.6)}
+.rc .ritual-expand-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:22px 32px;align-items:start}
+.rc .ritual-expand-block:first-child{grid-column:1;grid-row:1}
+.rc .ritual-expand-block:nth-child(2){grid-column:2;grid-row:1/span 3}
+.rc .ritual-addon{grid-column:1;grid-row:2}
+.rc .ritual-expand-block:last-child:not(:nth-child(2)){grid-column:1;grid-row:3}
+.rc .ritual-expand-grid > :nth-child(3).ritual-expand-block:last-child{grid-row:2}
+.rc .ritual-expand-block h4{color:var(--gold)}
+.rc .ritual-expand-block li{border-top-color:rgba(244,238,225,.14);color:rgba(244,238,225,.86)}
+.rc .ritual-expand-block p{color:rgba(244,238,225,.72)}
+.rc .ritual-addon{background:rgba(244,238,225,.06);color:rgba(244,238,225,.75)}
+.rc .ritual-addon strong{color:var(--on-deep)}
+.rc--hot .ritual-expand-block h4{color:rgba(35,38,26,.62)}
+.rc--hot .ritual-expand-block li{border-top-color:rgba(35,38,26,.16);color:var(--ink)}
+.rc--hot .ritual-expand-block p,.rc--hot .ritual-addon{color:rgba(35,38,26,.75)}
+.rc--hot .ritual-addon{background:rgba(35,38,26,.08)}
+.rc--hot .ritual-addon strong{color:var(--ink)}
+.rc .rd-cta{margin-top:26px;width:auto}
+.rc--hot .rd-cta{background:var(--ink);color:var(--gold)}
+@keyframes rcItem{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.rc.is-open .ritual-expand-grid > *,.rc.is-open .rd-cta{animation:rcItem .6s cubic-bezier(.22,.8,.24,1) both}
+.rc.is-open .ritual-expand-grid > :nth-child(1){animation-delay:.12s}
+.rc.is-open .ritual-expand-grid > :nth-child(2){animation-delay:.2s}
+.rc.is-open .ritual-expand-grid > :nth-child(3){animation-delay:.28s}
+.rc.is-open .ritual-expand-grid > :nth-child(4){animation-delay:.36s}
+.rc.is-open .rd-cta{animation-delay:.44s}
+::view-transition-group(*){animation-duration:.55s;animation-timing-function:cubic-bezier(.22,.8,.24,1)}
+
+/* hover efekty – len na zariadeniach s myšou */
+@media (hover:hover){
+  .btn svg,.foot-link svg{transition:transform .3s ease}
+  .btn:hover svg,.foot-link:hover svg{transform:translateX(4px)}
+  .brand:hover img{transform:rotate(-12deg) scale(1.06)}
+  .arch img,.ph-main,.ph-small{transition:transform 1.2s cubic-bezier(.22,.8,.24,1)}
+  .arch:hover img{transform:scale(1.06)}
+  .about-photos:hover .ph-main{transform:scale(1.02)}
+  .ring{transition:transform .5s ease,background .4s ease,color .4s ease}
+  .ring:hover{transform:scale(1.05) rotate(-4deg);background:var(--deep);color:var(--gold)}
+  .hours-card{transition:transform .4s ease,box-shadow .4s ease}
+  .hours-card:hover{transform:translateY(-4px);box-shadow:0 30px 70px rgba(42,46,29,.26)}
+  .rc:not(.is-open):hover{transform:translateY(-6px);box-shadow:0 26px 60px rgba(0,0,0,.28)}
+  .rc:not(.rc--hot):not(.is-open):hover .rc-price{color:var(--gold)}
+  .rc-price{transition:color .3s ease}
+  .feat li{transition:padding .3s ease}
+  .feat li:hover{padding-left:8px}
+  .feat li:hover b{color:var(--gold-ink)}
+  .facts-grid article{transition:padding .35s ease,background .35s ease}
+  .facts-grid article:hover{padding-left:14px;background:linear-gradient(90deg,rgba(194,160,87,.10),transparent 70%)}
+  .facts-grid article:hover h3{color:var(--gold-ink)}
+  .steps li::before{transition:transform .35s ease,box-shadow .35s ease}
+  .steps li:hover::before{transform:scale(1.7);box-shadow:0 0 0 6px rgba(194,160,87,.18)}
+  .steps li:hover h3{color:var(--gold-ink)}
+  .accordion-toggle{transition:background .3s ease}
+  .accordion-toggle:hover{background:rgba(194,160,87,.08)}
+  .accordion-icon{transition:background .3s ease,color .3s ease,border-color .3s ease}
+  .accordion-toggle:hover .accordion-icon{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+  .contact-pills a:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+  .more-grid p{transition:transform .4s ease}
+  .more-grid p:hover{transform:translateX(6px)}
+  .lang-opt{transition:color .2s ease}
+}
+
+@media (max-width:1180px){
+  .nav{flex-wrap:wrap;row-gap:10px;padding-block:10px 8px}
+  nav#primary-nav{order:3;flex:1 0 100%;position:static;opacity:1;visibility:visible;transform:none;background:none;border:none;box-shadow:none}
+  .menu{display:flex !important;flex-direction:row;gap:2px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:5px;font-size:.88rem;width:100%}
+  .menu::-webkit-scrollbar{display:none}
+  .menu li{flex:0 0 auto}
+  .menu a{padding:9px 15px;border:none !important;border-radius:999px !important}
+  .menu-pill{top:5px;bottom:5px}
+  .site-header.is-compact{transform:translateY(calc(-1 * var(--row1,62px)))}
+  .hours-card{right:-14px}
+}
+@media (max-width:980px){
+  .rc.is-open{grid-template-columns:minmax(0,1fr);grid-template-rows:auto}
+  .rc.is-open .rc-head,.rc.is-open .rc-foot,.rc.is-open .rc-expand{grid-column:1;grid-row:auto}
+  .rc.is-open .rc-expand{order:3}
+  .arch-main{right:4%}
+  .hours-card{right:-6px}
+}
+@media (max-width:640px){
+  .brand img{width:52px;height:52px}
+  .brand-text strong{font-size:1.2rem}
+  .brand-text small{font-size:.54rem;letter-spacing:.2em}
+  .ring{width:138px;height:138px;font-size:.6rem;gap:5px;left:-2%;top:2%}
+  .arch-main{right:6%;width:74%}
+  .hours-card{right:-8px;bottom:0;width:min(232px,64%)}
+  .strip{font-size:1rem;padding-block:14px}
+  .strip span{margin-inline:12px}
+  .rc .ritual-expand-grid{grid-template-columns:minmax(0,1fr);gap:20px}
+  .rc .ritual-expand-grid > *{grid-column:1 !important;grid-row:auto !important}
+  .rc.is-open h3{font-size:2rem}
+  .rc .rd-cta{width:100%}
+  .menu{font-size:.84rem}
+  .menu a{padding:9px 13px}
+}
+@media (max-width:360px){
+  .brand img{width:44px;height:44px}
+  .hours-card{right:0;width:66%;padding:14px 14px}
+  .hrow{font-size:.78rem}
+  .ring{width:118px;height:118px;font-size:.52rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .site-header,.menu-pill{transition:none}
+  ::view-transition-group(*){animation-duration:0s}
+}
 @media (prefers-reduced-motion:reduce){
   *{animation:none !important;scroll-behavior:auto !important}
   .js .reveal{opacity:1;transform:none;transition:none}
@@ -699,7 +846,7 @@ dialog[open] .rd-box,dialog[open] .voucher-box{animation:dlgIn .4s cubic-bezier(
 <header class="site-header">
   <div class="wrap nav">
     <a href="#domov" class="brand" aria-label="Nature Flow Head Spa Piešťany">
-      <img src="logo-512.png" alt="" width="46" height="46" decoding="async">
+      <img src="logo-znak.png" alt="" width="64" height="64" decoding="async">
       <span class="brand-text"><strong>Nature Flow</strong><small>HEAD SPA · PIEŠŤANY</small></span>
     </a>
     <nav id="primary-nav" aria-label="Hlavná navigácia">
@@ -709,7 +856,7 @@ dialog[open] .rd-box,dialog[open] .voucher-box{animation:dlgIn .4s cubic-bezier(
         <li><a href="#poukazka">Poukážky</a></li>
         <li><a href="#informacie">Časté otázky</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
-        <li class="menu-cta"><a class="btn btn-dark" href="https://system.easybooking.sk/x/head-spa" target="_blank" rel="noopener noreferrer">Rezervovať termín</a></li>
+        <li class="menu-pill" aria-hidden="true"></li>
       </ul>
     </nav>
     <div class="nav-right">
@@ -720,10 +867,10 @@ dialog[open] .rd-box,dialog[open] .voucher-box{animation:dlgIn .4s cubic-bezier(
         <button class="lang-opt" data-lang="uk" type="button" aria-label="Українська">UA</button>
       </div>
       <a class="btn btn-dark nav-book" href="https://system.easybooking.sk/x/head-spa" target="_blank" rel="noopener noreferrer"><span>Rezervovať termín</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
-      <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="primary-nav"><span></span></button>
     </div>
   </div>
 </header>
+<div class="hdr-spacer" aria-hidden="true"></div>
 
 <main id="domov">
   <section class="hero wrap">
@@ -758,7 +905,7 @@ dialog[open] .rd-box,dialog[open] .voucher-box{animation:dlgIn .4s cubic-bezier(
     </div>
   </section>
 
-  <div class="strip" aria-hidden="true"><div class="strip-track"><span>Masáž hlavy</span><i aria-hidden="true">✦</i><span>Hĺbkové čistenie pokožky</span><i aria-hidden="true">✦</i><span>Aromaterapia</span><i aria-hidden="true">✦</i><span>Masáž chodidiel</span><i aria-hidden="true">✦</i><span>Bahenný peeling</span><i aria-hidden="true">✦</i><span>Masáž hlavy</span><i>✦</i><span>Hĺbkové čistenie pokožky</span><i>✦</i><span>Aromaterapia</span><i>✦</i><span>Masáž chodidiel</span><i>✦</i><span>Bahenný peeling</span><i>✦</i></div></div>
+  <div class="strip" aria-hidden="true"><div class="strip-track"><span>Masáž hlavy</span><i aria-hidden="true">✦</i><span>Hĺbkové čistenie pokožky</span><i aria-hidden="true">✦</i><span>Aromaterapia</span><i aria-hidden="true">✦</i><span>Masáž chodidiel</span><i aria-hidden="true">✦</i><span>Bahenný peeling</span></div></div>
 
   <section class="about wrap" id="onas">
     <div class="about-photos">
@@ -792,7 +939,7 @@ dialog[open] .rd-box,dialog[open] .voucher-box{animation:dlgIn .4s cubic-bezier(
       </div>
       <div class="rit-grid">
         
-        <article class="rc rc--hot" id="deepFlowCard">
+        <article class="rc rc--hot" id="deepFlowCard" style="view-transition-name:vt-deepFlowCard">
           <div class="rc-head">
             <div class="rc-meta"><span>90 min</span></div>
             <span class="tag">Najobľúbenejší</span>
@@ -803,11 +950,11 @@ dialog[open] .rd-box,dialog[open] .voucher-box{animation:dlgIn .4s cubic-bezier(
           <div class="rc-foot">
             <div class="rc-price">90 €</div>
             <div class="rc-actions">
-              <button type="button" class="rc-more" data-ritual="deepFlowCard">Zistiť viac</button>
+              <button type="button" class="rc-more" data-ritual="deepFlowCard" aria-expanded="false" aria-controls="deepFlowCard-detail"><span class="lbl-more">Zistiť viac</span><span class="lbl-less">Menej</span></button>
               <a class="rc-book" href="https://system.easybooking.sk/x/head-spa" target="_blank" rel="noopener noreferrer" aria-label="Rezervovať – Deep Flow Ritual"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
             </div>
           </div>
-          <div class="rit-detail" hidden>
+          <div class="rc-expand" id="deepFlowCard-detail">
             <div class="ritual-expand-grid"><div class="ritual-expand-block">
 <h4>Detail</h4>
 <ul>
@@ -839,7 +986,7 @@ dialog[open] .rd-box,dialog[open] .voucher-box{animation:dlgIn .4s cubic-bezier(
           </div>
         </article>
         
-        <article class="rc" id="harmonyCard">
+        <article class="rc" id="harmonyCard" style="view-transition-name:vt-harmonyCard">
           <div class="rc-head">
             <div class="rc-meta"><span>60 min</span></div>
             
@@ -850,11 +997,11 @@ dialog[open] .rd-box,dialog[open] .voucher-box{animation:dlgIn .4s cubic-bezier(
           <div class="rc-foot">
             <div class="rc-price">60 €</div>
             <div class="rc-actions">
-              <button type="button" class="rc-more" data-ritual="harmonyCard">Zistiť viac</button>
+              <button type="button" class="rc-more" data-ritual="harmonyCard" aria-expanded="false" aria-controls="harmonyCard-detail"><span class="lbl-more">Zistiť viac</span><span class="lbl-less">Menej</span></button>
               <a class="rc-book" href="https://system.easybooking.sk/x/head-spa" target="_blank" rel="noopener noreferrer" aria-label="Rezervovať – Harmony"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
             </div>
           </div>
-          <div class="rit-detail" hidden>
+          <div class="rc-expand" id="harmonyCard-detail">
             <div class="ritual-expand-grid"><div class="ritual-expand-block">
 <h4>Detail</h4>
 <ul>
@@ -885,7 +1032,7 @@ dialog[open] .rd-box,dialog[open] .voucher-box{animation:dlgIn .4s cubic-bezier(
           </div>
         </article>
         
-        <article class="rc" id="royalFlowCard">
+        <article class="rc" id="royalFlowCard" style="view-transition-name:vt-royalFlowCard">
           <div class="rc-head">
             <div class="rc-meta"><span>120 min</span></div>
             
@@ -896,11 +1043,11 @@ dialog[open] .rd-box,dialog[open] .voucher-box{animation:dlgIn .4s cubic-bezier(
           <div class="rc-foot">
             <div class="rc-price">120 €</div>
             <div class="rc-actions">
-              <button type="button" class="rc-more" data-ritual="royalFlowCard">Zistiť viac</button>
+              <button type="button" class="rc-more" data-ritual="royalFlowCard" aria-expanded="false" aria-controls="royalFlowCard-detail"><span class="lbl-more">Zistiť viac</span><span class="lbl-less">Menej</span></button>
               <a class="rc-book" href="https://system.easybooking.sk/x/head-spa" target="_blank" rel="noopener noreferrer" aria-label="Rezervovať – Royal Flow Experience"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
             </div>
           </div>
-          <div class="rit-detail" hidden>
+          <div class="rc-expand" id="royalFlowCard-detail">
             <div class="ritual-expand-grid"><div class="ritual-expand-block">
 <h4>Detail</h4>
 <ul>
@@ -930,7 +1077,7 @@ dialog[open] .rd-box,dialog[open] .voucher-box{animation:dlgIn .4s cubic-bezier(
           </div>
         </article>
         
-        <article class="rc" id="menFlowCard">
+        <article class="rc" id="menFlowCard" style="view-transition-name:vt-menFlowCard">
           <div class="rc-head">
             <div class="rc-meta"><span>90 min</span></div>
             
@@ -941,11 +1088,11 @@ dialog[open] .rd-box,dialog[open] .voucher-box{animation:dlgIn .4s cubic-bezier(
           <div class="rc-foot">
             <div class="rc-price">90 €</div>
             <div class="rc-actions">
-              <button type="button" class="rc-more" data-ritual="menFlowCard">Zistiť viac</button>
+              <button type="button" class="rc-more" data-ritual="menFlowCard" aria-expanded="false" aria-controls="menFlowCard-detail"><span class="lbl-more">Zistiť viac</span><span class="lbl-less">Menej</span></button>
               <a class="rc-book" href="https://system.easybooking.sk/x/head-spa" target="_blank" rel="noopener noreferrer" aria-label="Rezervovať – Men Flow Ritual"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
             </div>
           </div>
-          <div class="rit-detail" hidden>
+          <div class="rc-expand" id="menFlowCard-detail">
             <div class="ritual-expand-grid"><div class="ritual-expand-block">
 <h4>Detail</h4>
 <ul>
@@ -978,7 +1125,7 @@ dialog[open] .rd-box,dialog[open] .voucher-box{animation:dlgIn .4s cubic-bezier(
           </div>
         </article>
         
-        <article class="rc" id="littleFlowCard">
+        <article class="rc" id="littleFlowCard" style="view-transition-name:vt-littleFlowCard">
           <div class="rc-head">
             <div class="rc-meta"><span>45 min</span></div>
             <span class="tag tag--kids">Pre deti do 15 rokov</span>
@@ -989,11 +1136,11 @@ dialog[open] .rd-box,dialog[open] .voucher-box{animation:dlgIn .4s cubic-bezier(
           <div class="rc-foot">
             <div class="rc-price">45 €</div>
             <div class="rc-actions">
-              <button type="button" class="rc-more" data-ritual="littleFlowCard">Zistiť viac</button>
+              <button type="button" class="rc-more" data-ritual="littleFlowCard" aria-expanded="false" aria-controls="littleFlowCard-detail"><span class="lbl-more">Zistiť viac</span><span class="lbl-less">Menej</span></button>
               <a class="rc-book" href="https://system.easybooking.sk/x/head-spa" target="_blank" rel="noopener noreferrer" aria-label="Rezervovať – Little Flow Ritual"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
             </div>
           </div>
-          <div class="rit-detail" hidden>
+          <div class="rc-expand" id="littleFlowCard-detail">
             <div class="ritual-expand-grid"><div class="ritual-expand-block">
 <h4>Detail</h4>
 <ul>
@@ -1382,14 +1529,6 @@ dialog[open] .rd-box,dialog[open] .voucher-box{animation:dlgIn .4s cubic-bezier(
   <a class="mobile-bar-call" href="tel:+421918309500" aria-label="Zavolať 0918 309 500"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg></a>
 </div>
 
-<dialog class="ritual-dialog" id="ritualDialog" aria-labelledby="ritualDialogTitle">
-  <div class="rd-box">
-    <button type="button" class="dlg-close" data-close-ritual aria-label="Zavrieť"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
-    <p class="eyebrow" id="ritualDialogMeta"></p>
-    <h2 id="ritualDialogTitle"></h2>
-    <div class="rd-body" id="ritualDialogBody"></div>
-  </div>
-</dialog>
 
 <dialog aria-labelledby="voucherTitle" class="voucher-dialog" id="voucherDialog">
 <div class="voucher-box">
@@ -1475,54 +1614,105 @@ dialog[open] .rd-box,dialog[open] .voucher-box{animation:dlgIn .4s cubic-bezier(
   <script>
     (function(){
       document.documentElement.classList.add('js');
+      var root = document.documentElement;
       var header = document.querySelector('.site-header');
-      var toggle = document.querySelector('.nav-toggle');
-      function setOpen(o){ header.classList.toggle('nav-open', o); toggle.setAttribute('aria-expanded', o ? 'true' : 'false'); }
-      toggle.addEventListener('click', function(){ setOpen(!header.classList.contains('nav-open')); });
-      document.querySelectorAll('#primary-nav a').forEach(function(a){ a.addEventListener('click', function(){ setOpen(false); }); });
-      document.addEventListener('keydown', function(e){ if(e.key === 'Escape') setOpen(false); });
-      document.addEventListener('click', function(e){ if(header.classList.contains('nav-open') && !header.contains(e.target)) setOpen(false); });
+      var brandRow = document.querySelector('.brand');
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      /* výška fixnej hlavičky -> medzera pod ňou */
+      function measure(){
+        root.style.setProperty('--hdr', header.offsetHeight + 'px');
+        var nav = document.getElementById('primary-nav');
+        root.style.setProperty('--row1', Math.max(0, nav.offsetTop - 4) + 'px');
+        movePill(true);
+      }
+
+      /* posuvný „switch“ v menu podľa aktuálnej sekcie */
+      var menu = document.querySelector('.menu');
+      var pill = menu.querySelector('.menu-pill');
+      var links = Array.prototype.slice.call(menu.querySelectorAll('a[href^="#"]'));
+      var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+      var active = null;
+      function movePill(noAnim){
+        if(!active){ pill.classList.remove('is-on'); return; }
+        if(noAnim){ pill.style.transition = 'none'; }
+        var li = active.parentNode;
+        pill.style.width = li.offsetWidth + 'px';
+        pill.style.transform = 'translateX(' + li.offsetLeft + 'px)';
+        pill.classList.add('is-on');
+        if(noAnim){ void pill.offsetWidth; pill.style.transition = ''; }
+      }
+      function setActive(a){
+        if(a === active) return;
+        links.forEach(function(l){ l.classList.toggle('is-active', l === a); if(l === a) l.setAttribute('aria-current', 'true'); else l.removeAttribute('aria-current'); });
+        active = a; movePill(false);
+        if(a && menu.scrollWidth > menu.clientWidth){
+          var x = a.parentNode.offsetLeft - (menu.clientWidth - a.parentNode.offsetWidth) / 2;
+          menu.scrollTo({ left: Math.max(0, x), behavior: reduce ? 'auto' : 'smooth' });
+        }
+      }
+      function spy(){
+        var line = window.innerHeight * 0.38, found = null;
+        sections.forEach(function(sec, i){ if(sec && sec.getBoundingClientRect().top <= line) found = links[i]; });
+        if((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 4) found = links[links.length - 1];
+        setActive(found);
+      }
+
+      /* na mobile sa pri skrolovaní dole schová riadok s logom, ostane len menu */
+      var lastY = window.scrollY, ticking = false;
       var bar = document.getElementById('mobileBar'), foot = document.querySelector('.foot-cta');
       function onScroll(){
-        header.classList.toggle('is-scrolled', window.scrollY > 8);
-        if(bar){ var nearEnd = foot && foot.getBoundingClientRect().top < window.innerHeight - 120; bar.classList.toggle('is-on', window.scrollY > 520 && !nearEnd); }
+        var y = window.scrollY;
+        header.classList.toggle('is-scrolled', y > 8);
+        if(window.innerWidth <= 1180){
+          if(y > 140 && y > lastY + 4) header.classList.add('is-compact');
+          else if(y < lastY - 4 || y < 140) header.classList.remove('is-compact');
+        } else header.classList.remove('is-compact');
+        lastY = y;
+        if(bar){ var nearEnd = foot && foot.getBoundingClientRect().top < window.innerHeight - 120; bar.classList.toggle('is-on', y > 520 && !nearEnd); }
+        spy(); ticking = false;
       }
-      window.addEventListener('scroll', onScroll, { passive:true }); onScroll();
+      window.addEventListener('scroll', function(){ if(!ticking){ ticking = true; requestAnimationFrame(onScroll); } }, { passive:true });
+      window.addEventListener('resize', measure);
+      if('ResizeObserver' in window){ var ro = new ResizeObserver(measure); ro.observe(header); links.forEach(function(l){ ro.observe(l); }); }
+      if(document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+      measure(); onScroll();
 
-      /* detail rituálu v dialógu – presúva sa pôvodný uzol, aby ostal preložený */
-      var dlg = document.getElementById('ritualDialog');
-      var bodyEl = document.getElementById('ritualDialogBody');
-      var titleEl = document.getElementById('ritualDialogTitle');
-      var metaEl = document.getElementById('ritualDialogMeta');
-      var current = null, home = null;
-      function restore(){ if(current && home){ current.hidden = true; home.appendChild(current); } current = null; home = null; }
-      function closeDlg(){ if(typeof dlg.close === 'function' && dlg.open) dlg.close(); else { dlg.removeAttribute('open'); restore(); document.documentElement.style.overflow = ''; } }
-      dlg.addEventListener('close', function(){ restore(); document.documentElement.style.overflow = ''; });
-      dlg.addEventListener('click', function(e){ if(e.target === dlg) closeDlg(); });
-      dlg.querySelector('[data-close-ritual]').addEventListener('click', closeDlg);
+      /* karta rituálu sa zväčší a ukáže detail */
+      var cards = Array.prototype.slice.call(document.querySelectorAll('.rc'));
+      function toggleCard(card){
+        var opening = !card.classList.contains('is-open');
+        var apply = function(){
+          cards.forEach(function(c){
+            var on = c === card && opening;
+            c.classList.toggle('is-open', on);
+            var b = c.querySelector('.rc-more'); if(b) b.setAttribute('aria-expanded', on ? 'true' : 'false');
+          });
+        };
+        var after = function(){
+          var target = opening ? card : card;
+          var r = target.getBoundingClientRect(), hdr = header.getBoundingClientRect().bottom;
+          if(r.top < hdr + 8 || (opening && r.top > window.innerHeight * 0.55)){
+            window.scrollTo({ top: window.scrollY + r.top - hdr - 14, behavior: reduce ? 'auto' : 'smooth' });
+          }
+        };
+        if(document.startViewTransition && !reduce){
+          var t = document.startViewTransition(apply);
+          t.finished.then(after, after);
+        } else { apply(); after(); }
+      }
       document.querySelectorAll('[data-ritual]').forEach(function(btn){
-        btn.addEventListener('click', function(){
-          var card = document.getElementById(btn.getAttribute('data-ritual'));
-          if(!card) return;
-          restore();
-          home = card; current = card.querySelector('.rit-detail');
-          titleEl.textContent = card.querySelector('h3').textContent;
-          metaEl.textContent = card.querySelector('.rc-meta span:last-child').textContent + ' · ' + card.querySelector('.rc-price').textContent;
-          bodyEl.appendChild(current); current.hidden = false;
-          if(typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
-          document.documentElement.style.overflow = 'hidden';
-        });
+        btn.addEventListener('click', function(){ toggleCard(document.getElementById(btn.getAttribute('data-ritual'))); });
       });
 
       /* jemné odkrývanie sekcií */
-      var els = document.querySelectorAll('.about-photos,.about-copy,.rit-head,.rc,.more-grid p,.facts-head,.facts-grid article,.steps li,.voucher,.info-heading,.foot-cta,.foot-info');
-      if('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)){
+      var els = document.querySelectorAll('.about-photos,.about-copy,.rit-head,.more-grid p,.facts-head,.facts-grid article,.steps li,.voucher,.info-heading,.foot-cta,.foot-info');
+      if('IntersectionObserver' in window && !reduce){
         var io = new IntersectionObserver(function(entries){
           entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('is-in'); io.unobserve(en.target); } });
         }, { rootMargin:'0px 0px -8% 0px', threshold:.08 });
         els.forEach(function(el, i){
-          var r = el.getBoundingClientRect();
-          if(r.top < window.innerHeight) return;           /* čo je vidieť hneď, ostáva viditeľné */
+          if(el.getBoundingClientRect().top < window.innerHeight) return;
           el.classList.add('reveal'); el.style.transitionDelay = ((i % 4) * 70) + 'ms'; io.observe(el);
         });
       }
@@ -1984,6 +2174,7 @@ dialog[open] .rd-box,dialog[open] .voucher-box{animation:dlgIn .4s cubic-bezier(
       "Vyber si svoju": "Choose your own",
       "hĺbku oddychu.": "depth of rest.",
       "Zistiť viac": "Learn more",
+      "Menej": "Less",
       "Rezervovať": "Book",
       "Viac než rituál": "More than a ritual",
       "Starostlivosť o pokožku hlavy": "Scalp care",
@@ -2101,6 +2292,7 @@ dialog[open] .rd-box,dialog[open] .voucher-box{animation:dlgIn .4s cubic-bezier(
       "Vyber si svoju": "Wähle deine",
       "hĺbku oddychu.": "Tiefe der Erholung.",
       "Zistiť viac": "Mehr erfahren",
+      "Menej": "Weniger",
       "Rezervovať": "Buchen",
       "Viac než rituál": "Mehr als ein Ritual",
       "Starostlivosť o pokožku hlavy": "Kopfhautpflege",
@@ -2220,6 +2412,7 @@ dialog[open] .rd-box,dialog[open] .voucher-box{animation:dlgIn .4s cubic-bezier(
       "Vyber si svoju": "Обери свою",
       "hĺbku oddychu.": "глибину відпочинку.",
       "Zistiť viac": "Дізнатися більше",
+      "Menej": "Менше",
       "Rezervovať": "Забронювати",
       "Viac než rituál": "Більше ніж ритуал",
       "Starostlivosť o pokožku hlavy": "Догляд за шкірою голови",
