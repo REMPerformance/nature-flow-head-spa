@@ -608,6 +608,17 @@ dialog[open] .rd-box,dialog[open] .voucher-box{animation:dlgIn .4s cubic-bezier(
 .voucher-field input,.voucher-field select,.voucher-field textarea{width:100%;padding:13px 14px;border-radius:14px;border:1px solid var(--line);background:#fff;color:var(--ink);font:inherit;font-size:16px}
 .voucher-field textarea{resize:vertical;min-height:84px}
 .voucher-field input:focus,.voucher-field select:focus,.voucher-field textarea:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:transparent}
+.voucher-type{border:0;padding:0;margin:0}
+.voucher-type legend{padding:0;margin-bottom:6px;font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.voucher-type-opts{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+.voucher-type-opt{position:relative;display:flex;flex-direction:column;gap:2px;padding:13px 14px;border-radius:14px;border:1px solid var(--line);background:#fff;cursor:pointer;transition:border-color .2s ease,background .2s ease}
+.voucher-field .voucher-type-opt{text-transform:none;letter-spacing:normal;font-size:.95rem}
+.voucher-type-opt input{position:absolute;opacity:0;width:1px;height:1px}
+.voucher-type-opt .vt-title{font-weight:500;color:var(--ink)}
+.voucher-type-opt .vt-sub{font-size:.8rem;color:var(--muted)}
+.voucher-type-opt:has(input:checked){border-color:var(--olive);background:var(--cream);box-shadow:inset 0 0 0 1px var(--olive)}
+.voucher-type-opt:has(input:focus-visible){outline:2px solid var(--gold);outline-offset:1px}
+.voucher-type-note{margin:8px 0 0;font-size:.86rem;line-height:1.5;color:var(--muted)}
 .voucher-phone{display:flex;gap:8px}
 .voucher-phone select{flex:0 0 auto;width:auto;padding-inline:10px 6px}
 .voucher-phone input{flex:1 1 auto;min-width:0}
@@ -1654,7 +1665,7 @@ html{scroll-padding-top:calc(var(--hdr,88px) + 8px)}
 </button>
 <h2 id="voucherTitle">Objednávka darčekovej poukážky</h2>
 <form action="https://formspree.io/f/xjgayaao" class="voucher-form" id="voucherForm" method="POST">
-<p class="voucher-lead">Vyplňte formulár a ozveme sa vám s ďalšími informáciami k elektronickej darčekovej poukážke.</p>
+<p class="voucher-lead">Vyplňte formulár a ozveme sa vám s ďalšími informáciami k darčekovej poukážke.</p>
 <input name="_subject" type="hidden" value="Objednávka darčekovej poukážky – natureflowheadspa.sk"/>
 <input aria-hidden="true" autocomplete="off" class="voucher-hp" name="_gotcha" tabindex="-1" type="text"/>
 <div class="voucher-field">
@@ -1705,6 +1716,22 @@ html{scroll-padding-top:calc(var(--hdr,88px) + 8px)}
 <option value="Little Flow Ritual – 45 €">Little Flow Ritual – 45 €</option>
 </select>
 </div>
+<fieldset class="voucher-field voucher-type">
+<legend>Typ poukážky</legend>
+<div class="voucher-type-opts">
+<label class="voucher-type-opt">
+<input checked="" name="Typ poukážky" type="radio" value="Elektronická (zaslanie e-mailom)"/>
+<span class="vt-title">Elektronická</span>
+<span class="vt-sub">Zašleme e-mailom</span>
+</label>
+<label class="voucher-type-opt">
+<input name="Typ poukážky" type="radio" value="Fyzická (vyzdvihnutie na salóne)"/>
+<span class="vt-title">Fyzická</span>
+<span class="vt-sub">Vyzdvihnutie na salóne</span>
+</label>
+</div>
+<p class="voucher-type-note" hidden="" id="vTypeNote">Fyzickú poukážku si vyzdvihnete osobne na salóne, Winterova 1745/41, Piešťany.</p>
+</fieldset>
 <div class="voucher-field">
 <label for="vRecipient">Meno a priezvisko obdarovanej osoby</label>
 <input autocomplete="off" id="vRecipient" name="Obdarovaná osoba" required="" type="text"/>
@@ -1902,6 +1929,12 @@ html{scroll-padding-top:calc(var(--hdr,88px) + 8px)}
       document.querySelectorAll('[data-open-voucher]').forEach(function(b){ b.addEventListener('click', openDlg); });
       document.querySelectorAll('[data-close-voucher]').forEach(function(b){ b.addEventListener('click', closeDlg); });
       dlg.addEventListener('click', function(e){ if(e.target === dlg) closeDlg(); });
+      var typeNote = document.getElementById('vTypeNote');
+      function syncType(){
+        var c = form.querySelector('input[name="Typ poukážky"]:checked');
+        if(typeNote) typeNote.hidden = !(c && /^Fyzick/.test(c.value));
+      }
+      form.querySelectorAll('input[name="Typ poukážky"]').forEach(function(r){ r.addEventListener('change', syncType); });
 
       form.addEventListener('submit', function(e){
         e.preventDefault();
@@ -1919,7 +1952,7 @@ html{scroll-padding-top:calc(var(--hdr,88px) + 8px)}
         data.delete('Predvoľba');
         fetch(form.action, { method:'POST', body:data, headers:{ 'Accept':'application/json' } })
           .then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); })
-          .then(function(){ form.reset(); form.hidden = true; ok.hidden = false; })
+          .then(function(){ form.reset(); syncType(); form.hidden = true; ok.hidden = false; })
           .catch(function(){ err.hidden = false; })
           .then(function(){ btn.disabled = false; });
       });
@@ -2022,8 +2055,14 @@ html{scroll-padding-top:calc(var(--hdr,88px) + 8px)}
       "V prípade akýchkoľvek otázok nás neváhajte kontaktovať.":"Feel free to contact us if you have any questions.",
       "Objednať darčekovú poukážku":"Order a gift voucher",
       "Objednávka darčekovej poukážky":"Gift voucher order",
-      "Vyplňte formulár a ozveme sa vám s ďalšími informáciami k elektronickej darčekovej poukážke.":"Fill in the form and we will get back to you with further details about your electronic gift voucher.",
+      "Vyplňte formulár a ozveme sa vám s ďalšími informáciami k darčekovej poukážke.":"Fill in the form and we will get back to you with further details about your gift voucher.",
       "Vaše meno a priezvisko":"Your first and last name",
+      "Typ poukážky":"Voucher type",
+      "Elektronická":"Electronic",
+      "Zašleme e-mailom":"Sent by e-mail",
+      "Fyzická":"Printed",
+      "Vyzdvihnutie na salóne":"Pick up at the salon",
+      "Fyzickú poukážku si vyzdvihnete osobne na salóne, Winterova 1745/41, Piešťany.":"You can pick up the printed voucher in person at the salon, Winterova 1745/41, Piešťany.",
       "Telefón":"Phone",
       "E-mail":"E-mail",
       "Rituál":"Ritual",
@@ -2129,8 +2168,14 @@ html{scroll-padding-top:calc(var(--hdr,88px) + 8px)}
       "V prípade akýchkoľvek otázok nás neváhajte kontaktovať.":"Bei Fragen stehen wir Ihnen gerne zur Verfügung.",
       "Objednať darčekovú poukážku":"Geschenkgutschein bestellen",
       "Objednávka darčekovej poukážky":"Geschenkgutschein-Bestellung",
-      "Vyplňte formulár a ozveme sa vám s ďalšími informáciami k elektronickej darčekovej poukážke.":"Füllen Sie das Formular aus und wir melden uns mit weiteren Informationen zu Ihrem elektronischen Geschenkgutschein.",
+      "Vyplňte formulár a ozveme sa vám s ďalšími informáciami k darčekovej poukážke.":"Füllen Sie das Formular aus und wir melden uns mit weiteren Informationen zu Ihrem Geschenkgutschein.",
       "Vaše meno a priezvisko":"Ihr Vor- und Nachname",
+      "Typ poukážky":"Art des Gutscheins",
+      "Elektronická":"Elektronisch",
+      "Zašleme e-mailom":"Versand per E-Mail",
+      "Fyzická":"Gedruckt",
+      "Vyzdvihnutie na salóne":"Abholung im Salon",
+      "Fyzickú poukážku si vyzdvihnete osobne na salóne, Winterova 1745/41, Piešťany.":"Den gedruckten Gutschein holen Sie persönlich im Salon ab, Winterova 1745/41, Piešťany.",
       "Telefón":"Telefon",
       "E-mail":"E-Mail",
       "Rituál":"Ritual",
@@ -2236,8 +2281,14 @@ html{scroll-padding-top:calc(var(--hdr,88px) + 8px)}
       "V prípade akýchkoľvek otázok nás neváhajte kontaktovať.":"У разі будь-яких запитань, будь ласка, звертайтеся до нас.",
       "Objednať darčekovú poukážku":"Замовити подарунковий сертифікат",
       "Objednávka darčekovej poukážky":"Замовлення подарункового сертифіката",
-      "Vyplňte formulár a ozveme sa vám s ďalšími informáciami k elektronickej darčekovej poukážke.":"Заповніть форму, і ми звʼяжемося з вами щодо електронного подарункового сертифіката.",
+      "Vyplňte formulár a ozveme sa vám s ďalšími informáciami k darčekovej poukážke.":"Заповніть форму, і ми звʼяжемося з вами щодо подарункового сертифіката.",
       "Vaše meno a priezvisko":"Ваше імʼя та прізвище",
+      "Typ poukážky":"Тип сертифіката",
+      "Elektronická":"Електронний",
+      "Zašleme e-mailom":"Надішлемо e-mailом",
+      "Fyzická":"Друкований",
+      "Vyzdvihnutie na salóne":"Отримання в салоні",
+      "Fyzickú poukážku si vyzdvihnete osobne na salóne, Winterova 1745/41, Piešťany.":"Друкований сертифікат можна забрати особисто в салоні, Winterova 1745/41, Piešťany.",
       "Telefón":"Телефон",
       "E-mail":"E-mail",
       "Rituál":"Ритуал",
